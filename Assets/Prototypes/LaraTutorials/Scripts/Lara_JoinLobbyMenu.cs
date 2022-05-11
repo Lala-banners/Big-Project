@@ -8,7 +8,7 @@ using System.Linq;
 
 public class Lara_JoinLobbyMenu : MonoBehaviour
 {
-    [SerializeField] private Lara_LobbyManager networkManager = null;
+    [SerializeField] private Lara_NetworkManager networkManager = null;
 
     [Header("UI")]
     [SerializeField] private GameObject landingPanel = null;
@@ -20,8 +20,8 @@ public class Lara_JoinLobbyMenu : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        Lara_LobbyManager.OnClientConnected += HandleClientConnected;
-        Lara_LobbyManager.OnClientDisconnected += HandleClientDisconnected;
+        Lara_NetworkManager.OnClientConnected += HandleClientConnected;
+        Lara_NetworkManager.OnClientDisconnected += HandleClientDisconnected;
     }
 
     /// <summary>
@@ -29,8 +29,8 @@ public class Lara_JoinLobbyMenu : MonoBehaviour
     /// </summary>
     private void OnDisable()
     {
-        Lara_LobbyManager.OnClientConnected -= HandleClientConnected;
-        Lara_LobbyManager.OnClientDisconnected -= HandleClientDisconnected;
+        Lara_NetworkManager.OnClientConnected -= HandleClientConnected;
+        Lara_NetworkManager.OnClientDisconnected -= HandleClientDisconnected;
     }
 
     /// <summary>

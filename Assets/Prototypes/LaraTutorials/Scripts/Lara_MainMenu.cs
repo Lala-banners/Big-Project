@@ -5,7 +5,7 @@ using Mirror;
 
 public class Lara_MainMenu : MonoBehaviour
 {
-    [SerializeField] private Lara_LobbyManager networkManager = null;
+    [SerializeField] private Lara_NetworkManager networkManager = null;
 
     [Header("UI")]
     [SerializeField] private GameObject landingPanel = null;
