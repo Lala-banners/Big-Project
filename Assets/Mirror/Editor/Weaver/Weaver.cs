@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Mono.CecilX;
 
 namespace Mirror.Weaver
@@ -13,6 +12,8 @@ namespace Mirror.Weaver
         public Dictionary<FieldDefinition, MethodDefinition> replacementSetterProperties = new Dictionary<FieldDefinition, MethodDefinition>();
         // getter functions that replace [SyncVar] member variable references. dict<field, replacement>
         public Dictionary<FieldDefinition, MethodDefinition> replacementGetterProperties = new Dictionary<FieldDefinition, MethodDefinition>();
+
+        public TypeDefinition generateContainerClass;
 
         // amount of SyncVars per class. dict<className, amount>
         public Dictionary<string, int> numSyncVars = new Dictionary<string, int>();
@@ -28,16 +29,18 @@ namespace Mirror.Weaver
         {
             numSyncVars[className] = num;
         }
+
+        public WeaverLists()
+        {
+            generateContainerClass = new TypeDefinition("Mirror", "GeneratedNetworkCode",
+                    TypeAttributes.BeforeFieldInit | TypeAttributes.Class | TypeAttributes.AnsiClass | TypeAttributes.Public | TypeAttributes.AutoClass | TypeAttributes.Abstract | TypeAttributes.Sealed,
+                    WeaverTypes.Import<object>());
+        }
     }
 
     internal static class Weaver
     {
         public static string InvokeRpcPrefix => "InvokeUserCode_";
-
-        // generated code class
-        public const string GeneratedCodeNamespace = "Mirror";
-        public const string GeneratedCodeClassName = "GeneratedNetworkCode";
-        public static TypeDefinition GeneratedCodeClass;
 
         public static WeaverLists WeaveLists { get; private set; }
         public static AssemblyDefinition CurrentAssembly { get; private set; }
@@ -145,7 +148,7 @@ namespace Mirror.Weaver
                     }
                 }
                 watch.Stop();
-                Console.WriteLine("Weave behaviours and messages took " + watch.ElapsedMilliseconds + " milliseconds");
+                Console.WriteLine("Weave behaviours and messages took" + watch.ElapsedMilliseconds + " milliseconds");
 
                 return modified;
             }
@@ -154,20 +157,6 @@ namespace Mirror.Weaver
                 Error(ex.ToString());
                 throw new Exception(ex.Message, ex);
             }
-        }
-
-        static void CreateGeneratedCodeClass()
-        {
-            // create "Mirror.GeneratedNetworkCode" class
-            GeneratedCodeClass = new TypeDefinition(GeneratedCodeNamespace, GeneratedCodeClassName,
-                TypeAttributes.BeforeFieldInit | TypeAttributes.Class | TypeAttributes.AnsiClass | TypeAttributes.Public | TypeAttributes.AutoClass | TypeAttributes.Abstract | TypeAttributes.Sealed,
-                WeaverTypes.Import<object>());
-        }
-
-        static bool ContainsGeneratedCodeClass(ModuleDefinition module)
-        {
-            return module.GetTypes().Any(td => td.Namespace == GeneratedCodeNamespace &&
-                                               td.Name == GeneratedCodeClassName);
         }
 
         static bool Weave(string assName, IEnumerable<string> dependencies)
@@ -185,24 +174,10 @@ namespace Mirror.Weaver
                     }
                 }
 
-                // fix "No writer found for ..." error
-                // https://github.com/vis2k/Mirror/issues/2579
-                // -> when restarting Unity, weaver would try to weave a DLL
-                //    again
-                // -> resulting in two GeneratedNetworkCode classes (see ILSpy)
-                // -> the second one wouldn't have all the writer types setup
-                if (ContainsGeneratedCodeClass(CurrentAssembly.MainModule))
-                {
-                    //Log.Warning($"Weaver: skipping {CurrentAssembly.Name} because already weaved");
-                    return true;
-                }
-
                 WeaverTypes.SetupTargetTypes(CurrentAssembly);
-
-                CreateGeneratedCodeClass();
-
                 // WeaverList depends on WeaverTypes setup because it uses Import
                 WeaveLists = new WeaverLists();
+
 
                 System.Diagnostics.Stopwatch rwstopwatch = System.Diagnostics.Stopwatch.StartNew();
                 // Need to track modified from ReaderWriterProcessor too because it could find custom read/write functions or create functions for NetworkMessages
@@ -225,7 +200,7 @@ namespace Mirror.Weaver
                     PropertySiteProcessor.Process(moduleDefinition);
 
                     // add class that holds read/write functions
-                    moduleDefinition.Types.Add(GeneratedCodeClass);
+                    moduleDefinition.Types.Add(WeaveLists.generateContainerClass);
 
                     ReaderWriterProcessor.InitializeReaderAndWriters(CurrentAssembly);
 

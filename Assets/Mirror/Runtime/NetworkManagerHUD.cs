@@ -1,24 +1,37 @@
 // vis2k: GUILayout instead of spacey += ...; removed Update hotkeys to avoid
 // confusion if someone accidentally presses one.
+
 using System;
 using UnityEngine;
 
 namespace Mirror
 {
-    /// <summary>Shows NetworkManager controls in a GUI at runtime.</summary>
+    /// <summary>
+    /// An extension for the NetworkManager that displays a default HUD for controlling the network state of the game.
+    /// <para>This component also shows useful internal state for the networking system in the inspector window of the editor. It allows users to view connections, networked objects, message handlers, and packet statistics. This information can be helpful when debugging networked games.</para>
+    /// </summary>
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/NetworkManagerHUD")]
     [RequireComponent(typeof(NetworkManager))]
-    [HelpURL("https://mirror-networking.gitbook.io/docs/components/network-manager-hud")]
+    [HelpURL("https://mirror-networking.com/docs/Articles/Components/NetworkManagerHUD.html")]
     public class NetworkManagerHUD : MonoBehaviour
     {
         NetworkManager manager;
 
-        // Deprecated 2021-02-24
+        /// <summary>
+        /// Whether to show the default control HUD at runtime.
+        /// </summary>
         [Obsolete("showGUI will be removed unless someone has a valid use case. Simply use or don't use the HUD component.")]
         public bool showGUI = true;
 
+        /// <summary>
+        /// The horizontal offset in pixels to draw the HUD runtime GUI at.
+        /// </summary>
         public int offsetX;
+
+        /// <summary>
+        /// The vertical offset in pixels to draw the HUD runtime GUI at.
+        /// </summary>
         public int offsetY;
 
         void Awake()
@@ -43,14 +56,15 @@ namespace Mirror
             }
 
             // client ready
-            if (NetworkClient.isConnected && !NetworkClient.ready)
+            if (NetworkClient.isConnected && !ClientScene.ready)
             {
                 if (GUILayout.Button("Client Ready"))
                 {
-                    NetworkClient.Ready();
-                    if (NetworkClient.localPlayer == null)
+                    ClientScene.Ready(NetworkClient.connection);
+
+                    if (ClientScene.localPlayer == null)
                     {
-                        NetworkClient.AddPlayer();
+                        ClientScene.AddPlayer(NetworkClient.connection);
                     }
                 }
             }
@@ -106,23 +120,14 @@ namespace Mirror
 
         void StatusLabels()
         {
-            // host mode
-            // display separately because this always confused people:
-            //   Server: ...
-            //   Client: ...
-            if (NetworkServer.active && NetworkClient.active)
+            // server / client status message
+            if (NetworkServer.active)
             {
-                GUILayout.Label($"<b>Host</b>: running via {Transport.activeTransport}");
+                GUILayout.Label("Server: active. Transport: " + Transport.activeTransport);
             }
-            // server only
-            else if (NetworkServer.active)
+            if (NetworkClient.isConnected)
             {
-                GUILayout.Label($"<b>Server</b>: running via {Transport.activeTransport}");
-            }
-            // client only
-            else if (NetworkClient.isConnected)
-            {
-                GUILayout.Label($"<b>Client</b>: connected to {manager.networkAddress} via {Transport.activeTransport}");
+                GUILayout.Label("Client: address=" + manager.networkAddress);
             }
         }
 

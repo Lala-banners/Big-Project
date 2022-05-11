@@ -18,19 +18,16 @@ namespace Mirror.Examples.MultipleAdditiveScenes
         [Scene]
         public string gameScene;
 
-        // This is set true after server loads all subscene instances
         bool subscenesLoaded;
-
-        // subscenes are added to this list as they're loaded
         readonly List<Scene> subScenes = new List<Scene>();
+
+        #region Server System Callbacks
 
         // Sequential index used in round-robin deployment of players into instances and score positioning
         int clientIndex;
 
-        #region Server System Callbacks
-
         /// <summary>
-        /// Called on the server when a client adds a new player with NetworkClient.AddPlayer.
+        /// Called on the server when a client adds a new player with ClientScene.AddPlayer.
         /// <para>The default implementation for this function creates a new player object from the playerPrefab.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
@@ -47,11 +44,7 @@ namespace Mirror.Examples.MultipleAdditiveScenes
             while (!subscenesLoaded)
                 yield return null;
 
-            // Send Scene message to client to additively load the game scene
             conn.Send(new SceneMessage { sceneName = gameScene, sceneOperation = SceneOperation.LoadAdditive });
-
-            // Wait for end of frame before adding the player to ensure Scene Message goes first
-            yield return new WaitForEndOfFrame();
 
             base.OnServerAddPlayer(conn);
 
@@ -62,9 +55,6 @@ namespace Mirror.Examples.MultipleAdditiveScenes
 
             clientIndex++;
 
-            // Do this only on server, not on clients
-            // This is what allows the NetworkSceneChecker on player and scene objects
-            // to isolate matches per scene instance on server.
             if (subScenes.Count > 0)
                 SceneManager.MoveGameObjectToScene(conn.identity.gameObject, subScenes[clientIndex % subScenes.Count]);
         }

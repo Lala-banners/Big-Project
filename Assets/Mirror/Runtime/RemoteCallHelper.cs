@@ -4,7 +4,11 @@ using UnityEngine;
 
 namespace Mirror.RemoteCalls
 {
-    // command function delegate
+    /// <summary>
+    /// Delegate for Command functions.
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="reader"></param>
     public delegate void CmdDelegate(NetworkBehaviour obj, NetworkReader reader, NetworkConnectionToClient senderConnection);
 
     class Invoker
@@ -27,11 +31,19 @@ namespace Mirror.RemoteCalls
         public bool requiresAuthority;
     }
 
-    /// <summary>Used to help manage remote calls for NetworkBehaviours</summary>
+    /// <summary>
+    /// Used to help manage remote calls for NetworkBehaviours
+    /// </summary>
     public static class RemoteCallHelper
     {
         static readonly Dictionary<int, Invoker> cmdHandlerDelegates = new Dictionary<int, Invoker>();
 
+        /// <summary>
+        /// Creates hash from Type and method name
+        /// </summary>
+        /// <param name="invokeClass"></param>
+        /// <param name="methodName"></param>
+        /// <returns></returns>
         internal static int GetMethodHash(Type invokeClass, string methodName)
         {
             // (invokeClass + ":" + cmdName).GetStableHashCode() would cause allocations.
@@ -43,6 +55,16 @@ namespace Mirror.RemoteCalls
             }
         }
 
+
+        /// <summary>
+        /// helper function register a Command/Rpc delegate
+        /// </summary>
+        /// <param name="invokeClass"></param>
+        /// <param name="cmdName"></param>
+        /// <param name="invokerType"></param>
+        /// <param name="func"></param>
+        /// <param name="cmdIgnoreAuthority"></param>
+        /// <returns>remote function hash</returns>
         internal static int RegisterDelegate(Type invokeClass, string cmdName, MirrorInvokeType invokerType, CmdDelegate func, bool cmdRequiresAuthority = true)
         {
             // type+func so Inventory.RpcUse != Equipment.RpcUse
@@ -95,7 +117,9 @@ namespace Mirror.RemoteCalls
             RegisterDelegate(invokeClass, rpcName, MirrorInvokeType.ClientRpc, func);
         }
 
-        //  We need this in order to clean up tests
+        /// <summary>
+        /// We need this in order to clean up tests
+        /// </summary>
         internal static void RemoveDelegate(int hash)
         {
             cmdHandlerDelegates.Remove(hash);
@@ -112,6 +136,7 @@ namespace Mirror.RemoteCalls
             // (no need to throw an error, an attacker might just be trying to
             //  call an cmd with an rpc's hash)
             // Debug.Log("GetInvokerForHash hash:" + cmdHash + " not found");
+
             return false;
         }
 
@@ -121,6 +146,7 @@ namespace Mirror.RemoteCalls
             if (GetInvokerForHash(cmdHash, invokeType, out Invoker invoker) && invoker.invokeClass.IsInstanceOfType(invokingType))
             {
                 invoker.invokeFunction(invokingType, reader, senderConnection);
+
                 return true;
             }
             return false;
@@ -138,7 +164,12 @@ namespace Mirror.RemoteCalls
             return default;
         }
 
-        /// <summary>Gets the handler function by hash. Useful for profilers and debuggers.</summary>
+        /// <summary>
+        /// Gets the handler function for a given hash
+        /// Can be used by profilers and debuggers
+        /// </summary>
+        /// <param name="cmdHash">rpc function hash</param>
+        /// <returns>The function delegate that will handle the command</returns>
         public static CmdDelegate GetDelegate(int cmdHash)
         {
             if (cmdHandlerDelegates.TryGetValue(cmdHash, out Invoker invoker))

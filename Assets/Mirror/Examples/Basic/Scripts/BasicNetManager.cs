@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /*
-	Documentation: https://mirror-networking.gitbook.io/docs/components/network-manager
+	Documentation: https://mirror-networking.com/docs/Articles/Components/NetworkManager.html
 	API Reference: https://mirror-networking.com/docs/api/Mirror.NetworkManager.html
 */
 
@@ -10,6 +11,9 @@ namespace Mirror.Examples.Basic
     [AddComponentMenu("")]
     public class BasicNetManager : NetworkManager
     {
+        // Players List to manage playerNumber
+        internal readonly List<Player> playersList = new List<Player>();
+
         [Header("Canvas UI")]
 
         [Tooltip("Assign Main Panel so it can be turned on from Player:OnStartClient")]
@@ -19,14 +23,14 @@ namespace Mirror.Examples.Basic
         public RectTransform playersPanel;
 
         /// <summary>
-        /// Called on the server when a client adds a new player with NetworkClient.AddPlayer.
+        /// Called on the server when a client adds a new player with ClientScene.AddPlayer.
         /// <para>The default implementation for this function creates a new player object from the playerPrefab.</para>
         /// </summary>
         /// <param name="conn">Connection from client.</param>
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
             base.OnServerAddPlayer(conn);
-            Player.ResetPlayerNumbers();
+            ResetPlayerNumbers();
         }
 
         /// <summary>
@@ -37,8 +41,17 @@ namespace Mirror.Examples.Basic
         public override void OnServerDisconnect(NetworkConnection conn)
         {
             base.OnServerDisconnect(conn);
-            Player.ResetPlayerNumbers();
+            ResetPlayerNumbers();
         }
 
+        void ResetPlayerNumbers()
+        {
+            int playerNumber = 0;
+            foreach (Player player in playersList)
+            {
+                player.playerNumber = playerNumber;
+                playerNumber++;
+            }
+        }
     }
 }

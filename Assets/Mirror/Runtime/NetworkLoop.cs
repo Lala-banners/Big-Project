@@ -1,4 +1,4 @@
-// our ideal update looks like this:
+﻿// our ideal update looks like this:
 //   transport.process_incoming()
 //   update_world()
 //   transport.process_outgoing()
@@ -26,11 +26,7 @@
 //      to the beginning of PostLateUpdate doesn't actually work.
 using System;
 using UnityEngine;
-
-// PlayerLoop and LowLevel were in the Experimental namespace until 2019.3
-// https://docs.unity3d.com/2019.2/Documentation/ScriptReference/Experimental.LowLevel.PlayerLoop.html
-// https://docs.unity3d.com/2019.3/Documentation/ScriptReference/LowLevel.PlayerLoop.html
-#if UNITY_2019_3_OR_NEWER
+#if UNITY_2019_1_OR_NEWER
 using UnityEngine.LowLevel;
 using UnityEngine.PlayerLoop;
 #else
@@ -100,29 +96,21 @@ namespace Mirror
                 int oldListLength = (playerLoop.subSystemList != null) ? playerLoop.subSystemList.Length : 0;
                 Array.Resize(ref playerLoop.subSystemList, oldListLength + 1);
 
-                // IMPORTANT: always insert a FRESH PlayerLoopSystem!
-                // We CAN NOT resize and then OVERWRITE an entry's type/loop.
-                // => PlayerLoopSystem has native IntPtr loop members
-                // => forgetting to clear those would cause undefined behaviour!
-                // see also: https://github.com/vis2k/Mirror/pull/2652
-                PlayerLoopSystem system = new PlayerLoopSystem {
-                    type = ownerType,
-                    updateDelegate = function
-                };
-
                 // prepend our custom loop to the beginning
                 if (addMode == AddMode.Beginning)
                 {
                     // shift to the right, write into first array element
                     Array.Copy(playerLoop.subSystemList, 0, playerLoop.subSystemList, 1, playerLoop.subSystemList.Length - 1);
-                    playerLoop.subSystemList[0] = system;
+                    playerLoop.subSystemList[0].type = ownerType;
+                    playerLoop.subSystemList[0].updateDelegate = function;
 
                 }
                 // append our custom loop to the end
                 else if (addMode == AddMode.End)
                 {
                     // simply write into last array element
-                    playerLoop.subSystemList[oldListLength] = system;
+                    playerLoop.subSystemList[oldListLength].type = ownerType;
+                    playerLoop.subSystemList[oldListLength].updateDelegate = function;
                 }
 
                 // debugging
@@ -149,18 +137,14 @@ namespace Mirror
         [RuntimeInitializeOnLoadMethod]
         static void RuntimeInitializeOnLoad()
         {
-            //Debug.Log("Mirror: adding Network[Early/Late]Update to Unity...");
+            Debug.Log("Mirror: adding Network[Early/Late]Update to Unity...");
 
             // get loop
-            // 2019 has GetCURRENTPlayerLoop which is safe to use without
-            // breaking other custom system's custom loops.
-            // see also: https://github.com/vis2k/Mirror/pull/2627/files
-            PlayerLoopSystem playerLoop =
-#if UNITY_2019_3_OR_NEWER
-                PlayerLoop.GetCurrentPlayerLoop();
-#else
-                PlayerLoop.GetDefaultPlayerLoop();
-#endif
+            // TODO 2019 has GetCURRENTPlayerLoop which is safe to use without
+            // breaking other custom system's custom loops. Let's use Default
+            // for now until we upgrade to 2019 so we have the same behaviour
+            // at all times (instead of different loop behavior on 2018/2019)
+            PlayerLoopSystem playerLoop = PlayerLoop.GetDefaultPlayerLoop();
 
             // add NetworkEarlyUpdate to the end of EarlyUpdate so it runs after
             // any Unity initializations but before the first Update/FixedUpdate

@@ -16,15 +16,10 @@ namespace kcp2k
         // common
         [Header("Transport Configuration")]
         public ushort Port = 7777;
-        [Tooltip("DualMode listens to IPv6 and IPv4 simultaneously. Disable if the platform only supports IPv4.")]
-        public bool DualMode = true;
         [Tooltip("NoDelay is recommended to reduce latency. This also scales better without buffers getting full.")]
         public bool NoDelay = true;
         [Tooltip("KCP internal update interval. 100ms is KCP default, but a lower interval is recommended to minimize latency and to scale to more networked entities.")]
         public uint Interval = 10;
-        [Tooltip("KCP timeout in milliseconds. Note that KCP sends a ping automatically.")]
-        public int Timeout = 10000;
-
         [Header("Advanced")]
         [Tooltip("KCP fastresend parameter. Faster resend for the cost of higher bandwidth. 0 in normal mode, 2 in turbo mode.")]
         public int FastResend = 2;
@@ -34,10 +29,8 @@ namespace kcp2k
         public uint SendWindowSize = 4096; //Kcp.WND_SND; 32 by default. Mirror sends a lot, so we need a lot more.
         [Tooltip("KCP window size can be modified to support higher loads.")]
         public uint ReceiveWindowSize = 4096; //Kcp.WND_RCV; 128 by default. Mirror sends a lot, so we need a lot more.
-        [Tooltip("Enable to use where-allocation NonAlloc KcpServer/Client/Connection versions. Highly recommended on all Unity platforms.")]
-        public bool NonAlloc = true;
 
-        // server & client (where-allocation NonAlloc versions)
+        // server & client
         KcpServer server;
         KcpClient client;
 
@@ -62,42 +55,24 @@ namespace kcp2k
             Log.Error = Debug.LogError;
 
             // client
-            client = NonAlloc
-                ? new KcpClientNonAlloc(
-                      () => OnClientConnected.Invoke(),
-                      (message) => OnClientDataReceived.Invoke(message, Channels.Reliable),
-                      () => OnClientDisconnected.Invoke())
-                : new KcpClient(
-                      () => OnClientConnected.Invoke(),
-                      (message) => OnClientDataReceived.Invoke(message, Channels.Reliable),
-                      () => OnClientDisconnected.Invoke());
+            client = new KcpClient(
+                () => OnClientConnected.Invoke(),
+                (message) => OnClientDataReceived.Invoke(message, Channels.DefaultReliable),
+                () => OnClientDisconnected.Invoke()
+            );
 
             // server
-            server = NonAlloc
-                ? new KcpServerNonAlloc(
-                      (connectionId) => OnServerConnected.Invoke(connectionId),
-                      (connectionId, message) => OnServerDataReceived.Invoke(connectionId, message, Channels.Reliable),
-                      (connectionId) => OnServerDisconnected.Invoke(connectionId),
-                      DualMode,
-                      NoDelay,
-                      Interval,
-                      FastResend,
-                      CongestionWindow,
-                      SendWindowSize,
-                      ReceiveWindowSize,
-                      Timeout)
-                : new KcpServer(
-                      (connectionId) => OnServerConnected.Invoke(connectionId),
-                      (connectionId, message) => OnServerDataReceived.Invoke(connectionId, message, Channels.Reliable),
-                      (connectionId) => OnServerDisconnected.Invoke(connectionId),
-                      DualMode,
-                      NoDelay,
-                      Interval,
-                      FastResend,
-                      CongestionWindow,
-                      SendWindowSize,
-                      ReceiveWindowSize,
-                      Timeout);
+            server = new KcpServer(
+                (connectionId) => OnServerConnected.Invoke(connectionId),
+                (connectionId, message) => OnServerDataReceived.Invoke(connectionId, message, Channels.DefaultReliable),
+                (connectionId) => OnServerDisconnected.Invoke(connectionId),
+                NoDelay,
+                Interval,
+                FastResend,
+                CongestionWindow,
+                SendWindowSize,
+                ReceiveWindowSize
+            );
 
             if (statisticsLog)
                 InvokeRepeating(nameof(OnLogStatistics), 1, 1);
@@ -113,16 +88,16 @@ namespace kcp2k
         public override bool ClientConnected() => client.connected;
         public override void ClientConnect(string address)
         {
-            client.Connect(address, Port, NoDelay, Interval, FastResend, CongestionWindow, SendWindowSize, ReceiveWindowSize, Timeout);
+            client.Connect(address, Port, NoDelay, Interval, FastResend, CongestionWindow, SendWindowSize, ReceiveWindowSize);
         }
-        public override void ClientSend(ArraySegment<byte> segment, int channelId)
+        public override void ClientSend(int channelId, ArraySegment<byte> segment)
         {
             // switch to kcp channel.
             // unreliable or reliable.
             // default to reliable just to be sure.
             switch (channelId)
             {
-                case Channels.Unreliable:
+                case Channels.DefaultUnreliable:
                     client.Send(segment, KcpChannel.Unreliable);
                     break;
                 default:
@@ -174,14 +149,14 @@ namespace kcp2k
         }
         public override bool ServerActive() => server.IsActive();
         public override void ServerStart() => server.Start(Port);
-        public override void ServerSend(int connectionId, ArraySegment<byte> segment, int channelId)
+        public override void ServerSend(int connectionId, int channelId, ArraySegment<byte> segment)
         {
             // switch to kcp channel.
             // unreliable or reliable.
             // default to reliable just to be sure.
             switch (channelId)
             {
-                case Channels.Unreliable:
+                case Channels.DefaultUnreliable:
                     server.Send(connectionId, segment, KcpChannel.Unreliable);
                     break;
                 default:
@@ -189,7 +164,11 @@ namespace kcp2k
                     break;
             }
         }
-        public override void ServerDisconnect(int connectionId) =>  server.Disconnect(connectionId);
+        public override bool ServerDisconnect(int connectionId)
+        {
+            server.Disconnect(connectionId);
+            return true;
+        }
         public override string ServerGetClientAddress(int connectionId) => server.GetClientAddress(connectionId);
         public override void ServerStop() => server.Stop();
         public override void ServerEarlyUpdate()
@@ -208,14 +187,14 @@ namespace kcp2k
         public override void Shutdown() {}
 
         // max message size
-        public override int GetMaxPacketSize(int channelId = Channels.Reliable)
+        public override int GetMaxPacketSize(int channelId = Channels.DefaultReliable)
         {
             // switch to kcp channel.
             // unreliable or reliable.
             // default to reliable just to be sure.
             switch (channelId)
             {
-                case Channels.Unreliable:
+                case Channels.DefaultUnreliable:
                     return KcpConnection.UnreliableMaxMessageSize;
                 default:
                     return KcpConnection.ReliableMaxMessageSize;
@@ -230,27 +209,25 @@ namespace kcp2k
         // network.
         // => instead we always use MTU sized batches.
         // => people can still send maxed size if needed.
-        public override int GetBatchThreshold(int channelId) =>
+        public override int GetMaxBatchSize(int channelId) =>
             KcpConnection.UnreliableMaxMessageSize;
 
         // server statistics
-        // LONG to avoid int overflows with connections.Sum.
-        // see also: https://github.com/vis2k/Mirror/pull/2777
-        public long GetAverageMaxSendRate() =>
+        public int GetAverageMaxSendRate() =>
             server.connections.Count > 0
-                ? server.connections.Values.Sum(conn => (long)conn.MaxSendRate) / server.connections.Count
+                ? server.connections.Values.Sum(conn => (int)conn.MaxSendRate) / server.connections.Count
                 : 0;
-        public long GetAverageMaxReceiveRate() =>
+        public int GetAverageMaxReceiveRate() =>
             server.connections.Count > 0
-                ? server.connections.Values.Sum(conn => (long)conn.MaxReceiveRate) / server.connections.Count
+                ? server.connections.Values.Sum(conn => (int)conn.MaxReceiveRate) / server.connections.Count
                 : 0;
-        long GetTotalSendQueue() =>
+        int GetTotalSendQueue() =>
             server.connections.Values.Sum(conn => conn.SendQueueCount);
-        long GetTotalReceiveQueue() =>
+        int GetTotalReceiveQueue() =>
             server.connections.Values.Sum(conn => conn.ReceiveQueueCount);
-        long GetTotalSendBuffer() =>
+        int GetTotalSendBuffer() =>
             server.connections.Values.Sum(conn => conn.SendBufferCount);
-        long GetTotalReceiveBuffer() =>
+        int GetTotalReceiveBuffer() =>
             server.connections.Values.Sum(conn => conn.ReceiveBufferCount);
 
         // PrettyBytes function from DOTSNET
@@ -312,7 +289,7 @@ namespace kcp2k
         {
             if (ServerActive())
             {
-                string log = "kcp SERVER @ time: " + NetworkTime.localTime + "\n";
+                string log = "kcp SERVER @ time: " + NetworkTime.time + "\n";
                 log += $"  connections: {server.connections.Count}\n";
                 log += $"  MaxSendRate (avg): {PrettyBytes(GetAverageMaxSendRate())}/s\n";
                 log += $"  MaxRecvRate (avg): {PrettyBytes(GetAverageMaxReceiveRate())}/s\n";
@@ -325,7 +302,7 @@ namespace kcp2k
 
             if (ClientConnected())
             {
-                string log = "kcp CLIENT @ time: " + NetworkTime.localTime + "\n";
+                string log = "kcp CLIENT @ time: " + NetworkTime.time + "\n";
                 log += $"  MaxSendRate: {PrettyBytes(client.connection.MaxSendRate)}/s\n";
                 log += $"  MaxRecvRate: {PrettyBytes(client.connection.MaxReceiveRate)}/s\n";
                 log += $"  SendQueue: {client.connection.SendQueueCount}\n";

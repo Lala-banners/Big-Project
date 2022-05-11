@@ -150,7 +150,7 @@ namespace Mirror.SimpleWeb
                 // there should be no more messages after disconnect
                 client = null;
             };
-            client.onData += (ArraySegment<byte> data) => OnClientDataReceived.Invoke(data, Channels.Reliable);
+            client.onData += (ArraySegment<byte> data) => OnClientDataReceived.Invoke(data, Channels.DefaultReliable);
             client.onError += (Exception e) =>
             {
                 OnClientError.Invoke(e);
@@ -166,7 +166,7 @@ namespace Mirror.SimpleWeb
             client?.Disconnect();
         }
 
-        public override void ClientSend(ArraySegment<byte> segment, int channelId)
+        public override void ClientSend(int channelId, ArraySegment<byte> segment)
         {
             if (!ClientConnected())
             {
@@ -214,7 +214,7 @@ namespace Mirror.SimpleWeb
 
             server.onConnect += OnServerConnected.Invoke;
             server.onDisconnect += OnServerDisconnected.Invoke;
-            server.onData += (int connId, ArraySegment<byte> data) => OnServerDataReceived.Invoke(connId, data, Channels.Reliable);
+            server.onData += (int connId, ArraySegment<byte> data) => OnServerDataReceived.Invoke(connId, data, Channels.DefaultReliable);
             server.onError += OnServerError.Invoke;
 
             SendLoopConfig.batchSend = batchSend || waitBeforeSend;
@@ -234,17 +234,18 @@ namespace Mirror.SimpleWeb
             server = null;
         }
 
-        public override void ServerDisconnect(int connectionId)
+        public override bool ServerDisconnect(int connectionId)
         {
             if (!ServerActive())
             {
                 Debug.LogError("SimpleWebServer Not Active");
+                return false;
             }
 
-            server.KickClient(connectionId);
+            return server.KickClient(connectionId);
         }
 
-        public override void ServerSend(int connectionId, ArraySegment<byte> segment, int channelId)
+        public override void ServerSend(int connectionId, int channelId, ArraySegment<byte> segment)
         {
             if (!ServerActive())
             {
@@ -265,6 +266,7 @@ namespace Mirror.SimpleWeb
             }
 
             server.SendOne(connectionId, segment);
+            return;
         }
 
         public override string ServerGetClientAddress(int connectionId)

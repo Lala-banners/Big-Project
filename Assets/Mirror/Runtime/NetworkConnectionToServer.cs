@@ -6,18 +6,26 @@ namespace Mirror
     {
         public override string address => "";
 
-        // Send stage three: hand off to transport
-        protected override void SendToTransport(ArraySegment<byte> segment, int channelId = Channels.Reliable) =>
-            Transport.activeTransport.ClientSend(segment, channelId);
+        internal override void Send(ArraySegment<byte> segment, int channelId = Channels.DefaultReliable)
+        {
+            // Debug.Log("ConnectionSend " + this + " bytes:" + BitConverter.ToString(segment.Array, segment.Offset, segment.Count));
 
-        /// <summary>Disconnects this connection.</summary>
+            // validate packet size first.
+            if (ValidatePacketSize(segment, channelId))
+            {
+                Transport.activeTransport.ClientSend(channelId, segment);
+            }
+        }
+
+        /// <summary>
+        /// Disconnects this connection.
+        /// </summary>
         public override void Disconnect()
         {
             // set not ready and handle clientscene disconnect in any case
             // (might be client or host mode here)
-            // TODO remove redundant state. have one source of truth for .ready!
             isReady = false;
-            NetworkClient.ready = false;
+            ClientScene.HandleClientDisconnect(this);
             Transport.activeTransport.ClientDisconnect();
         }
     }

@@ -4,28 +4,49 @@ using UnityEngine.Events;
 
 namespace Mirror
 {
+    /// <summary>
+    /// Unity Event for the NetworkConnection
+    /// </summary>
     [Serializable] public class UnityEventNetworkConnection : UnityEvent<NetworkConnection> {}
 
-    /// <summary>Base class for implementing component-based authentication during the Connect phase</summary>
-    [HelpURL("https://mirror-networking.gitbook.io/docs/components/network-authenticators")]
+    /// <summary>
+    /// Base class for implementing component-based authentication during the Connect phase
+    /// </summary>
+    [HelpURL("https://mirror-networking.com/docs/Articles/Guides/Authentication.html")]
     public abstract class NetworkAuthenticator : MonoBehaviour
     {
-        /// <summary>Notify subscribers on the server when a client is authenticated</summary>
         [Header("Event Listeners (optional)")]
+
+        /// <summary>
+        /// Notify subscribers on the server when a client is authenticated
+        /// </summary>
         [Tooltip("Mirror has an internal subscriber to this event. You can add your own here.")]
         public UnityEventNetworkConnection OnServerAuthenticated = new UnityEventNetworkConnection();
 
-        /// <summary>Notify subscribers on the client when the client is authenticated</summary>
+        /// <summary>
+        /// Notify subscribers on the client when the client is authenticated
+        /// </summary>
         [Tooltip("Mirror has an internal subscriber to this event. You can add your own here.")]
         public UnityEventNetworkConnection OnClientAuthenticated = new UnityEventNetworkConnection();
 
-        /// <summary>Called when server starts, used to register message handlers if needed.</summary>
+        #region server
+
+        /// <summary>
+        /// Called on server from StartServer to initialize the Authenticator
+        /// <para>Server message handlers should be registered in this method.</para>
+        /// </summary>
         public virtual void OnStartServer() {}
 
-        /// <summary>Called when server stops, used to unregister message handlers if needed.</summary>
+        /// <summary>
+        /// Called on server from StopServer to reset the Authenticator
+        /// <para>Server message handlers should be unregistered in this method.</para>
+        /// </summary>
         public virtual void OnStopServer() {}
 
-        /// <summary>Called on server from OnServerAuthenticateInternal when a client needs to authenticate</summary>
+        /// <summary>
+        /// Called on server from OnServerAuthenticateInternal when a client needs to authenticate
+        /// </summary>
+        /// <param name="conn">Connection to client.</param>
         public abstract void OnServerAuthenticate(NetworkConnection conn);
 
         protected void ServerAccept(NetworkConnection conn)
@@ -38,40 +59,43 @@ namespace Mirror
             conn.Disconnect();
         }
 
-        /// <summary>Called when client starts, used to register message handlers if needed.</summary>
+        #endregion
+
+        #region client
+
+        /// <summary>
+        /// Called on client from StartClient to initialize the Authenticator
+        /// <para>Client message handlers should be registered in this method.</para>
+        /// </summary>
         public virtual void OnStartClient() {}
 
-        /// <summary>Called when client stops, used to unregister message handlers if needed.</summary>
+        /// <summary>
+        /// Called on client from StopClient to reset the Authenticator
+        /// <para>Client message handlers should be unregistered in this method.</para>
+        /// </summary>
         public virtual void OnStopClient() {}
 
-        // Deprecated 2021-03-13
-        [Obsolete("Remove the NetworkConnection parameter from your override and use NetworkClient.connection instead")]
-        public virtual void OnClientAuthenticate(NetworkConnection conn) => OnClientAuthenticate();
+        /// <summary>
+        /// Called on client from OnClientAuthenticateInternal when a client needs to authenticate
+        /// </summary>
+        /// <param name="conn">Connection of the client.</param>
+        public abstract void OnClientAuthenticate(NetworkConnection conn);
 
-        /// <summary>Called on client from OnClientAuthenticateInternal when a client needs to authenticate</summary>
-        public abstract void OnClientAuthenticate();
-
-        // Deprecated 2021-03-13
-        [Obsolete("Remove the NetworkConnection parameter from your override and use NetworkClient.connection instead")]
-        protected void ClientAccept(NetworkConnection conn) => ClientAccept();
-
-        protected void ClientAccept()
+        protected void ClientAccept(NetworkConnection conn)
         {
-            OnClientAuthenticated.Invoke(NetworkClient.connection);
+            OnClientAuthenticated.Invoke(conn);
         }
 
-        // Deprecated 2021-03-13
-        [Obsolete("Remove the NetworkConnection parameter from your override and use NetworkClient.connection instead")]
-        protected void ClientReject(NetworkConnection conn) => ClientReject();
-
-        protected void ClientReject()
+        protected void ClientReject(NetworkConnection conn)
         {
             // Set this on the client for local reference
-            NetworkClient.connection.isAuthenticated = false;
+            conn.isAuthenticated = false;
 
             // disconnect the client
-            NetworkClient.connection.Disconnect();
+            conn.Disconnect();
         }
+
+        #endregion
 
         void OnValidate()
         {
