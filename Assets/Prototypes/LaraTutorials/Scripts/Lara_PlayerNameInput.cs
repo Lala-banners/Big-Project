@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class PlayerNameInput : MonoBehaviour
+public class Lara_PlayerNameInput : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private TMP_InputField nameInputField = null;
@@ -41,7 +39,7 @@ public class PlayerNameInput : MonoBehaviour
     }
 
     /// <summary>
-    /// Set the display name
+    /// Set the display name to whatever the player inputs
     /// </summary>
     public void SavePlayerName()
     {
