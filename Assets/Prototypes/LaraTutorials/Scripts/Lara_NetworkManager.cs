@@ -196,5 +196,4 @@ public class Lara_NetworkManager : NetworkManager
         //Know when client is ready
         OnServerReadied?.Invoke(conn);
     }
-
 }

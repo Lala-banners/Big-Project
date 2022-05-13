@@ -35,6 +35,15 @@ public partial class @Lara_Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""8ef76d09-300e-4615-8a45-bcf3b55fa6d1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,61 @@ public partial class @Lara_Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""e5ff87a8-26b0-49e9-9a33-ae9a7c3e241a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8f093c8e-0b49-416f-9815-601bddbb2925"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Test Keyboard & Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""36f570a0-25e1-4574-899f-72f3491d2873"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Test Keyboard & Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c8f0da65-d751-4cbf-ab40-1db7e0ffb4f2"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Test Keyboard & Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""498e392b-c406-4ef7-8e0b-257adedf6938"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Test Keyboard & Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -74,6 +138,7 @@ public partial class @Lara_Controls : IInputActionCollection2, IDisposable
         // Lara_Player
         m_Lara_Player = asset.FindActionMap("Lara_Player", throwIfNotFound: true);
         m_Lara_Player_Look = m_Lara_Player.FindAction("Look", throwIfNotFound: true);
+        m_Lara_Player_Move = m_Lara_Player.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -134,11 +199,13 @@ public partial class @Lara_Controls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Lara_Player;
     private ILara_PlayerActions m_Lara_PlayerActionsCallbackInterface;
     private readonly InputAction m_Lara_Player_Look;
+    private readonly InputAction m_Lara_Player_Move;
     public struct Lara_PlayerActions
     {
         private @Lara_Controls m_Wrapper;
         public Lara_PlayerActions(@Lara_Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Look => m_Wrapper.m_Lara_Player_Look;
+        public InputAction @Move => m_Wrapper.m_Lara_Player_Move;
         public InputActionMap Get() { return m_Wrapper.m_Lara_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -151,6 +218,9 @@ public partial class @Lara_Controls : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_Lara_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_Lara_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_Lara_PlayerActionsCallbackInterface.OnLook;
+                @Move.started -= m_Wrapper.m_Lara_PlayerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_Lara_PlayerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_Lara_PlayerActionsCallbackInterface.OnMove;
             }
             m_Wrapper.m_Lara_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -158,6 +228,9 @@ public partial class @Lara_Controls : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
             }
         }
     }
@@ -174,5 +247,6 @@ public partial class @Lara_Controls : IInputActionCollection2, IDisposable
     public interface ILara_PlayerActions
     {
         void OnLook(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }
