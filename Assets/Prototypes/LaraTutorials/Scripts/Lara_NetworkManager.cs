@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -159,7 +158,7 @@ public class Lara_NetworkManager : NetworkManager
     }
 
     /// <summary>
-    /// Send game players to gameplay scene from the menu scene
+    /// Send game players to gameplay scene from the menu scene.
     /// </summary>s
     public override void ServerChangeScene(string newSceneName)
     {
@@ -181,7 +180,7 @@ public class Lara_NetworkManager : NetworkManager
     }
 
     //As soon as scene has loaded, spawn the player spawn system
-    public override void OnServerChangeScene(string sceneName)
+    public override void OnServerSceneChanged(string sceneName)
     {
         if (sceneName.StartsWith("Lara_Game"))
         {

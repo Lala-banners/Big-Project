@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using TMPro;
@@ -13,8 +11,8 @@ public class Lara_PlayerLobby : NetworkBehaviour
     [Header("UI")]
     [SerializeField] private GameObject lobbyUI = null;
     [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[4];
-    //[SerializeField] private Image[] playerFaces = new Image[4]; //To swap faces
     [SerializeField] private TMP_Text[] playerReadyTexts = new TMP_Text[4];
+    //[SerializeField] private Image[] playerFaces = new Image[4]; //To swap faces
     [SerializeField] private Button startGameButton = null;
 
     //SyncVars can only be changed on Server, and when get changed update everywhere else
@@ -25,6 +23,7 @@ public class Lara_PlayerLobby : NetworkBehaviour
     [SyncVar(hook = nameof(HandleReadyStatusChanged))]
     public bool IsReady = false;
 
+    //Leader is first client added in the server
     private bool isLeader;
     public bool IsLeader
     {

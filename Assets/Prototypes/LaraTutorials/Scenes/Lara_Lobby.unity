@@ -2124,7 +2124,7 @@ MonoBehaviour:
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 3111082209733300700, guid: 39ddf9ad06ae0da43b89ff7fa08e0acf, type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerSpawnMethod: 1
   spawnPrefabs: []
   minPlayers: 2
   menuScene: Lara_Lobby
