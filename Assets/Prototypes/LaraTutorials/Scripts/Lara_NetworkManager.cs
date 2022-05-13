@@ -20,10 +20,14 @@ public class Lara_NetworkManager : NetworkManager
 
     [Header("Game")]
     [SerializeField] private Lara_GamePlayer gamePlayerPrefab = null;
+    [SerializeField] private GameObject playerSpawnSystem = null;
 
     //Connect to Host
     public static event Action OnClientConnected;
     public static event Action OnClientDisconnected;
+    //New Action for checking if server is ready to spawn players in
+    //Check when player has connected to server
+    public static event Action<NetworkConnection> OnServerReadied;
 
     //Display / loop all names of players
     public List<Lara_PlayerLobby> RoomPlayers { get; } = new List<Lara_PlayerLobby>();
@@ -175,4 +179,23 @@ public class Lara_NetworkManager : NetworkManager
 
         base.ServerChangeScene(newSceneName);
     }
+
+    //As soon as scene has loaded, spawn the player spawn system
+    public override void OnServerChangeScene(string sceneName)
+    {
+        if (sceneName.StartsWith("Lara_Game"))
+        {
+            GameObject playerSpawnInstanceGO = Instantiate(playerSpawnSystem);
+            NetworkServer.Spawn(playerSpawnInstanceGO);
+        }
+    }
+
+    public override void OnServerReady(NetworkConnection conn)
+    {
+        base.OnServerReady(conn);
+
+        //Know when client is ready
+        OnServerReadied?.Invoke(conn);
+    }
+
 }
