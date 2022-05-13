@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prototypes/LaraTutorials/Scenes/Lara_Lobby.unity
     guid: ac1f16d8fb309264ab0bb53515d4b449
+  - enabled: 1
+    path: Assets/Prototypes/LaraTutorials/Scenes/Lara_Game.unity
+    guid: 83aa75afc7123f0429c240af5ab3df05
   m_configObjects: {}

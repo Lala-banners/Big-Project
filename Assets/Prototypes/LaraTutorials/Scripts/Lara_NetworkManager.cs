@@ -18,12 +18,16 @@ public class Lara_NetworkManager : NetworkManager
     [Header("Room")]
     [SerializeField] private Lara_PlayerLobby roomPlayerPrefab = null;
 
+    [Header("Game")]
+    [SerializeField] private Lara_GamePlayer gamePlayerPrefab = null;
+
     //Connect to Host
     public static event Action OnClientConnected;
     public static event Action OnClientDisconnected;
 
     //Display / loop all names of players
     public List<Lara_PlayerLobby> RoomPlayers { get; } = new List<Lara_PlayerLobby>();
+    public List<Lara_GamePlayer> GamePlayers { get; } = new List<Lara_GamePlayer>();
 
     public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
 
@@ -57,13 +61,13 @@ public class Lara_NetworkManager : NetworkManager
     /// </summary>
     public override void OnServerConnect(NetworkConnection conn)
     {
-        if(numPlayers >= maxConnections)
+        if (numPlayers >= maxConnections)
         {
             conn.Disconnect();
             return;
         }
 
-        if(SceneManager.GetActiveScene().name != menuScene)
+        if (SceneManager.GetActiveScene().name != menuScene)
         {
             conn.Disconnect();
             return;
@@ -75,7 +79,7 @@ public class Lara_NetworkManager : NetworkManager
     /// </summary>
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
-        if(SceneManager.GetActiveScene().name == menuScene)
+        if (SceneManager.GetActiveScene().name == menuScene)
         {
             //Figure out first person added to lobby
             bool isLeader = RoomPlayers.Count == 0;
@@ -83,7 +87,7 @@ public class Lara_NetworkManager : NetworkManager
             Lara_PlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
 
             //Tell client who the leader is
-            roomPlayerInstance.IsLeader = isLeader; 
+            roomPlayerInstance.IsLeader = isLeader;
 
             NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
         }
@@ -94,10 +98,10 @@ public class Lara_NetworkManager : NetworkManager
     /// </summary>
     public override void OnServerDisconnect(NetworkConnection conn)
     {
-        if(conn.identity != null)
+        if (conn.identity != null)
         {
             var player = conn.identity.GetComponent<Lara_PlayerLobby>();
-            
+
             RoomPlayers.Remove(player);
 
             NotifyPlayersOfReadyState();
@@ -129,15 +133,46 @@ public class Lara_NetworkManager : NetworkManager
     private bool IsReadyToStart()
     {
         //If current players then 
-        if(numPlayers < minPlayers) { return false; }
+        if (numPlayers < minPlayers) { return false; }
 
         //Loop over all players and return false if 1 person is NOT ready
         foreach (var player in RoomPlayers)
         {
-            if(!player.IsReady) { return false; }
+            if (!player.IsReady) { return false; }
         }
 
         return true;
     }
 
+    public void StartGame()
+    {
+        if (SceneManager.GetActiveScene().name == menuScene)
+        {
+            if (!IsReadyToStart()) { return; }
+
+            ServerChangeScene("Lara_Game");
+        }
+    }
+
+    /// <summary>
+    /// Send game players to gameplay scene from the menu scene
+    /// </summary>s
+    public override void ServerChangeScene(string newSceneName)
+    {
+        if (SceneManager.GetActiveScene().name == menuScene && newSceneName.StartsWith("Lara_Game"))
+        {
+            for (int i = RoomPlayers.Count - 1; i >= 0; i--)
+            {
+                var conn = RoomPlayers[i].connectionToClient;
+                var gameplayInstance = Instantiate(gamePlayerPrefab);
+                gameplayInstance.SetDisplayName(RoomPlayers[i].DisplayName);
+
+                NetworkServer.Destroy(conn.identity.gameObject);
+
+                NetworkServer.ReplacePlayerForConnection(conn, gameplayInstance.gameObject);
+            }
+        }
+
+        base.ServerChangeScene(newSceneName);
+    }
 }

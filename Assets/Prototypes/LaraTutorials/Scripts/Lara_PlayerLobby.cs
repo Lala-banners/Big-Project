@@ -140,5 +140,6 @@ public class Lara_PlayerLobby : NetworkBehaviour
         if(Room.RoomPlayers[0].connectionToClient != connectionToClient) { return; }
 
         //Start the Game
+        Room.StartGame();
     }
 }
