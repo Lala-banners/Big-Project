@@ -32,11 +32,11 @@ namespace Lara
         public static void RemoveSpawnPoint(Transform t) => spawnPoints.Remove(t);
 
         //When players are ready, spawn this object
-        public override void OnStartServer() => NetworkManager.OnServerReadied += SpawnPlayer;
+        public override void OnStartServer() => CustomNetworkManager.OnServerReadied += SpawnPlayer;
 
         //When this obj gets destroyed, despawn player
         [ServerCallback]
-        private void OnDestroy() => NetworkManager.OnServerReadied -= SpawnPlayer;
+        private void OnDestroy() => CustomNetworkManager.OnServerReadied -= SpawnPlayer;
 
         [Server]
         public void SpawnPlayer(NetworkConnection conn)

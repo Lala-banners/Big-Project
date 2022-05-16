@@ -38,19 +38,19 @@ namespace Lara
         }
 
         //Cast singleton once to get the lobby room
-        private NetworkManager room;
-        private NetworkManager Room
+        private CustomNetworkManager room;
+        private CustomNetworkManager Room
         {
             get
             {
                 if (room != null) { return room; }
-                return room = NetworkManager.singleton as NetworkManager;
+                return room = CustomNetworkManager.singleton as CustomNetworkManager;
             }
         }
 
         public override void OnStartAuthority()
         {
-            CmdSetDisplayName(Lara_PlayerNameInput.DisplayName);
+            CmdSetDisplayName(PlayerNameInput.DisplayName);
 
             lobbyUI.SetActive(true);
         }

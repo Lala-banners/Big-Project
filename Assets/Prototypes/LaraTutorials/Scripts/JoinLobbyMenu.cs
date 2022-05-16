@@ -10,7 +10,7 @@ namespace Lara
 {
     public class JoinLobbyMenu : MonoBehaviour
     {
-        [SerializeField] private NetworkManager networkManager = null;
+        [SerializeField] private CustomNetworkManager networkManager = null;
 
         [Header("UI")]
         [SerializeField] private GameObject landingPanel = null;
@@ -22,8 +22,8 @@ namespace Lara
         /// </summary>
         private void OnEnable()
         {
-            NetworkManager.OnClientConnected += HandleClientConnected;
-            NetworkManager.OnClientDisconnected += HandleClientDisconnected;
+            CustomNetworkManager.OnClientConnected += HandleClientConnected;
+            CustomNetworkManager.OnClientDisconnected += HandleClientDisconnected;
         }
 
         /// <summary>
@@ -31,8 +31,8 @@ namespace Lara
         /// </summary>
         private void OnDisable()
         {
-            NetworkManager.OnClientConnected -= HandleClientConnected;
-            NetworkManager.OnClientDisconnected -= HandleClientDisconnected;
+            CustomNetworkManager.OnClientConnected -= HandleClientConnected;
+            CustomNetworkManager.OnClientDisconnected -= HandleClientDisconnected;
         }
 
         /// <summary>

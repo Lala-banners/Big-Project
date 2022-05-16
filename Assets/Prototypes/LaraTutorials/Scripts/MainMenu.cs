@@ -7,7 +7,7 @@ namespace Lara
 {
     public class MainMenu : MonoBehaviour
     {
-        [SerializeField] private NetworkManager networkManager = null;
+        [SerializeField] private CustomNetworkManager networkManager = null;
 
         [Header("UI")]
         [SerializeField] private GameObject landingPanel = null;

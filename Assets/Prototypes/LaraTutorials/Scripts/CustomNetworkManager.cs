@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 namespace Lara
 {
     /// <summary> Custom Network Manager </summary>
-    public class NetworkManager : Mirror.NetworkManager
+    public class CustomNetworkManager : Mirror.NetworkManager
     {
         //Minimum amount of players
         [SerializeField] private int minPlayers = 2; //Will be changed to 4 for dumpling
