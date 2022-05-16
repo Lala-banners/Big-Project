@@ -2,7 +2,7 @@ using UnityEngine;
 using Mirror;
 using Cinemachine;
 
-public class Lara_PlayerCamCtrl : NetworkBehaviour
+public class PlayerCamCtrl : NetworkBehaviour
 {
     [Header("Camera")]
     [SerializeField, Tooltip("Limits of camera movement")] private Vector2 maxFollowOffset = new Vector2(-1f, 6f);
@@ -10,13 +10,13 @@ public class Lara_PlayerCamCtrl : NetworkBehaviour
     [SerializeField, Tooltip("Reference to Dumpling rotation")] private Transform playerTransform = null;
     [SerializeField, Tooltip("Reference to virtual camera")] private CinemachineVirtualCamera virtualcamera = null;
 
-    private Lara_Controls lControls;
-    private Lara_Controls LControls
+    private Controls lControls;
+    private Controls LControls
     {
         get
         {
             if(lControls != null) { return lControls; }
-            return lControls = new Lara_Controls();
+            return lControls = new Controls();
         }
     }
 

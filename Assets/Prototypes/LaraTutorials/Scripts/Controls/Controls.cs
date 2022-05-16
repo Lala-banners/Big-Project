@@ -15,10 +15,10 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public partial class @Lara_Controls : IInputActionCollection2, IDisposable
+public partial class Controls : IInputActionCollection2, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @Lara_Controls()
+    public Controls()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""Lara_Controls"",
@@ -202,8 +202,8 @@ public partial class @Lara_Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Lara_Player_Move;
     public struct Lara_PlayerActions
     {
-        private @Lara_Controls m_Wrapper;
-        public Lara_PlayerActions(@Lara_Controls wrapper) { m_Wrapper = wrapper; }
+        private Controls m_Wrapper;
+        public Lara_PlayerActions(Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Look => m_Wrapper.m_Lara_Player_Look;
         public InputAction @Move => m_Wrapper.m_Lara_Player_Move;
         public InputActionMap Get() { return m_Wrapper.m_Lara_Player; }
