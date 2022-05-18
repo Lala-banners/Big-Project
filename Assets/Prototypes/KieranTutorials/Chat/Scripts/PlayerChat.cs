@@ -2,32 +2,61 @@
 // Creation Time: 2022/05/11 20:24
 using Mirror;
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace MainProject.Prototypes.KieranTutorials.Chat
 {
 	public class PlayerChat : NetworkBehaviour
 	{
-		[SerializeField] private Vector3 movement = new Vector3();
+		[SerializeField] private GameObject chatUI = null;
+		[SerializeField] private TMP_Text chatText = null;
+		[SerializeField] private TMP_InputField inputField = null;
+
+		private static event Action<string> OnMessage;
+
+		public override void OnStartAuthority()
+		{
+			chatUI.SetActive(true);
+
+			OnMessage += HandleNewMessage;
+		}
+
+		[ClientCallback]
+		private void OnDestroy()
+		{
+			if (!hasAuthority) { return; }
+
+			OnMessage -= HandleNewMessage;
+		}
+
+		private void HandleNewMessage(string message)
+		{
+			chatText.text += message;
+		}
 
 		[Client]
-		private void Update()
+		public void Send(string message)
 		{
-			if(!hasAuthority) return;
+			if (!Input.GetKeyDown(KeyCode.Return)) { return; }
 
-			if(Input.GetKeyDown(KeyCode.Space))
-				CmdMove();
+			if (string.IsNullOrWhiteSpace(message)) { return; }
+
+			CmdSendMessage(message);
+
+			inputField.text = string.Empty;
 		}
 
 		[Command]
-		private void CmdMove()
+		private void CmdSendMessage(string message)
 		{
-			RpcMove();
+			RpcHandleMessage($"[{connectionToClient.connectionId}]: {message}");
 		}
 
 		[ClientRpc]
-		private void RpcMove() => transform.Translate(movement);
+		private void RpcHandleMessage(string message)
+		{
+			OnMessage?.Invoke($"\n{message}");
+		}
 	}
 }
