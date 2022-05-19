@@ -1,0 +1,102 @@
+﻿using Mirror;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace MainProject.Prototypes.KieranTutorials.Lobby
+{
+    public class NetworkManagerLobby : NetworkManager
+    {
+        [Header("Custom settings")] 
+        [SerializeField] [Tooltip("Do you want players to join games in progress?")] 
+        private bool canJoinActiveGames = false;
+        
+        // This lets us reference the menu by dragging in inspector.
+        // Drag in the menu scene.
+        [Scene] [SerializeField] private string menuScene = string.Empty;
+
+        // Reference to the player.
+        [Header("Room")]
+        [SerializeField] private NetworkRoomPlayerLobby roomPlayerPrefab = null;
+        
+        // These are created as "public static to be listened in on the Menu UI.
+        public static event Action OnClientConnected;
+        public static event Action OnClientDisconnected;
+        
+        // This is to reference prefabs we will be spawning in [For the Server].
+        // We normally need to drag them in but we will load in all in "SpawnablePrefabs" (a folder we will create).
+       public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
+
+        public override void OnStartClient()
+        {
+            // This is the same as the Server but will make sure they are on the clients "spawnablePrefabs"
+            // It is just a different way of doing the above but for the [Client] ranther than the [Server].
+            var spawnablePrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs");
+
+            foreach (var prefab in spawnablePrefabs)
+            {
+                ClientScene.RegisterPrefab(prefab);
+            }
+        }
+
+        // This is for when the [Client] connects.
+        public override void OnClientConnect(NetworkConnection conn)
+        {
+            // Do the base logic.
+            base.OnClientConnect(conn);
+
+            // Do my event (any logic I choose).
+            OnClientConnected?.Invoke();
+        }
+
+        // Same as Connect.
+        public override void OnClientDisconnect(NetworkConnection conn)
+        {
+            // Do the base logic.
+            base.OnClientDisconnect(conn);
+
+            // Add my  event (e.g. my logic) to when the Client Disconnects.
+            OnClientDisconnected?.Invoke();
+        }
+
+        // Called on the [Server] when a [Client] connects.
+        public override void OnServerConnect(NetworkConnection conn)
+        {
+            // If we have hit the max number of players.
+            if(numPlayers >= maxConnections)
+            {
+                // If we have too many players, disconnect that person.
+                conn.Disconnect();
+                return;
+            }
+
+            // This will stop players joining games in progress.
+            if(!canJoinActiveGames)
+            {
+                // If we are not in the menu scene.
+                if(SceneManager.GetActiveScene().name != menuScene)
+                {
+                    // Disconnect this player.
+                    conn.Disconnect();
+                    return;
+                }
+            }
+        }
+
+        // This is called on "OnClientConnect" in is .base code.
+        public override void OnServerAddPlayer(NetworkConnection conn)
+        {
+            // If we are in the menuScene. 
+            if (SceneManager.GetActiveScene().name == menuScene)
+            {
+                // Spawn in the room player prefab (the thing with "NetworkRoomPlayerLobby" on it).
+                NetworkRoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
+                
+                // We are tying together the player we just instansiated and this connection (conn)
+                NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
+            }
+        }
+    }
+}
