@@ -155,7 +155,7 @@ namespace Lara
             {
                 if (!IsReadyToStart()) { return; }
 
-                ServerChangeScene("Lara_Game");
+                ServerChangeScene("Game");
             }
         }
 
@@ -164,7 +164,7 @@ namespace Lara
         /// </summary>s
         public override void ServerChangeScene(string newSceneName)
         {
-            if (SceneManager.GetActiveScene().name == menuScene && newSceneName.StartsWith("Lara_Game"))
+            if (SceneManager.GetActiveScene().name == menuScene && newSceneName.StartsWith("Game"))
             {
                 for (int i = RoomPlayers.Count - 1; i >= 0; i--)
                 {
@@ -184,7 +184,7 @@ namespace Lara
         //As soon as scene has loaded, spawn the player spawn system
         public override void OnServerSceneChanged(string sceneName)
         {
-            if (sceneName.StartsWith("Lara_Game"))
+            if (sceneName.StartsWith("Game"))
             {
                 GameObject playerSpawnInstanceGO = Instantiate(playerSpawnSystem);
                 NetworkServer.Spawn(playerSpawnInstanceGO);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2080,7 +2080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 818950770}
-  - component: {fileID: 818950769}
+  - component: {fileID: 818950771}
   - component: {fileID: 818950768}
   m_Layer: 0
   m_Name: NetworkManager
@@ -2111,46 +2111,6 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
---- !u!114 &818950769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818950767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a461d76959baf3546841c56320271ed6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
-  runInBackground: 1
-  autoStartServerBuild: 1
-  showDebugMessages: 0
-  serverTickRate: 30
-  serverBatching: 0
-  serverBatchInterval: 0
-  offlineScene: 
-  onlineScene: 
-  transport: {fileID: 818950768}
-  networkAddress: localhost
-  maxConnections: 5
-  disconnectInactiveConnections: 0
-  disconnectInactiveTimeout: 60
-  authenticator: {fileID: 0}
-  playerPrefab: {fileID: 3111082209733300700, guid: 39ddf9ad06ae0da43b89ff7fa08e0acf, type: 3}
-  autoCreatePlayer: 1
-  playerSpawnMethod: 1
-  spawnPrefabs:
-  - {fileID: 215016421309507051, guid: 07acd68cd301abd47b126599cdc7deaa, type: 3}
-  - {fileID: 215016421309507051, guid: 0332dd4db383bfc4599c3935c3bd3bab, type: 3}
-  - {fileID: 1362884948597936548, guid: 8942823f7337ffe4db0aedeca908b68b, type: 3}
-  - {fileID: 2321486389356985917, guid: f8fd37f57052fdd4687388077630e624, type: 3}
-  minPlayers: 2
-  menuScene: Lara_Lobby
-  roomPlayerPrefab: {fileID: 215016421309507049, guid: 0332dd4db383bfc4599c3935c3bd3bab, type: 3}
-  gamePlayerPrefab: {fileID: 7926384342707322235, guid: 07acd68cd301abd47b126599cdc7deaa, type: 3}
-  playerSpawnSystem: {fileID: 1362884948597936548, guid: 8942823f7337ffe4db0aedeca908b68b, type: 3}
 --- !u!4 &818950770
 Transform:
   m_ObjectHideFlags: 0
@@ -2166,6 +2126,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818950771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818950767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2520eb860be541b49af0377fe5ff7991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
+  runInBackground: 1
+  autoStartServerBuild: 1
+  showDebugMessages: 0
+  serverTickRate: 30
+  serverBatching: 0
+  serverBatchInterval: 0
+  offlineScene: 
+  onlineScene: 
+  transport: {fileID: 818950768}
+  networkAddress: localhost
+  maxConnections: 100
+  disconnectInactiveConnections: 0
+  disconnectInactiveTimeout: 60
+  authenticator: {fileID: 0}
+  playerPrefab: {fileID: 2321486389356985917, guid: f8fd37f57052fdd4687388077630e624, type: 3}
+  autoCreatePlayer: 1
+  playerSpawnMethod: 0
+  spawnPrefabs: []
+  minPlayers: 2
+  menuScene: Lobby
+  roomPlayerPrefab: {fileID: 215016421309507049, guid: 0332dd4db383bfc4599c3935c3bd3bab, type: 3}
+  gamePlayerPrefab: {fileID: 7926384342707322235, guid: 07acd68cd301abd47b126599cdc7deaa, type: 3}
+  playerSpawnSystem: {fileID: 1362884948597936548, guid: 8942823f7337ffe4db0aedeca908b68b, type: 3}
 --- !u!1 &959605838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,7 +2621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f527c008d18ed444997226ec28d35f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 818950769}
+  networkManager: {fileID: 818950771}
   landingPanel: {fileID: 1108794741}
   ipAddressInputField: {fileID: 429882228}
   joinButton: {fileID: 1995728787}
@@ -2799,8 +2795,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 370.68}
-  m_SizeDelta: {x: 0, y: -741.36}
+  m_AnchoredPosition: {x: 0, y: 302.68}
+  m_SizeDelta: {x: 0, y: -605.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1735270130
 MonoBehaviour:
@@ -2885,7 +2881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee74d2bd9ef5eef4ca90cea950424b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkManager: {fileID: 818950769}
+  networkManager: {fileID: 818950771}
   landingPanel: {fileID: 1108794741}
 --- !u!1 &1804565110
 GameObject:
