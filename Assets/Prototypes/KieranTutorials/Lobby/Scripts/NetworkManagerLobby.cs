@@ -10,6 +10,8 @@ namespace MainProject.Prototypes.KieranTutorials.Lobby
     public class NetworkManagerLobby : NetworkManager
     {
         [Header("Custom settings")] 
+        [SerializeField] [Tooltip("What is the minimum number of Players to start the game?")] 
+        private int minPlayers = 2;
         [SerializeField] [Tooltip("Do you want players to join games in progress?")] 
         private bool canJoinActiveGames = false;
         
@@ -21,9 +23,13 @@ namespace MainProject.Prototypes.KieranTutorials.Lobby
         [Header("Room")]
         [SerializeField] private NetworkRoomPlayerLobby roomPlayerPrefab = null;
         
-        // These are created as "public static to be listened in on the Menu UI.
+        // These are created as "public static" to be listened in on the Menu UI.
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
+        
+        // List of all Players so [Client]s and [Server] can loop through them.
+        // Let say we need to display the names of all these people, we can loop over them.
+        public List<NetworkRoomPlayerLobby> RoomPlayers { get; } = new List<NetworkRoomPlayerLobby>();
         
         // This is to reference prefabs we will be spawning in [For the Server].
         // We normally need to drag them in but we will load in all in "SpawnablePrefabs" (a folder we will create).
@@ -97,6 +103,17 @@ namespace MainProject.Prototypes.KieranTutorials.Lobby
                 // We are tying together the player we just instansiated and this connection (conn)
                 NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
             }
+        }
+        
+        public override void OnServerDisconnect(NetworkConnection conn)
+        {
+            if (conn.identity != null)
+            {
+                var player = conn.identity.GetComponent<NetworkRoomPlayerLobby>();
+                RoomPlayers.Remove(player);
+                //NotifyPlayersOfReadyState();
+            }
+            base.OnServerDisconnect(conn);
         }
     }
 }
