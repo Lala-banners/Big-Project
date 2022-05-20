@@ -37,7 +37,7 @@ namespace Lara
             }
         }
 
-        //Cast singleton once to get the lobby room
+        //Only once instance of the Network Manager 
         private CustomNetworkManager room;
         private CustomNetworkManager Room
         {
@@ -99,7 +99,7 @@ namespace Lara
                 playerReadyTexts[i].text = string.Empty;
             }
 
-            //Loop through player name text and ready status as player display name and set colours according to if ready or not
+            //Loop through player name text and ready status as player display name and set colours according to if players are ready or not
             for (int i = 0; i < Room.RoomPlayers.Count; i++)
             {
                 playerNameTexts[i].text = Room.RoomPlayers[i].DisplayName;

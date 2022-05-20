@@ -10,7 +10,7 @@ namespace Lara
 {
     public class PlayerSpawnSystem : NetworkBehaviour
     {
-        [SerializeField] private GameObject playerPrefab = null;
+        [SerializeField] private GameObject playerPrefab = null; //Dumpling players
 
         //List of spawn positions for players to spawn in
         private static List<Transform> spawnPoints = new List<Transform>();
@@ -55,7 +55,5 @@ namespace Lara
 
             nextIndex++;
         }
-
-
     }
 }
