@@ -17,11 +17,10 @@ namespace Lara
         public string menuScene;
 
         [Header("Room")]
-        [SerializeField] private PlayerLobby roomPlayerPrefab = null;
+        [SerializeField] private PlayerLobby roomPlayerPrefab = null; //VR player = player 0
 
         [Header("Game")]
         [SerializeField] private GamePlayer gamePlayerPrefab = null;
-        [SerializeField] private GameObject leaderPrefab = null; //VR placeholder player to be replaced with actual VR player (will spawn a cube first)
 
         [Space]
 
@@ -84,7 +83,7 @@ namespace Lara
         }
 
         /// <summary>
-        /// If player is in menu scene then spawn player prefab in the gameplay room
+        /// If player is in menu scene then spawn player prefab in the gameplay room.
         /// </summary>
         public override void OnServerAddPlayer(NetworkConnection conn)
         {

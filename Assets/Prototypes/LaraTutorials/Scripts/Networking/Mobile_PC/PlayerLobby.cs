@@ -2,6 +2,7 @@ using UnityEngine;
 using Mirror;
 using TMPro;
 using UnityEngine.UI;
+using Valve.VR;
 
 /// <summary>
 /// Custom Player Lobby Data
@@ -34,6 +35,8 @@ namespace Lara
                 //Activate start game button based on value of isLeader
                 isLeader = value;
                 startGameButton.gameObject.SetActive(value);
+                //Initialise VR player
+                InitialiseVrPlayer();
             }
         }
 
@@ -117,6 +120,12 @@ namespace Lara
             if (!isLeader) { return; }
 
             startGameButton.interactable = readyToStart;
+        }
+
+        public void InitialiseVrPlayer()
+        {
+            SteamVR.Initialize(isLeader == true);
+            Debug.Log("VR Player is host");
         }
 
         //All commands below are called on server

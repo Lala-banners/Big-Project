@@ -6,8 +6,6 @@ namespace Lara
 {
     public class PlayerNameInput : MonoBehaviour
     {
-        //TODO: @Lara Convert to JSON saving and loading
-
         [Header("UI")]
         [SerializeField] private TMP_InputField nameInputField = null;
         [SerializeField] private Button continueButton = null;
