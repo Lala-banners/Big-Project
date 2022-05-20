@@ -13,7 +13,7 @@ namespace Lara
         //Minimum amount of players
         [SerializeField] private int minPlayers = 2; //Will be changed to 4 for dumpling
 
-        //Reference scene name by string
+        //Reference scene name by string (offline scene)
         public string menuScene;
 
         [Header("Room")]
@@ -21,6 +21,10 @@ namespace Lara
 
         [Header("Game")]
         [SerializeField] private GamePlayer gamePlayerPrefab = null;
+        [SerializeField] private GameObject leaderPrefab = null; //VR placeholder player to be replaced with actual VR player (will spawn a cube first)
+
+        [Space]
+
         [SerializeField] private GameObject playerSpawnSystem = null;
 
         //Connect to Host
@@ -86,7 +90,7 @@ namespace Lara
         {
             if (SceneManager.GetActiveScene().name == menuScene)
             {
-                //Figure out first person added to lobby
+                //The leader is the first player added to server
                 bool isLeader = RoomPlayers.Count == 0;
 
                 PlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
@@ -166,6 +170,7 @@ namespace Lara
         {
             if (SceneManager.GetActiveScene().name == menuScene && newSceneName.StartsWith("Game"))
             {
+                //Loop through all players (minus player 0 who is the leader/host/first added to server)
                 for (int i = RoomPlayers.Count - 1; i >= 0; i--)
                 {
                     var conn = RoomPlayers[i].connectionToClient;
