@@ -1,31 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 using Valve.VR.InteractionSystem;
+using Valve.VR;
 
-public class VersionManager : NetworkBehaviour
+namespace Lara
 {
-    [SerializeField] private GameObject pcUI;
-    [SerializeField] private GameObject vrUI;
-
-    // Start is called before the first frame update
-    void Start()
+    public class VersionManager : MonoBehaviour
     {
+        [SerializeField] private GameObject pcUI;
+        [SerializeField] private GameObject vrUI;
+        [SerializeField] private Player vrPlayer;
 
-#if UNITY_ANDROID
-    pcUI.SetActive(true);
-    vrUI.SetActive(false);
-#else
-        pcUI.SetActive(false);
-        vrUI.SetActive(true);
-#endif
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        // Start is called before the first frame update
+        void Start()
+        {
+            if (SteamVR.active)
+            {
+                pcUI.SetActive(false); //Deactivate pc/mobile player UI
+                vrUI.SetActive(true); //Activate VR rig
+                CustomNetworkManager.singleton.playerPrefab = vrPlayer.gameObject; //Set the player prefab of network manager to the VR player
+            }
+            else
+            {
+                pcUI.SetActive(true);
+                vrUI.SetActive(false);
+                CustomNetworkManager.singleton.playerPrefab = CustomNetworkManager.singleton.playerPrefab;
+            }
+        }
     }
 }

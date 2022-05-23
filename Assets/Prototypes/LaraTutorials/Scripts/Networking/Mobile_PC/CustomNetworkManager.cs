@@ -4,11 +4,12 @@ using Mirror;
 using System.Linq;
 using System;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 namespace Lara
 {
     /// <summary> Custom Network Manager </summary>
-    public class CustomNetworkManager : Mirror.NetworkManager
+    public class CustomNetworkManager : NetworkManager
     {
         //Minimum amount of players
         [SerializeField] private int minPlayers = 2; //Will be changed to 4 for dumpling
@@ -37,11 +38,11 @@ namespace Lara
         public List<PlayerLobby> RoomPlayers { get; } = new List<PlayerLobby>();
         public List<GamePlayer> GamePlayers { get; } = new List<GamePlayer>();
 
-        public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
+        public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("Assets/Prototypes/LaraTutorials/Resources/SpawnablePrefabs").ToList();
 
         public override void OnStartClient()
         {
-            var spawnablePrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs");
+            var spawnablePrefabs = Resources.LoadAll<GameObject>("Assets/Prototypes/LaraTutorials/Resources/SpawnablePrefabs");
 
             foreach (var prefab in spawnablePrefabs)
             {
