@@ -5,6 +5,7 @@ using System.Linq;
 using System;
 using UnityEngine.SceneManagement;
 using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 namespace Lara
 {
@@ -19,6 +20,8 @@ namespace Lara
 
         [Header("Room")]
         [SerializeField] private PlayerLobby roomPlayerPrefab = null; //VR player = player 0
+
+        [SerializeField] private Player vrPlayer = null;
 
         [Header("Game")]
         [SerializeField] private GamePlayer gamePlayerPrefab = null;
@@ -35,8 +38,8 @@ namespace Lara
         public static event Action<NetworkConnection> OnServerReadied;
 
         //Display / loop all names of players
-        public List<PlayerLobby> RoomPlayers { get; } = new List<PlayerLobby>();
-        public List<GamePlayer> GamePlayers { get; } = new List<GamePlayer>();
+        public List<PlayerLobby> RoomPlayers { get; }
+        public List<GamePlayer> GamePlayers { get; }
 
         public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("Assets/Prototypes/LaraTutorials/Resources/SpawnablePrefabs").ToList();
 

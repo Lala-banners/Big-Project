@@ -20,7 +20,7 @@ namespace Lara
         public void HostLobby()
         {
             networkManager.StartHost();
-
+            
             landingPanel.SetActive(false);
         }
     }
