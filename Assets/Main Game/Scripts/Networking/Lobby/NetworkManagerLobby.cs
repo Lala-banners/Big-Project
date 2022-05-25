@@ -75,19 +75,19 @@ namespace MainGame.Networking.Lobby
             }
         }
 
-        public override void OnServerAddPlayer(NetworkConnection conn)
-        {
-            if (SceneManager.GetActiveScene().name == menuScene)
-            {
-                bool isLeader = RoomPlayers.Count == 0;
-
-                NetworkRoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
-
-                roomPlayerInstance.IsLeader = isLeader;
-
-                NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
-            }
-        }
+        // public override void OnServerAddPlayer(NetworkConnection conn)
+        // {
+        //     if (SceneManager.GetActiveScene().name == menuScene)
+        //     {
+        //         bool isLeader = RoomPlayers.Count == 0;
+        //
+        //         NetworkRoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
+        //
+        //         roomPlayerInstance.IsLeader = isLeader;
+        //
+        //         NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
+        //     }
+        // }
 
         public override void OnServerDisconnect(NetworkConnection conn)
         {
