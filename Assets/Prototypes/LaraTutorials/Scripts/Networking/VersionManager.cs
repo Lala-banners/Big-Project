@@ -1,7 +1,5 @@
 using UnityEngine;
 using Valve.VR;
-using UnityEngine.Android;
-using AlleyOop.VR;
 
 namespace Lara
 {
@@ -35,16 +33,16 @@ namespace Lara
             hostButton.SetActive(true);
             pcUI.SetActive(false); //Deactivate pc/mobile player UI
             vrUI.SetActive(true); //Activate VR rig
+            CustomNetworkManager.singleton.playerPrefab = vrPlayer.gameObject;
         }
 
         public void ActivatePC()
         {
-            vrPlayer.SetActive(false);
             joinButton.SetActive(true);
             hostButton.SetActive(false);
             pcPlayer.SetActive(true);
             pcUI.SetActive(true);
-            vrUI.SetActive(false);
+            CustomNetworkManager.singleton.playerPrefab = CustomNetworkManager.singleton.playerPrefab.gameObject;
         }
     }
 }

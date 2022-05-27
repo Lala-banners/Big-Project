@@ -118,19 +118,7 @@ MonoBehaviour:
       m_Calls: []
   onGrabPressed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onGrabReleased:
     m_PersistentCalls:
       m_Calls: []
@@ -215,6 +203,7 @@ GameObject:
   - component: {fileID: 3380982}
   - component: {fileID: 11489174}
   - component: {fileID: 3666512368764239099}
+  - component: {fileID: 7588168182459684042}
   m_Layer: 0
   m_Name: '[CameraRig]'
   m_TagString: Untagged
@@ -333,6 +322,23 @@ MonoBehaviour:
   rightCtrl: {fileID: 402434}
   headset: {fileID: 4000013889601590}
   playArea: {fileID: 420908}
+--- !u!114 &7588168182459684042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &159396
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +354,6 @@ GameObject:
   - component: {fileID: 7750690219262513016}
   - component: {fileID: 5739551389559543491}
   - component: {fileID: 6452120546603061913}
-  - component: {fileID: 1471426461107573115}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -452,19 +457,7 @@ MonoBehaviour:
       m_Calls: []
   onGrabPressed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onGrabReleased:
     m_PersistentCalls:
       m_Calls: []
@@ -536,22 +529,6 @@ MonoBehaviour:
   pointer: {fileID: 0}
   addRigidBody: 0
   reference: {fileID: 0}
---- !u!114 &1471426461107573115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1b429116952c91459f55e3237fd9b04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorScaleFactor: 1
-  controller: {fileID: 85257677316277372}
-  invalid: {r: 1, g: 0, b: 0, a: 1}
-  valid: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1000014254142504
 GameObject:
   m_ObjectHideFlags: 0
