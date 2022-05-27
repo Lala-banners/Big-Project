@@ -7,8 +7,8 @@ namespace AlleyOop.VR
 {
     //Main VR Controller
     [RequireComponent(typeof(SteamVR_Behaviour_Pose))]
-    [RequireComponent(typeof(VrCtrlInput))]
-    public class VrCtrl : MonoBehaviour
+    [RequireComponent(typeof(VrControllerInput))]
+    public class VrController : MonoBehaviour
     {
         #region Props
         /// <summary>
@@ -22,12 +22,12 @@ namespace AlleyOop.VR
         /// </summary>
         public Vector3 AngularVelocity => pose.GetAngularVelocity();
         public SteamVR_Input_Sources InputSource => pose.inputSource;
-        public VrCtrlInput Input => input;
+        public VrControllerInput Input => input;
         #endregion
 
         #region Vars
         private SteamVR_Behaviour_Pose pose;
-        private VrCtrlInput input;
+        private VrControllerInput input;
         private new Rigidbody rb;
         #endregion
 
@@ -35,7 +35,7 @@ namespace AlleyOop.VR
         {
             rb = gameObject.GetComponent<Rigidbody>();
             pose = gameObject.GetComponent<SteamVR_Behaviour_Pose>();
-            input = gameObject.GetComponent<VrCtrlInput>();
+            input = gameObject.GetComponent<VrControllerInput>();
 
             input.Initialise(this);
         }

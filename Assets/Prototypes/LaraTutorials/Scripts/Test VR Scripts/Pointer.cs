@@ -13,7 +13,7 @@ namespace AlleyOop.VR
         public bool Active { get; set; } = false;
 
         [SerializeField] private float cursorScaleFactor = 0.1f;
-         public VrCtrl controller;
+        public VrController controller;
 
         [SerializeField] Color invalid = Color.red;
         [SerializeField] Color valid = Color.green;
@@ -23,6 +23,7 @@ namespace AlleyOop.VR
 
         private Renderer cursorRender;
         private Renderer tracerRender;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -32,12 +33,14 @@ namespace AlleyOop.VR
                 cursor.gameObject.SetActive(true);
                 tracer.gameObject.SetActive(true);
             });
+
             controller.Input.OnPointerReleased.AddListener(_args =>
             {
                 Active = false;
                 cursor.gameObject.SetActive(false);
                 tracer.gameObject.SetActive(false);
             });
+
             CreatePointer();
             cursor.gameObject.SetActive(false);
             tracer.gameObject.SetActive(false);
@@ -72,18 +75,11 @@ namespace AlleyOop.VR
 
                 // scale the tracer to between the endpoint and this point
                 tracer.localScale = new Vector3(tracerWidth, tracerWidth, distance);
-
                 
                 // set the cursor to the endpoint and scale it
                 cursor.position = _hit.point;
                 cursor.localScale = Vector3.one * cursorScaleFactor;
                 Debug.Log(_hit.collider.gameObject);
-
-              /*  if(_hit.collider.gameObject.CompareTag("Button"))
-                {
-                    Button newButton = gameObject.GetComponent<Button>();
-                    newButton.onClick();
-                }*/
             }
             else
             {
@@ -110,6 +106,7 @@ namespace AlleyOop.VR
             _distance = heading.magnitude;
             _dir = heading / _distance;
         }
+
         private void CreatePointer()
         {
             GameObject tracerObj = GameObject.CreatePrimitive(PrimitiveType.Cube);

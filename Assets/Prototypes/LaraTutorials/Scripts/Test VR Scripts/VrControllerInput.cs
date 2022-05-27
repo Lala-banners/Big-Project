@@ -4,10 +4,10 @@ using Valve.VR;
 
 namespace AlleyOop.VR
 {
-    public class VrCtrlInput : MonoBehaviour
+    public class VrControllerInput : MonoBehaviour
     {
         #region VR Event Properties
-        public VrCtrl Controller => controller;
+        public VrController Controller => controller;
         public VRInputEvent OnPointerPressed => onPointerPressed;
         public VRInputEvent OnPointerReleased => onPointerReleased;
         public VRInputEvent OnTeleportPressed => onTeleportPressed;
@@ -54,9 +54,9 @@ namespace AlleyOop.VR
             => onTouchPadChanged.Invoke(GenerateArgs());
         #endregion
 
-        private VrCtrl controller;
+        private VrController controller;
         private new Rigidbody rb;
-        public void Initialise(VrCtrl _controller)
+        public void Initialise(VrController _controller)
         {
             controller = _controller;
 

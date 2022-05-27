@@ -11,7 +11,7 @@ public class VrButton : MonoBehaviour
 
     private Button thisButton;
 
-    private VrCtrlInput[] controllers;
+    private VrControllerInput[] controllers;
 
 
     // Start is called before the first frame update
@@ -19,9 +19,9 @@ public class VrButton : MonoBehaviour
     {
         thisButton = gameObject.GetComponent<Button>();
 
-        controllers = FindObjectsOfType<VrCtrlInput>();
+        controllers = FindObjectsOfType<VrControllerInput>();
 
-        foreach (VrCtrlInput input in controllers)
+        foreach (VrControllerInput input in controllers)
         {
             input.OnGrabPressed.AddListener(_args =>
             {

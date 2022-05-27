@@ -14,7 +14,7 @@ namespace AlleyOop.VR.Interaction
         /// <summary>
         /// The VR controller of the interactable object we are interacting with
         /// </summary>
-        public VrCtrl controller;
+        public VrController controller;
 
         /// <summary>
         /// The rigidbody of the interactable object we are interacting with
@@ -26,7 +26,7 @@ namespace AlleyOop.VR.Interaction
         /// </summary>
         public Collider collider;
 
-        public InteractEventArgs(VrCtrl _controller, Rigidbody _rb, Collider _collider)
+        public InteractEventArgs(VrController _controller, Rigidbody _rb, Collider _collider)
         {
             controller = _controller;
             rb = _rb;

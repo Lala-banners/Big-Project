@@ -56,44 +56,44 @@ namespace AlleyOop.VR.Interaction
             rigidbody = gameObject.GetComponent<Rigidbody>();
         }
 
-        private InteractEventArgs GenerateArgs(VrCtrl _controller) => new InteractEventArgs(_controller, rigidbody, collider);
+        private InteractEventArgs GenerateArgs(VrController _controller) => new InteractEventArgs(_controller, rigidbody, collider);
 
-        public void OnObjectGrabbed(VrCtrl _controller)
+        public void OnObjectGrabbed(VrController _controller)
         {
             //If the object is grabbable or if it is any input source
             if (isGrabbable && (_controller.InputSource == allowedSource || allowedSource == SteamVR_Input_Sources.Any))
                 onGrabbed.Invoke(GenerateArgs(_controller));
         }
 
-        public void OnObjectReleased(VrCtrl _controller)
+        public void OnObjectReleased(VrController _controller)
         {
             //If the object is grabbable or if it is any input source
             if (isGrabbable && (_controller.InputSource == allowedSource || allowedSource == SteamVR_Input_Sources.Any))
                 onReleased.Invoke(GenerateArgs(_controller));
         }
 
-        public void OnObjectTouched(VrCtrl _controller)
+        public void OnObjectTouched(VrController _controller)
         {
             //If the object is being touched or if it is any input source
             if (isTouchable && (_controller.InputSource == allowedSource || allowedSource == SteamVR_Input_Sources.Any))
                 onTouched.Invoke(GenerateArgs(_controller));
         }
 
-        public void OnObjectStopTouching(VrCtrl _controller)
+        public void OnObjectStopTouching(VrController _controller)
         {
             //If the object is not being touched or if it is any input source
             if (isTouchable && (_controller.InputSource == allowedSource || allowedSource == SteamVR_Input_Sources.Any))
                 onStopTouching.Invoke(GenerateArgs(_controller));
         }
 
-        public void OnObjectUsed(VrCtrl _controller)
+        public void OnObjectUsed(VrController _controller)
         {
             //If the object is being used or if it is any input source
             if (isUsable && (_controller.InputSource == allowedSource || allowedSource == SteamVR_Input_Sources.Any))
                 onUsed.Invoke(GenerateArgs(_controller));
         }
 
-        public void OnObjectStopUsing(VrCtrl _controller)
+        public void OnObjectStopUsing(VrController _controller)
         {
             //If the object has stopped being using or if it is any input source
             if (isUsable && (_controller.InputSource == allowedSource || allowedSource == SteamVR_Input_Sources.Any))

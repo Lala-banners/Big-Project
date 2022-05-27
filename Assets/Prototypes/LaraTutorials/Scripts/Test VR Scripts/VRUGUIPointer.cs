@@ -7,7 +7,7 @@ using Valve.VR;
 // Add this script to the controllers
 namespace AlleyOop.VR
 {
-    [RequireComponent(typeof(VrCtrlInput))]
+    [RequireComponent(typeof(VrControllerInput))]
     public class VRUGUIPointer : MonoBehaviour
     {
         [SerializeField] private SteamVR_Action_Boolean clickAction;

@@ -21,8 +21,6 @@ namespace Lara
         [Header("Room")]
         [SerializeField] private PlayerLobby roomPlayerPrefab = null; //VR player = player 0
 
-        [SerializeField] private Player vrPlayer = null;
-
         [Header("Game")]
         [SerializeField] private GamePlayer gamePlayerPrefab = null;
 
@@ -97,17 +95,11 @@ namespace Lara
                 bool isLeader = RoomPlayers.Count == 0;
 
                 PlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
-                
-                //Instantiate the VR player 
-                Player roomVR = Instantiate(vrPlayer);
 
                 //Tell client who the leader is
                 roomPlayerInstance.IsLeader = isLeader;
 
                 NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
-                
-                //Add VR player to the network server on same connection as room player
-                NetworkServer.AddPlayerForConnection(conn, roomVR.gameObject);
             }
         }
 

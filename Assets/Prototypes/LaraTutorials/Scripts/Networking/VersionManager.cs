@@ -1,37 +1,36 @@
 using UnityEngine;
 using Valve.VR;
 using UnityEngine.Android;
+using AlleyOop.VR;
 
 namespace Lara
 {
     public class VersionManager : MonoBehaviour
     {
         [SerializeField] private GameObject pcUI;
-        [SerializeField] private GameObject pcPlayer;
+        [SerializeField] private GameObject pcPlayer, vrPlayer;
         [SerializeField] private GameObject vrUI;
         [SerializeField] private GameObject joinButton, hostButton;
+
+        [SerializeField]
+        private bool isVrActive;
 
         // Start is called before the first frame update
         void Start()
         {
-#if ENABLE_VR
-            ActivateVR();
-#elif !ENABLE_VR
-            SwitchToPC();
-#endif
-
-            /*if (SteamVR.active) //TESTING
+            if (isVrActive)
             {
-                SwitchToVR();
+                ActivateVR();
             }
             else
             {
-                SwitchToPC();
-            }*/
+                ActivatePC();
+            }
         }
 
         public void ActivateVR()
         {
+            vrPlayer.SetActive(true);
             joinButton.SetActive(false);
             hostButton.SetActive(true);
             pcUI.SetActive(false); //Deactivate pc/mobile player UI
@@ -40,6 +39,7 @@ namespace Lara
 
         public void ActivatePC()
         {
+            vrPlayer.SetActive(false);
             joinButton.SetActive(true);
             hostButton.SetActive(false);
             pcPlayer.SetActive(true);

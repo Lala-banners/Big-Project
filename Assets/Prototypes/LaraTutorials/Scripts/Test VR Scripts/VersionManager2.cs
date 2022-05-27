@@ -6,7 +6,7 @@ using UnityEngine;
 namespace AlleyOop
 {
     
-    public class VersionManager : MonoBehaviour
+    public class VersionManager2 : MonoBehaviour
     {
         #region Variables
         public GameObject VrRig;
@@ -31,25 +31,6 @@ namespace AlleyOop
             }
         }
         #endregion
-        private void Update()
-        {
-            if (VR.VrUtils.IsVREnabled())
-            {
-
-            }
-            else
-            {
-                //Bring up the hoop menu if escape is pressed
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-
-                    PCMenuActive();
-
-                    
-                }
-                
-            }
-        }
 
         public void PCMenuActive()
         {

@@ -18,14 +18,14 @@ namespace AlleyOop.VR
         #region Vars
         [SerializeField] private Transform leftCtrl, rightCtrl, headset, playArea;
 
-        private VrCtrl left, right;
+        private VrController left, right;
         #endregion
 
         // This function is called when the script is loaded or a value is changed in the inspector (Called in the editor only)
         private void OnValidate()
         {
             //Check if the set object is not a Vr Controller, if it isn't, unset it and warn the user.
-            if (leftCtrl != null && leftCtrl.GetComponent<VrCtrl>() == null)
+            if (leftCtrl != null && leftCtrl.GetComponent<VrController>() == null)
             {
                 //The object set to this variable is not of type VrController
                 leftCtrl = null;
@@ -33,7 +33,7 @@ namespace AlleyOop.VR
             }
 
             //Check if the set object is not a Vr Controller, if it isn't, unset it and warn the user.
-            if (rightCtrl != null && rightCtrl.GetComponent<VrCtrl>() == null)
+            if (rightCtrl != null && rightCtrl.GetComponent<VrController>() == null)
             {
                 //The object set to this variable is not of type VrController
                 rightCtrl = null;
@@ -61,8 +61,8 @@ namespace AlleyOop.VR
             ValidateComponent(playArea);
 
             //Get the VrControllerComponents from the relevant controllers
-            left = leftCtrl.GetComponent<VrCtrl>();
-            right = rightCtrl.GetComponent<VrCtrl>();
+            left = leftCtrl.GetComponent<VrController>();
+            right = rightCtrl.GetComponent<VrController>();
 
             //Initialise the two controllers
             left.Initialise();

@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace AlleyOop.VR.Interaction
 {
-    [RequireComponent(typeof(VrCtrlInput))]
+    [RequireComponent(typeof(VrControllerInput))]
     public class InteractableGrab : MonoBehaviour
     {
         //For if we want to do something that is specific to the object. Eg turns red or increment counter
         public InteractionEvent grabbed = new InteractionEvent();
         public InteractionEvent released = new InteractionEvent();
 
-        private VrCtrlInput input;
+        private VrControllerInput input;
         private InteractableObject collidingObject; //We are colliding with that we are not holding
         private InteractableObject heldObject; //Object we are holding
 
@@ -19,7 +19,7 @@ namespace AlleyOop.VR.Interaction
         // Start is called before the first frame update
         void Start()
         {
-            input = gameObject.GetComponent<VrCtrlInput>();
+            input = gameObject.GetComponent<VrControllerInput>();
 
             input.OnGrabPressed.AddListener((_args) => { if (collidingObject != null) GrabObject(); });
             input.OnGrabReleased.AddListener((_args) => { if (heldObject != null) ReleaseObject(); });

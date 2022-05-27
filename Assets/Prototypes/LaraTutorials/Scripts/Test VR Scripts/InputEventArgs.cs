@@ -17,7 +17,7 @@ namespace AlleyOop.VR
         /// <summary>
         /// The controller firing the event.
         /// </summary>
-        public VrCtrl controller;
+        public VrController controller;
 
         /// <summary>
         /// The input source the event is coming from.
@@ -32,7 +32,7 @@ namespace AlleyOop.VR
         /// <summary>
         /// Constructor to hold the controller, source and touch pad axis events.
         /// </summary>
-        public InputEventArgs(VrCtrl _controller, SteamVR_Input_Sources _source, Vector2 _touchPadAxis)
+        public InputEventArgs(VrController _controller, SteamVR_Input_Sources _source, Vector2 _touchPadAxis)
         {
             controller = _controller;
             source = _source;
