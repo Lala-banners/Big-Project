@@ -1,15 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Lara;
 using UnityEngine;
 
 namespace LobbyManagement
 {
     public class PlatformManager : MonoBehaviour
     {
+        [SerializeField] private BuildVersion deviceToBuildOn  = BuildVersion.Any;
+        [Header("VR")]
         [SerializeField] private GameObject vrComponents;
+        [SerializeField] private GameObject vrPlayerPrefab;
+        [Header("PC")]
         [SerializeField] private GameObject pcComponents;
-        [SerializeField] private BuildVersion deviceToBuildOn= BuildVersion.Any;
+        [SerializeField] private GameObject pcPlayerPrefab;
 
 
         private enum BuildVersion
@@ -37,34 +39,54 @@ namespace LobbyManagement
             {
                 if(!VrUtils.IsVREnabled())
                 {
-                    Debug.LogWarning("No VR Headset found, enabling PC Components anyway");
+                    Debug.LogWarning("No VR Headset found, enabling VR Components anyway");
+                } 
+                else
+                {
+                    Debug.Log("VR enabled.");
                 }
-                vrComponents.gameObject.SetActive(true);
-                pcComponents.gameObject.SetActive(false);
+                TurnOnVR();
             } 
             else if (deviceToBuildOn == BuildVersion.PC)
             {
                 if(VrUtils.IsVREnabled())
                 {
                     Debug.LogWarning("VR found, enabling PC Components anyway");
+                } 
+                else
+                {
+                    Debug.Log("PC enabled.");
                 }
-                vrComponents.gameObject.SetActive(false);
-                pcComponents.gameObject.SetActive(true);
+                TurnOnPC();
             } 
             else if(deviceToBuildOn == BuildVersion.Any)
             {
                 if(VrUtils.IsVREnabled())
                 {
                     Debug.Log("VR Headset found, enabling VR Components");
-                    vrComponents.gameObject.SetActive(true);
-                    pcComponents.gameObject.SetActive(false);
+                    TurnOnVR();
                 } else
                 {
-                    Debug.Log("No VR Headset found, enabling VR Components");
-                    vrComponents.gameObject.SetActive(false);
-                    pcComponents.gameObject.SetActive(true);
+                    Debug.Log("No VR Headset found, enabling PC Components");
+                    TurnOnPC();
                 }
             }
+        }
+
+        private void TurnOnVR()
+        {
+            vrComponents.gameObject.SetActive(true);
+            pcComponents.gameObject.SetActive(false);
+            FindObjectOfType<CustomNetworkManager>().playerPrefab = vrPlayerPrefab.gameObject;
+            //CustomNetworkManager.singleton.playerPrefab = vrPlayerPrefab.gameObject;
+        }
+        
+        private void TurnOnPC()
+        {
+            vrComponents.gameObject.SetActive(false);
+            pcComponents.gameObject.SetActive(true);
+            FindObjectOfType<CustomNetworkManager>().playerPrefab = pcPlayerPrefab.gameObject;
+            //CustomNetworkManager.singleton.playerPrefab = pcPlayerPrefab.gameObject;
         }
     }
 }
