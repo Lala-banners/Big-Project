@@ -13,7 +13,7 @@ namespace Lara
         [SerializeField] private GameObject playerPrefab = null; //Dumpling players
 
         //List of spawn positions for players to spawn in
-        private static List<Transform> spawnPoints = new List<Transform>();
+        private static List<Transform> spawnPoints;
 
         //Server will increment number so only 1 player per spawn point
         private int nextIndex = 0;
