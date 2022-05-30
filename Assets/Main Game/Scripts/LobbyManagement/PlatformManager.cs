@@ -5,6 +5,7 @@ namespace LobbyManagement
 {
     public class PlatformManager : MonoBehaviour
     {
+        [Header("CHOOSE YOUR DEVICE TO BUILD/PLAY ON")]
         [SerializeField] private BuildVersion deviceToBuildOn  = BuildVersion.Any;
         [Header("VR")]
         [SerializeField] private GameObject vrComponents;
