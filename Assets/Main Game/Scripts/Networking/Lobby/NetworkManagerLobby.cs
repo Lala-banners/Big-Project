@@ -13,10 +13,6 @@ namespace MainGame.Networking.Lobby
         [SerializeField] private int minPlayers = 1;
         [Scene] [SerializeField] private string menuScene = string.Empty;
 
-        [Header("Maps")]
-        [SerializeField] private int numberOfRounds = 1;
-        [SerializeField] private MapSet mapSet = null;
-
         [Header("Room")]
         [SerializeField] private NetworkRoomPlayerLobby roomPlayerPrefab = null;
 
@@ -24,8 +20,6 @@ namespace MainGame.Networking.Lobby
         [SerializeField] private NetworkGamePlayerLobby gamePlayerPrefab = null;
         [SerializeField] private GameObject playerSpawnSystem = null;
         [SerializeField] private GameObject roundSystem = null;
-
-        private MapHandler mapHandler;
 
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
@@ -70,7 +64,7 @@ namespace MainGame.Networking.Lobby
                 return;
             }
 
-            if (SceneManager.GetActiveScene().name != menuScene)
+            if (SceneManager.GetActiveScene().path != menuScene)
             {
                 conn.Disconnect();
                 return;
@@ -79,7 +73,7 @@ namespace MainGame.Networking.Lobby
 
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
-            if (SceneManager.GetActiveScene().name == menuScene)
+            if (SceneManager.GetActiveScene().path == menuScene)
             {
                 bool isLeader = RoomPlayers.Count == 0;
         
@@ -135,20 +129,16 @@ namespace MainGame.Networking.Lobby
 
         public void StartGame()
         {
-            if (SceneManager.GetActiveScene().name == menuScene)
+            if (SceneManager.GetActiveScene().path == menuScene)
             {
                 if (!IsReadyToStart()) { return; }
-
-                mapHandler = new MapHandler(mapSet, numberOfRounds);
-
-                ServerChangeScene(mapHandler.NextMap);
             }
         }
 
         public override void ServerChangeScene(string newSceneName)
         {
             // From menu to game
-            if (SceneManager.GetActiveScene().name == menuScene && newSceneName.StartsWith("MainGame_Gameplay_Map"))
+            if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("MainGame_Gameplay_Map"))
             {
                 for (int i = RoomPlayers.Count - 1; i >= 0; i--)
                 {
