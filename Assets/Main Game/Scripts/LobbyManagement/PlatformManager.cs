@@ -1,5 +1,6 @@
 using Lara;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace LobbyManagement
 {
@@ -9,11 +10,11 @@ namespace LobbyManagement
         [SerializeField] private BuildVersion deviceToBuildOn  = BuildVersion.Any;
         [Header("VR")]
         [SerializeField] private GameObject vrComponents;
-        [SerializeField] private GameObject vrPlayerPrefab;
         [Header("PC")]
         [SerializeField] private GameObject pcComponents;
-        [SerializeField] private GameObject pcPlayerPrefab;
 
+        // To note the player prefab is being changed in the network manager.
+        
 
         private enum BuildVersion
         {
@@ -34,6 +35,9 @@ namespace LobbyManagement
             CheckAndEnableVR();
         }
 
+        /// <summary>
+        /// This checks what build version is selected then will swap to the relevent platform.
+        /// </summary>
         private void CheckAndEnableVR()
         {
             if(deviceToBuildOn == BuildVersion.VR)
@@ -46,7 +50,7 @@ namespace LobbyManagement
                 {
                     Debug.Log("VR enabled.");
                 }
-                TurnOnVR();
+                SwapToVR();
             } 
             else if (deviceToBuildOn == BuildVersion.PC)
             {
@@ -58,36 +62,43 @@ namespace LobbyManagement
                 {
                     Debug.Log("PC enabled.");
                 }
-                TurnOnPC();
+                SwapToPC();
             } 
             else if(deviceToBuildOn == BuildVersion.Any)
             {
                 if(VrUtils.IsVREnabled())
                 {
                     Debug.Log("VR Headset found, enabling VR Components");
-                    TurnOnVR();
+                    SwapToVR();
                 } else
                 {
                     Debug.Log("No VR Headset found, enabling PC Components");
-                    TurnOnPC();
+                    SwapToPC();
                 }
             }
         }
 
-        private void TurnOnVR()
+        /// <summary>
+        /// This will deactivate the PC Gameobjects,
+        /// activate the VR Gameobjects and
+        /// change the Player prefab to the VR one.
+        /// </summary>
+        public void SwapToVR()
         {
-            vrComponents.gameObject.SetActive(true);
+            XRSettings.enabled = true;
             pcComponents.gameObject.SetActive(false);
-            FindObjectOfType<CustomNetworkManager>().playerPrefab = vrPlayerPrefab.gameObject;
-            //CustomNetworkManager.singleton.playerPrefab = vrPlayerPrefab.gameObject;
+            vrComponents.gameObject.SetActive(true);
         }
-        
-        private void TurnOnPC()
+        /// <summary>
+        /// This will deactivate the VR Gameobjects,
+        /// activate the PC Gameobjects and
+        /// change the Player prefab to the PC one.  
+        /// </summary>
+        public void SwapToPC()
         {
+            XRSettings.enabled = false;
             vrComponents.gameObject.SetActive(false);
             pcComponents.gameObject.SetActive(true);
-            FindObjectOfType<CustomNetworkManager>().playerPrefab = pcPlayerPrefab.gameObject;
-            //CustomNetworkManager.singleton.playerPrefab = pcPlayerPrefab.gameObject;
         }
     }
 }

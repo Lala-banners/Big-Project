@@ -35,6 +35,7 @@ namespace Lara
                 isLeader = value;
                 startGameButton.gameObject.SetActive(value);
             }
+            get { return isLeader;}
         }
 
         //Only once instance of the Network Manager 

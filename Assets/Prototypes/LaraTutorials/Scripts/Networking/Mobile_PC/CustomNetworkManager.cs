@@ -20,11 +20,12 @@ namespace Lara
 
         [Header("Room")]
         [SerializeField] private PlayerLobby roomPlayerPrefab = null; //VR player = player 0
-        [SerializeField] private PlayerLobby vrPlayerPrefab = null; 
+        [SerializeField] private PlayerLobby vrRoomPlayerPrefab = null; // We aren't using right now.
 
 
         [Header("Game")]
         [SerializeField] private GamePlayer gamePlayerPrefab = null;
+        [SerializeField] private GamePlayer vrGamePlayerPrefab = null;
 
         [Space]
 
@@ -101,12 +102,17 @@ namespace Lara
                 //Tell client who the leader is
                 roomPlayerInstance.IsLeader = isLeader;
 
-                NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
-
-                //Instantiate VR Player Lobby UI
-                PlayerLobby vrPlayerObject = Instantiate(vrPlayerPrefab);
-
-                NetworkServer.AddPlayerForConnection(conn, vrPlayerPrefab.gameObject);
+                
+                NetworkServer.AddPlayerForConnection(conn, roomPlayerPrefab.gameObject);
+                
+                // NetworkServer.AddPlayerForConnection(conn, vrRoomPlayerPrefab.gameObject);
+                //
+                // NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
+                //
+                // //Instantiate VR Player Lobby UI
+                // PlayerLobby vrPlayerObject = Instantiate(vrRoomPlayerPrefab);
+                //
+                // NetworkServer.AddPlayerForConnection(conn, vrPlayerObject.gameObject);
             }
         }
 
@@ -182,12 +188,23 @@ namespace Lara
                 for (int i = RoomPlayers.Count - 1; i >= 0; i--)
                 {
                     var conn = RoomPlayers[i].connectionToClient;
-                    var gameplayInstance = Instantiate(gamePlayerPrefab);
+                    GamePlayer gameplayInstance;
+                    // If this is the VR Player/Host
+                    if(RoomPlayers[i].IsLeader)
+                    {
+                        gameplayInstance = Instantiate(vrGamePlayerPrefab);
+                    } else
+                    { 
+                        gameplayInstance = Instantiate(gamePlayerPrefab);
+                    }
                     gameplayInstance.SetDisplayName(RoomPlayers[i].DisplayName);
-
                     NetworkServer.Destroy(conn.identity.gameObject);
-
                     NetworkServer.ReplacePlayerForConnection(conn, gameplayInstance.gameObject);
+                    
+                    // if pc player 
+                    // do 
+                    // if vr/leader 
+                    // do 
                 }
             }
 
