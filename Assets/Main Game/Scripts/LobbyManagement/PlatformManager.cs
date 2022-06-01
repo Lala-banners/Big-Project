@@ -4,10 +4,17 @@ using UnityEngine.XR;
 
 namespace LobbyManagement
 {
+    /// <summary>
+    /// This is just the platform we are playing on or using.
+    /// </summary>
+    public enum PlatformPlayingOn
+    { 
+        VR, PC, Any
+    }
     public class PlatformManager : MonoBehaviour
     {
         [Header("CHOOSE YOUR DEVICE TO BUILD/PLAY ON")]
-        [SerializeField] private BuildVersion deviceToBuildOn  = BuildVersion.Any;
+        [SerializeField] private PlatformPlayingOn deviceToBuildOn  = PlatformPlayingOn.Any;
         [Header("VR")]
         [SerializeField] private GameObject vrComponents;
         [Header("PC")]
@@ -16,10 +23,6 @@ namespace LobbyManagement
         // To note the player prefab is being changed in the network manager.
         
 
-        private enum BuildVersion
-        {
-            VR, PC, Any
-        }
         private void OnValidate()
         {
             CheckAndEnableVR();
@@ -40,7 +43,7 @@ namespace LobbyManagement
         /// </summary>
         private void CheckAndEnableVR()
         {
-            if(deviceToBuildOn == BuildVersion.VR)
+            if(deviceToBuildOn == PlatformPlayingOn.VR)
             {
                 if(!VrUtils.IsVREnabled())
                 {
@@ -52,7 +55,7 @@ namespace LobbyManagement
                 }
                 SwapToVR();
             } 
-            else if (deviceToBuildOn == BuildVersion.PC)
+            else if (deviceToBuildOn == PlatformPlayingOn.PC)
             {
                 if(VrUtils.IsVREnabled())
                 {
@@ -64,7 +67,7 @@ namespace LobbyManagement
                 }
                 SwapToPC();
             } 
-            else if(deviceToBuildOn == BuildVersion.Any)
+            else if(deviceToBuildOn == PlatformPlayingOn.Any)
             {
                 if(VrUtils.IsVREnabled())
                 {
@@ -85,9 +88,19 @@ namespace LobbyManagement
         /// </summary>
         public void SwapToVR()
         {
-            XRSettings.enabled = true;
-            pcComponents.gameObject.SetActive(false);
-            vrComponents.gameObject.SetActive(true);
+            //XRSettings.enabled = true;
+            
+            VrUtils.SetVREnabled(true);
+            
+            if (pcComponents.gameObject != null) 
+                pcComponents.gameObject.SetActive(false);
+            
+            if (vrComponents.gameObject != null) 
+                vrComponents.gameObject.SetActive(true);
+
+            CustomNetworkManager customNetworkManager = FindObjectOfType<CustomNetworkManager>();
+            if (customNetworkManager != null)
+                customNetworkManager.CurrentPlatformPlayingOn = PlatformPlayingOn.VR;
         }
         /// <summary>
         /// This will deactivate the VR Gameobjects,
@@ -96,9 +109,19 @@ namespace LobbyManagement
         /// </summary>
         public void SwapToPC()
         {
-            XRSettings.enabled = false;
-            vrComponents.gameObject.SetActive(false);
-            pcComponents.gameObject.SetActive(true);
+            //XRSettings.enabled = false;
+            
+            VrUtils.SetVREnabled(false);
+
+            if (vrComponents.gameObject != null)
+                vrComponents.gameObject.SetActive(false);
+            
+            if (pcComponents.gameObject != null)
+                pcComponents.gameObject.SetActive(true);
+            
+            CustomNetworkManager customNetworkManager = FindObjectOfType<CustomNetworkManager>();
+            if (customNetworkManager != null)
+                customNetworkManager.CurrentPlatformPlayingOn = PlatformPlayingOn.PC;
         }
     }
 }

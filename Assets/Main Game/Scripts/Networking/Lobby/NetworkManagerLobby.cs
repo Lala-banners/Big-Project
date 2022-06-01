@@ -9,7 +9,8 @@ namespace MainGame.Networking.Lobby
 {
     public class NetworkManagerLobby : NetworkManager
     {
-        [SerializeField] private int minPlayers = 2;
+        [Header("Start of Custom Variables")]
+        [SerializeField] private int minPlayers = 1;
         [Scene] [SerializeField] private string menuScene = string.Empty;
 
         [Header("Maps")]
@@ -18,6 +19,7 @@ namespace MainGame.Networking.Lobby
 
         [Header("Room")]
         [SerializeField] private NetworkRoomPlayerLobby roomPlayerPrefab = null;
+        [SerializeField] private GameObject roomPlayerPrefabGameObject = null; // This is as I can't actually drag in the above prefab right now.
 
         [Header("Game")]
         [SerializeField] private NetworkGamePlayerLobby gamePlayerPrefab = null;
@@ -34,16 +36,18 @@ namespace MainGame.Networking.Lobby
         public List<NetworkRoomPlayerLobby> RoomPlayers { get; } = new List<NetworkRoomPlayerLobby>();
         public List<NetworkGamePlayerLobby> GamePlayers { get; } = new List<NetworkGamePlayerLobby>();
 
-        public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
+        public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("MainGame/SpawnablePrefabs").ToList();
 
         public override void OnStartClient()
         {
-            var spawnablePrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs");
+            GameObject[] spawnablePrefabs = Resources.LoadAll<GameObject>("MainGame/SpawnablePrefabs");
 
             foreach (var prefab in spawnablePrefabs)
             {
                 ClientScene.RegisterPrefab(prefab);
             }
+
+            roomPlayerPrefab = roomPlayerPrefabGameObject.GetComponentInChildren<NetworkRoomPlayerLobby>();
         }
 
         public override void OnClientConnect(NetworkConnection conn)
@@ -75,19 +79,19 @@ namespace MainGame.Networking.Lobby
             }
         }
 
-        // public override void OnServerAddPlayer(NetworkConnection conn)
-        // {
-        //     if (SceneManager.GetActiveScene().name == menuScene)
-        //     {
-        //         bool isLeader = RoomPlayers.Count == 0;
-        //
-        //         NetworkRoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
-        //
-        //         roomPlayerInstance.IsLeader = isLeader;
-        //
-        //         NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
-        //     }
-        // }
+        public override void OnServerAddPlayer(NetworkConnection conn)
+        {
+            if (SceneManager.GetActiveScene().name == menuScene)
+            {
+                bool isLeader = RoomPlayers.Count == 0;
+        
+                NetworkRoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
+        
+                roomPlayerInstance.IsLeader = isLeader;
+        
+                NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
+            }
+        }
 
         public override void OnServerDisconnect(NetworkConnection conn)
         {

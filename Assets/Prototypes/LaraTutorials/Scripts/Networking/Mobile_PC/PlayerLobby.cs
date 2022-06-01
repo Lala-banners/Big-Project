@@ -2,6 +2,7 @@ using UnityEngine;
 using Mirror;
 using TMPro;
 using UnityEngine.UI;
+using LobbyManagement;
 
 /// <summary>
 /// Custom Player Lobby Data
@@ -25,6 +26,7 @@ namespace Lara
         [SyncVar(hook = nameof(HandleReadyStatusChanged))]
         public bool IsReady = false;
 
+        
         //Leader is first client added in the server
         private bool isLeader;
         public bool IsLeader
@@ -38,7 +40,11 @@ namespace Lara
             get { return isLeader;}
         }
 
-        //Only once instance of the Network Manager 
+        [SyncVar(hook = nameof(HandlePlatformPlayerIsUsingChanged))]
+        /// <summary> This will tell us if they are a VR Player or PC player. </summary>
+        public PlatformPlayingOn platformPlayerIsUsing;
+
+        // Only once instance of the Network Manager 
         private CustomNetworkManager room;
         private CustomNetworkManager Room
         {
@@ -68,6 +74,10 @@ namespace Lara
             Room.RoomPlayers.Remove(this);
 
             UpdateDisplay();
+        }
+        public void HandlePlatformPlayerIsUsingChanged(PlatformPlayingOn oldValue, PlatformPlayingOn newValue)
+        {
+            Debug.Log($"Changed platform to {newValue}");
         }
 
         public void HandleReadyStatusChanged(bool oldValue, bool newValue) => UpdateDisplay();

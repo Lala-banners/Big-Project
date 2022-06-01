@@ -6,12 +6,23 @@ using System;
 using UnityEngine.SceneManagement;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
+using LobbyManagement;
 
 namespace Lara
 {
     /// <summary> Custom Network Manager </summary>
     public class CustomNetworkManager : NetworkManager
     {
+        [Header("<-- Start of custom options -->")]
+        // The platform we are currently playing or building on.
+        [SerializeField] private PlatformPlayingOn currentPlatformPlayingOn = PlatformPlayingOn.PC;
+        
+        public PlatformPlayingOn CurrentPlatformPlayingOn
+        {
+            get => currentPlatformPlayingOn;
+            set => currentPlatformPlayingOn = value;
+        }
+        
         //Minimum amount of players
         [SerializeField] private int minPlayers = 2; //Will be changed to 4 for dumpling
 
@@ -43,7 +54,7 @@ namespace Lara
         public List<GamePlayer> GamePlayers { get; }
 
         public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("Assets/Prototypes/LaraTutorials/Resources/SpawnablePrefabs").ToList();
-
+        
         public override void OnStartClient()
         {
             var spawnablePrefabs = Resources.LoadAll<GameObject>("Assets/Prototypes/LaraTutorials/Resources/SpawnablePrefabs");
@@ -102,6 +113,7 @@ namespace Lara
                 //Tell client who the leader is
                 roomPlayerInstance.IsLeader = isLeader;
 
+                roomPlayerInstance.platformPlayerIsUsing = currentPlatformPlayingOn;
                 
                 NetworkServer.AddPlayerForConnection(conn, roomPlayerPrefab.gameObject);
                 
@@ -189,22 +201,31 @@ namespace Lara
                 {
                     var conn = RoomPlayers[i].connectionToClient;
                     GamePlayer gameplayInstance;
+                    
+                    
                     // If this is the VR Player/Host
-                    if(RoomPlayers[i].IsLeader)
+                    if(RoomPlayers[i].platformPlayerIsUsing == PlatformPlayingOn.VR)
                     {
+                        // Spawn in the VR player if we are the host.
                         gameplayInstance = Instantiate(vrGamePlayerPrefab);
-                    } else
+                    } 
+                    else if (RoomPlayers[i].platformPlayerIsUsing == PlatformPlayingOn.PC)
                     { 
+                        // Spawn in the PC player if we are playing on PC.
+                        gameplayInstance = Instantiate(gamePlayerPrefab);
+                    } 
+                    else
+                    {
+                        // If the player had no platform selected.
+                        Debug.LogError("No platform chosen to play on, PLZ FIX!!!\n" + 
+                                       "Assuming they are a PC Player and spawning them in");
                         gameplayInstance = Instantiate(gamePlayerPrefab);
                     }
+                    
+                    
                     gameplayInstance.SetDisplayName(RoomPlayers[i].DisplayName);
                     NetworkServer.Destroy(conn.identity.gameObject);
                     NetworkServer.ReplacePlayerForConnection(conn, gameplayInstance.gameObject);
-                    
-                    // if pc player 
-                    // do 
-                    // if vr/leader 
-                    // do 
                 }
             }
 
