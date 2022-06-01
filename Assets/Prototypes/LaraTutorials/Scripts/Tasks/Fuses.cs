@@ -1,16 +1,16 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Fuses : MonoBehaviour
 {
     [Header("Power Fuses")]
-    public GameObject fuseboxParent;
     //[SerializeField] private Rigidbody rb;
     [SerializeField] private List<Transform> hidingSpots = new List<Transform>();
-    public List<GameObject> fuseObject;
-    
-    [Header("Player Stuff")]
-    public Transform newParent;
+    public GameObject fuseObject;
+
+    [Header("Player Stuff")] 
+    public GameObject player;
     public int index; //ensure that only one fuse at a time can be added to a hiding place
 
     private void Awake()
@@ -22,34 +22,24 @@ public class Fuses : MonoBehaviour
     void Start()
     {
         //SetUp();
-    }
-
-    /// <summary>
-    /// Set up the fuses as parented to the fuse box and prepared for interaction with dumpling player
-    /// </summary>
-    public void SetUp()
-    {
-        /*rb.constraints = RigidbodyConstraints.FreezeAll;
-        rb.useGravity = false;*/
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     /// <summary>
     /// Fake Inventory to attach to player
     /// </summary>
-    public void AddToPlayer()
+    public void AddToPlayer(Transform newParent)
     {
         index++;
-        fuseObject[index].transform.SetParent(newParent);
+        gameObject.transform.SetParent(newParent.transform, true);
         gameObject.SetActive(false);
     }
-    
-    /// <summary>
-    /// Remove fuses from player
-    /// </summary>
-    public void RemoveFromPlayer()
+
+    private void OnTriggerEnter(Collider other)
     {
-        index--;
-        fuseObject[index].transform.SetParent(null);
-        gameObject.SetActive(true);
+        if (other.gameObject.name == "Cube")
+        {
+            AddToPlayer(player.transform);
+        }
     }
 }

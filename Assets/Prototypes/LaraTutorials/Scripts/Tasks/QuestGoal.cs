@@ -3,7 +3,7 @@
 public enum QuestState
 {
     Active,
-    Completed,
+    Completed
 }
 
 public enum GoalType
@@ -21,7 +21,7 @@ public abstract class QuestGoal : MonoBehaviour
     public int currentAmount;
     public bool isReached;
 
-    public abstract bool isCompleted();
+    //public abstract bool isCompleted();
 
     public void ItemCollected(int id)
     {
