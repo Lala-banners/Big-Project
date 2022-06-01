@@ -23,7 +23,7 @@ public class PickUp : MonoBehaviour
         goal = FindObjectOfType<QuestGoal>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.TryGetComponent(out InWorldItem worldItem))
         {
@@ -33,9 +33,9 @@ public class PickUp : MonoBehaviour
                 worldItem.transform.SetParent(transform);
                 worldItem.gameObject.SetActive(false);
                 countIndex++;
-                powerIcon.color = Color.blue;
+                /*powerIcon.color = Color.blue;
                 countText.text = "x" + countIndex;
-                print("Collectable has been picked up");
+                print("Collectable has been picked up");*/
 
                 //Update Goal
                 goal.ItemCollected(0);
@@ -44,7 +44,6 @@ public class PickUp : MonoBehaviour
 
         if (other.gameObject.name == "Hiding Spot (1)")
         {
-            //countIndex--;
             fuses[0].gameObject.transform.SetParent(hidingSpots[0]);
             fuses[0].gameObject.transform.position = hidingSpots[0].transform.position;
             fuses[0].gameObject.SetActive(true);
@@ -52,7 +51,6 @@ public class PickUp : MonoBehaviour
 
         if (other.gameObject.name == "Hiding Spot (2)")
         {
-            //countIndex--;
             fuses[1].gameObject.transform.SetParent(hidingSpots[1]);
             fuses[1].gameObject.transform.position = hidingSpots[1].transform.position;
             fuses[1].gameObject.SetActive(true);
@@ -60,7 +58,6 @@ public class PickUp : MonoBehaviour
 
         if (other.gameObject.name == "Hiding Spot (3)")
         {
-            //countIndex--;
             fuses[2].gameObject.transform.SetParent(hidingSpots[2]);
             fuses[2].gameObject.transform.position = hidingSpots[2].transform.position;
             fuses[2].gameObject.SetActive(true);
@@ -68,7 +65,6 @@ public class PickUp : MonoBehaviour
 
         if (other.gameObject.name == "Hiding Spot (4)")
         {
-            //countIndex--;
             fuses[3].gameObject.transform.SetParent(hidingSpots[3]);
             fuses[3].gameObject.transform.position = hidingSpots[3].transform.position;
             fuses[3].gameObject.SetActive(true);
