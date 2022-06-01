@@ -19,7 +19,6 @@ namespace MainGame.Networking.Lobby
 
         [Header("Room")]
         [SerializeField] private NetworkRoomPlayerLobby roomPlayerPrefab = null;
-        [SerializeField] private GameObject roomPlayerPrefabGameObject = null; // This is as I can't actually drag in the above prefab right now.
 
         [Header("Game")]
         [SerializeField] private NetworkGamePlayerLobby gamePlayerPrefab = null;
@@ -47,7 +46,6 @@ namespace MainGame.Networking.Lobby
                 ClientScene.RegisterPrefab(prefab);
             }
 
-            roomPlayerPrefab = roomPlayerPrefabGameObject.GetComponentInChildren<NetworkRoomPlayerLobby>();
         }
 
         public override void OnClientConnect(NetworkConnection conn)
@@ -150,7 +148,7 @@ namespace MainGame.Networking.Lobby
         public override void ServerChangeScene(string newSceneName)
         {
             // From menu to game
-            if (SceneManager.GetActiveScene().name == menuScene && newSceneName.StartsWith("Scene_Map"))
+            if (SceneManager.GetActiveScene().name == menuScene && newSceneName.StartsWith("MainGame_Gameplay_Map"))
             {
                 for (int i = RoomPlayers.Count - 1; i >= 0; i--)
                 {
