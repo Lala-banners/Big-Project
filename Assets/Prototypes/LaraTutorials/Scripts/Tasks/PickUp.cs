@@ -14,7 +14,7 @@ public class PickUp : MonoBehaviour
     public TMP_Text countText;
     private int countIndex;
 
-    private List<GameObject> fuses;
+    [SerializeField] private List<GameObject> fuses;
     [SerializeField] private List<Transform> hidingSpots;
     private int nextHidingSpot;
 
@@ -47,6 +47,14 @@ public class PickUp : MonoBehaviour
             if (spot != null)
             {
                 Debug.Log("Collided with hiding spot");
+                
+                for (int i = 0; i < hidingSpots.Count; i++)
+                {
+                    Debug.Log("Parented to spot");
+                    fuses[0].gameObject.transform.SetParent(hidingSpots[0]);
+                    fuses[0].gameObject.SetActive(true);
+                }
+                
             }
         }
     }

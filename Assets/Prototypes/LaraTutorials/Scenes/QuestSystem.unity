@@ -254,6 +254,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerIcon: {fileID: 1045580767}
   countText: {fileID: 2131658996}
+  fuses:
+  - {fileID: 324743580}
+  - {fileID: 277505114}
+  - {fileID: 2049733606}
+  - {fileID: 134015760}
   hidingSpots:
   - {fileID: 827404552}
   - {fileID: 429892974}
@@ -1485,7 +1490,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827404551}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
