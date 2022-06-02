@@ -16,8 +16,8 @@ namespace MainGame.Networking.Lobby
         {
             enabled = true;
 
-            InputManager.Controls.Lara_Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
-            InputManager.Controls.Lara_Player.Move.performed += ctx => ResetMovement();
+            //InputManager.Controls.Lara_Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
+            //InputManager.Controls.Lara_Player.Move.performed += ctx => ResetMovement();
             // SWAPPED BELLOW WITH ABOVE.
             // InputManager.Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
             // InputManager.Controls.Player.Move.canceled += ctx => ResetMovement();

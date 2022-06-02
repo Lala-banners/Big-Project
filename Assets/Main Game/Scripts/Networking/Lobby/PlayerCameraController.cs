@@ -1,5 +1,5 @@
 ﻿using Cinemachine;
-using MainGame.Networking.Lobby.Inputs;
+using MainGame.Inputs;
 using Mirror;
 using UnityEngine;
 
@@ -13,13 +13,13 @@ namespace MainGame.Networking.Lobby
         [SerializeField] private Transform playerTransform = null;
         [SerializeField] private CinemachineVirtualCamera virtualCamera = null;
 
-        private Controls controls;
-        private Controls Controls
+        private DumplingControls dumplingControls;
+        private DumplingControls DumplingControls
         {
             get
             {
-                if (controls != null) { return controls; }
-                return controls = new Controls();
+                if (dumplingControls != null) { return dumplingControls; }
+                return dumplingControls = new DumplingControls();
             }
         }
 
@@ -33,13 +33,13 @@ namespace MainGame.Networking.Lobby
 
             enabled = true;
 
-            Controls.Lara_Player.Look.performed += ctx => Look(ctx.ReadValue<Vector2>());
+            DumplingControls.DumplingPlayer.Look.performed += ctx => Look(ctx.ReadValue<Vector2>());
         }
 
         [ClientCallback]
-        private void OnEnable() => Controls.Enable();
+        private void OnEnable() => DumplingControls.Enable();
         [ClientCallback]
-        private void OnDisable() => Controls.Disable();
+        private void OnDisable() => DumplingControls.Disable();
 
         private void Look(Vector2 lookAxis)
         {

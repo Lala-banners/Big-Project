@@ -70,7 +70,7 @@ namespace MainGame.Networking.Lobby
         [ClientRpc]
         private void RpcStartRound()
         {
-            InputManager.Remove(ActionMapNames.Player);
+            //InputManager.Remove(ActionMapNames.Player);
         }
 
         #endregion
