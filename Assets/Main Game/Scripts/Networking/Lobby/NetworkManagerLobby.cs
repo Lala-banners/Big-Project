@@ -19,7 +19,6 @@ namespace MainGame.Networking.Lobby
         [Header("Game")]
         [SerializeField] private NetworkGamePlayerLobby gamePlayerPrefab = null;
         [SerializeField] private GameObject playerSpawnSystem = null;
-        [SerializeField] private GameObject roundSystem = null;
 
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
@@ -29,11 +28,14 @@ namespace MainGame.Networking.Lobby
         public List<NetworkRoomPlayerLobby> RoomPlayers { get; } = new List<NetworkRoomPlayerLobby>();
         public List<NetworkGamePlayerLobby> GamePlayers { get; } = new List<NetworkGamePlayerLobby>();
 
-        public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("MainGame/SpawnablePrefabs").ToList();
+        public override void OnStartServer()
+        {
+            spawnPrefabs = Resources.LoadAll<GameObject>("MainGame/SpawnablePrefabs").ToList();
+        }
 
         public override void OnStartClient()
         {
-            GameObject[] spawnablePrefabs = Resources.LoadAll<GameObject>("MainGame/SpawnablePrefabs");
+            var spawnablePrefabs = Resources.LoadAll<GameObject>("MainGame/SpawnablePrefabs");
 
             foreach (var prefab in spawnablePrefabs)
             {
@@ -132,6 +134,8 @@ namespace MainGame.Networking.Lobby
             if (SceneManager.GetActiveScene().path == menuScene)
             {
                 if (!IsReadyToStart()) { return; }
+                
+                ServerChangeScene("MainGame_Gameplay_Map_01");
             }
         }
 
@@ -157,13 +161,10 @@ namespace MainGame.Networking.Lobby
 
         public override void OnServerSceneChanged(string sceneName)
         {
-            if (sceneName.StartsWith("Scene_Map"))
+            if (sceneName.StartsWith("MainGame_Gameplay_Map"))
             {
                 GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
                 NetworkServer.Spawn(playerSpawnSystemInstance);
-
-                GameObject roundSystemInstance = Instantiate(roundSystem);
-                NetworkServer.Spawn(roundSystemInstance);
             }
         }
 

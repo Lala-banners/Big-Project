@@ -21,18 +21,11 @@ namespace LobbyManagement
         [SerializeField] private GameObject pcComponents;
 
         // To note the player prefab is being changed in the network manager.
+
         
-
-        private void OnValidate()
-        {
-            CheckAndEnableVR();
-        }
-
-        private void OnEnable()
-        {
-            CheckAndEnableVR();
-        }
-
+        /// <summary>
+        /// Used to do this on Validate but was causing issues.
+        /// </summary>
         private void Awake()
         {
             CheckAndEnableVR();

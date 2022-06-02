@@ -51,7 +51,7 @@ namespace MainGame.Networking.Lobby
 
             UpdateDisplay();
         }
-
+        
         public override void OnStopClient()
         {
             Room.RoomPlayers.Remove(this);
