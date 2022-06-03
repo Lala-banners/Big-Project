@@ -622,7 +622,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6359617416352948292, guid: 26e5edf15e92217488122ac05e38c435, type: 3}
       propertyPath: isUsingVR
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6359617416352948293, guid: 26e5edf15e92217488122ac05e38c435, type: 3}
       propertyPath: m_RootOrder

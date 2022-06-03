@@ -64,4 +64,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  VRPlayerPrefab: {fileID: 107946, guid: ae2a6dfd857c01a47970647ff945d4d1, type: 3}
+  VRPlayerPrefab: {fileID: 7216927618166858877, guid: 3bca3e747f678b049b5df43ec40b7ab0, type: 3}
+  usingVRRig: 0
