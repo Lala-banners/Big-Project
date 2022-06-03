@@ -173,20 +173,18 @@ namespace MainGame.Networking.Lobby
         {
             if (sceneName.StartsWith("MainGame_Gameplay_Map"))
             {
-                GameObject VRSpawnSystemInstance = Instantiate(VRSpawnSystem);
-                NetworkServer.Spawn(VRSpawnSystemInstance);
-                // if (isUsingVR)
-                // {
-                //     // Spawns In VR
-                //     GameObject VRSpawnSystemInstance = Instantiate(VRSpawnSystem);
-                //     NetworkServer.Spawn(VRSpawnSystemInstance);
-                // } 
-                // else
-                // {
-                //     // Spawns in PC
-                //     GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
-                //     NetworkServer.Spawn(playerSpawnSystemInstance);
-                // }
+                if (isUsingVR)
+                {
+                    // Spawns In VR
+                    GameObject VRSpawnSystemInstance = Instantiate(VRSpawnSystem);
+                    NetworkServer.Spawn(VRSpawnSystemInstance);
+                } 
+                else
+                {
+                    // Spawns in PC
+                    GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
+                    NetworkServer.Spawn(playerSpawnSystemInstance);
+                }
             }
         }
 

@@ -3,6 +3,7 @@ using Mirror;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MainGame.Networking.Lobby
 {
@@ -37,6 +38,12 @@ namespace MainGame.Networking.Lobby
         [Server]
         public void SpawnVRPlayer(NetworkConnection conn)
         {
+            GameObject defaultCam = FindObjectOfType<Camera>().gameObject;
+            Destroy(defaultCam);
+            
+            GameObject defaultEventSystem = FindObjectOfType<EventSystem>().gameObject;
+            Destroy(defaultEventSystem);
+            
             Transform spawnPoint = VRSpawnPoints.ElementAtOrDefault(nextIndex);
 
             if (spawnPoint == null)
