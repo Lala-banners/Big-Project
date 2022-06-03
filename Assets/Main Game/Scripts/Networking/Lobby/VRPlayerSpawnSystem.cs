@@ -10,6 +10,7 @@ namespace MainGame.Networking.Lobby
     public class VRPlayerSpawnSystem : NetworkBehaviour
     {
         [SerializeField] private GameObject VRPlayerPrefab = null;
+        [SerializeField] private bool usingVRRig;
 
         private static List<Transform> VRSpawnPoints = new List<Transform>();
 
@@ -27,6 +28,14 @@ namespace MainGame.Networking.Lobby
 
         public override void OnStartClient()
         {
+            if(usingVRRig)
+            {
+                GameObject defaultCam = FindObjectOfType<Camera>().gameObject;
+                Destroy(defaultCam);
+
+                GameObject defaultEventSystem = FindObjectOfType<EventSystem>().gameObject;
+                Destroy(defaultEventSystem);
+            }
             // TODO Add in action maps and enable them for the client;
             // InputManager.Add(ActionMapNames.Dumpling);
             // InputManager.Controls.Dumpling.Look.Enable();
@@ -38,12 +47,6 @@ namespace MainGame.Networking.Lobby
         [Server]
         public void SpawnVRPlayer(NetworkConnection conn)
         {
-            GameObject defaultCam = FindObjectOfType<Camera>().gameObject;
-            Destroy(defaultCam);
-            
-            GameObject defaultEventSystem = FindObjectOfType<EventSystem>().gameObject;
-            Destroy(defaultEventSystem);
-            
             Transform spawnPoint = VRSpawnPoints.ElementAtOrDefault(nextIndex);
 
             if (spawnPoint == null)
