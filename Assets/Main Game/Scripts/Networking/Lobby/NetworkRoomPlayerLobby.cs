@@ -11,13 +11,18 @@ namespace MainGame.Networking.Lobby
         [SerializeField] private GameObject lobbyUI = null;
         [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[4];
         [SerializeField] private TMP_Text[] playerReadyTexts = new TMP_Text[4];
+        [SerializeField] private GameObject[] playerUsingVRTexts = new GameObject[4];
         [SerializeField] private Button startGameButton = null;
+        [SerializeField] private Button swapPlatformButton = null;
+        
 
         [SyncVar(hook = nameof(HandleDisplayNameChanged))]
         public string DisplayName = "Loading...";
         [SyncVar(hook = nameof(HandleReadyStatusChanged))]
         public bool IsReady = false;
-
+        [SyncVar(hook = nameof(HandleUsingVRChanged))]
+        public bool IsPlayerUsingVR = false;
+        
         private bool isLeader;
         public bool IsLeader
         {
@@ -28,6 +33,7 @@ namespace MainGame.Networking.Lobby
             }
         }
 
+        
         private NetworkManagerLobby room;
         private NetworkManagerLobby Room
         {
@@ -61,6 +67,8 @@ namespace MainGame.Networking.Lobby
 
         public void HandleReadyStatusChanged(bool oldValue, bool newValue) => UpdateDisplay();
         public void HandleDisplayNameChanged(string oldValue, string newValue) => UpdateDisplay();
+        public void HandleUsingVRChanged(bool oldValue, bool newValue) => UpdateDisplay();
+
 
         private void UpdateDisplay()
         {
@@ -74,7 +82,6 @@ namespace MainGame.Networking.Lobby
                         break;
                     }
                 }
-
                 return;
             }
 
@@ -82,6 +89,7 @@ namespace MainGame.Networking.Lobby
             {
                 playerNameTexts[i].text = "Waiting For Player...";
                 playerReadyTexts[i].text = string.Empty;
+                playerUsingVRTexts[i].SetActive(false);
             }
 
             for (int i = 0; i < Room.RoomPlayers.Count; i++)
@@ -90,16 +98,23 @@ namespace MainGame.Networking.Lobby
                 playerReadyTexts[i].text = Room.RoomPlayers[i].IsReady ?
                     "<color=green>Ready</color>" :
                     "<color=red>Not Ready</color>";
+                playerUsingVRTexts[i].SetActive(Room.RoomPlayers[i].IsPlayerUsingVR);
             }
         }
 
         public void HandleReadyToStart(bool readyToStart)
         {
             if (!isLeader) { return; }
-
+            
             startGameButton.interactable = readyToStart;
         }
 
+        // --------------------------
+        public void HandleUsingVR(bool readyToStart)
+        {
+            //startGameButton.interactable = readyToStart;
+        }
+        
         [Command]
         private void CmdSetDisplayName(string displayName)
         {
@@ -114,6 +129,17 @@ namespace MainGame.Networking.Lobby
             Room.NotifyPlayersOfReadyState();
         }
 
+        // --------------------------
+        [Command]
+        public void CmdSwapPlatform()
+        {
+            IsPlayerUsingVR = !IsPlayerUsingVR;
+
+            Debug.Log($"Is player now using VR = {IsPlayerUsingVR}");
+            Room.NotifyPlayersOfPlatformState();
+        }
+        
+        
         [Command]
         public void CmdStartGame()
         {

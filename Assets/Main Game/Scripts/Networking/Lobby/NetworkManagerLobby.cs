@@ -116,6 +116,27 @@ namespace MainGame.Networking.Lobby
                 player.HandleReadyToStart(IsReadyToStart());
             }
         }
+        
+        // --------------------------
+        public void NotifyPlayersOfPlatformState()
+        {
+            foreach (var player in RoomPlayers)
+            {
+                player.HandleUsingVR(IsUsingVR());
+            }
+        }
+        
+        // --------------------------
+        private bool IsUsingVR()
+        {
+            
+            foreach (var player in RoomPlayers)
+            {
+                if (!player.IsReady) { return false; }
+            }
+
+            return true;
+        }
 
         private bool IsReadyToStart()
         {
