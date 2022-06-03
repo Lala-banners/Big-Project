@@ -19,7 +19,9 @@ namespace MainGame.Networking.Lobby
         [Header("Game")]
         [SerializeField] private NetworkGamePlayerLobby gamePlayerPrefab = null;
         [SerializeField] private GameObject playerSpawnSystem = null;
-
+        [SerializeField] private GameObject VRSpawnSystem = null;
+        [SerializeField] private bool isUsingVR = false;
+        
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
         public static event Action<NetworkConnection> OnServerReadied;
@@ -118,25 +120,12 @@ namespace MainGame.Networking.Lobby
         }
         
         // --------------------------
-        public void NotifyPlayersOfPlatformState()
+        public void ChangePlatformPlayerIsUsing()
         {
-            foreach (var player in RoomPlayers)
-            {
-                player.HandleUsingVR(IsUsingVR());
-            }
+            isUsingVR = !isUsingVR;
         }
         
-        // --------------------------
-        private bool IsUsingVR()
-        {
-            
-            foreach (var player in RoomPlayers)
-            {
-                if (!player.IsReady) { return false; }
-            }
-
-            return true;
-        }
+       
 
         private bool IsReadyToStart()
         {
@@ -167,12 +156,12 @@ namespace MainGame.Networking.Lobby
             {
                 for (int i = RoomPlayers.Count - 1; i >= 0; i--)
                 {
+                    // If PC spawn in PC player
+                    // If VR spawn in VR player
                     var conn = RoomPlayers[i].connectionToClient;
-                    var gameplayerInstance = Instantiate(gamePlayerPrefab);
+                    NetworkGamePlayerLobby gameplayerInstance = Instantiate(gamePlayerPrefab);
                     gameplayerInstance.SetDisplayName(RoomPlayers[i].DisplayName);
-
                     NetworkServer.Destroy(conn.identity.gameObject);
-
                     NetworkServer.ReplacePlayerForConnection(conn, gameplayerInstance.gameObject);
                 }
             }
@@ -184,8 +173,18 @@ namespace MainGame.Networking.Lobby
         {
             if (sceneName.StartsWith("MainGame_Gameplay_Map"))
             {
-                GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
-                NetworkServer.Spawn(playerSpawnSystemInstance);
+                if(isUsingVR)
+                {
+                    // Spawns In VR
+                    GameObject VRSpawnSystemInstance = Instantiate(VRSpawnSystem);
+                    NetworkServer.Spawn(VRSpawnSystemInstance);
+                } 
+                else
+                {
+                    // Spawns in PC
+                    GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
+                    NetworkServer.Spawn(playerSpawnSystemInstance);
+                }
             }
         }
 

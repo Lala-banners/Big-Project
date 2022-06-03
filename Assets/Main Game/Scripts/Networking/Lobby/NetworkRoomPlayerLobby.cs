@@ -109,11 +109,6 @@ namespace MainGame.Networking.Lobby
             startGameButton.interactable = readyToStart;
         }
 
-        // --------------------------
-        public void HandleUsingVR(bool readyToStart)
-        {
-            //startGameButton.interactable = readyToStart;
-        }
         
         [Command]
         private void CmdSetDisplayName(string displayName)
@@ -136,7 +131,7 @@ namespace MainGame.Networking.Lobby
             IsPlayerUsingVR = !IsPlayerUsingVR;
 
             Debug.Log($"Is player now using VR = {IsPlayerUsingVR}");
-            Room.NotifyPlayersOfPlatformState();
+            Room.ChangePlatformPlayerIsUsing();
         }
         
         
