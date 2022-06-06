@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ObjectPoolItem
 {
-    //Can now add multiple powerups to the pool to be instantiated with tags
+    //Can now add multiple pick up items to the pool to be instantiated with tags
     [Tooltip("The object to pool.")] public GameObject objectToPool;
     [Tooltip("The initial amount to spawn.")] public int amountToPool;
     [Tooltip("When the initial amount of objects have been used, do you want to spawn more?")] public bool shouldExpand;
@@ -30,7 +30,7 @@ public class ObjectPool : MonoBehaviour
         {
             for (int i = 0; i < item.amountToPool; i++)
             {
-                GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                GameObject obj = Instantiate(item.objectToPool);
                 obj.SetActive(false);
                 pooledObjects.Add(obj);
             }
@@ -55,7 +55,7 @@ public class ObjectPool : MonoBehaviour
             {
                 if (item.shouldExpand)
                 {
-                    GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                    GameObject obj = Instantiate(item.objectToPool);
                     obj.SetActive(false);
                     pooledObjects.Add(obj);
                     return obj;
