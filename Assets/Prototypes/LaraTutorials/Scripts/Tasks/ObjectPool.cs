@@ -13,7 +13,7 @@ public class ObjectPoolItem
 
 public class ObjectPool : MonoBehaviour
 {
-    public static Pool instance;
+    public static ObjectPool instance;
     public List<GameObject> pooledObjects;
     public List<ObjectPoolItem> itemsToPool;
     public Transform spawnPos;

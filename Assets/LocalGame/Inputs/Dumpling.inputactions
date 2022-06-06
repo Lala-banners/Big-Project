@@ -745,61 +745,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "Xbox Controls",
-            "id": "5391aac1-6f1e-484d-b72f-56dec088e364",
-            "actions": [
-                {
-                    "name": "Jumping",
-                    "type": "Button",
-                    "id": "2c657025-86f2-4f0b-8e7b-6869d4f14bb1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Movement",
-                    "type": "PassThrough",
-                    "id": "e2d5bc25-fa27-42de-b11b-004b4ee1acd2",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Looking X",
-                    "type": "PassThrough",
-                    "id": "03ababeb-8c0b-4ab5-acd5-c143cc588621",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Looking Y",
-                    "type": "PassThrough",
-                    "id": "573b42b7-3bad-4ba1-9a9c-82b51e3d81a7",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "2D Vector",
-                    "id": "2c1547c7-1065-4fea-a499-249ce4f08367",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": [
