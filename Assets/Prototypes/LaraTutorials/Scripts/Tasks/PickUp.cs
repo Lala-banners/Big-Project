@@ -1,15 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class PickUp : MonoBehaviour
 {
     private QuestGoal goal;
-    public Image powerIcon;
-    public TMP_Text countText;
-    private int countIndex;
-
     [SerializeField] private List<GameObject> fuses;
     [SerializeField] private List<Transform> hidingSpots;
     private int nextHidingSpot;
@@ -28,7 +23,6 @@ public class PickUp : MonoBehaviour
                 //Update player HUD
                 worldItem.transform.SetParent(transform);
                 worldItem.gameObject.SetActive(false);
-                countIndex++;
 
                 //Update Goal
                 goal.ItemCollected(0);
