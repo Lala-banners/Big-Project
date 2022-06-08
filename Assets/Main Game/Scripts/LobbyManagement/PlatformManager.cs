@@ -91,9 +91,9 @@ namespace LobbyManagement
             if (vrComponents.gameObject != null) 
                 vrComponents.gameObject.SetActive(true);
 
-            CustomNetworkManager customNetworkManager = FindObjectOfType<CustomNetworkManager>();
+            /*CustomNetworkManager customNetworkManager = FindObjectOfType<CustomNetworkManager>();
             if (customNetworkManager != null)
-                customNetworkManager.CurrentPlatformPlayingOn = PlatformPlayingOn.VR;
+                customNetworkManager.CurrentPlatformPlayingOn = PlatformPlayingOn.VR;*/
         }
         /// <summary>
         /// This will deactivate the VR Gameobjects,
@@ -112,9 +112,9 @@ namespace LobbyManagement
             if (pcComponents.gameObject != null)
                 pcComponents.gameObject.SetActive(true);
             
-            CustomNetworkManager customNetworkManager = FindObjectOfType<CustomNetworkManager>();
+            /*CustomNetworkManager customNetworkManager = FindObjectOfType<CustomNetworkManager>();
             if (customNetworkManager != null)
-                customNetworkManager.CurrentPlatformPlayingOn = PlatformPlayingOn.PC;
+                customNetworkManager.CurrentPlatformPlayingOn = PlatformPlayingOn.PC;*/
         }
     }
 }
