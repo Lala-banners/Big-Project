@@ -8,12 +8,14 @@ public class QuestManager : MonoBehaviour
     public GameObject questWindow;
     public TMP_Text titleText, descriptionText, experienceText, goldText;
 
-    private void Start()
+    private void Awake()
     {
+        //curTask = GameObject.Find("Quest Goals").GetComponent<Task>();
+        questWindow = GameObject.Find("PlayerHUD");
         OpenQuestWindow();
     }
 
-    public void OpenQuestWindow()
+    private void OpenQuestWindow()
     {
         questWindow.SetActive(true);
         titleText.text = curTask.title;
