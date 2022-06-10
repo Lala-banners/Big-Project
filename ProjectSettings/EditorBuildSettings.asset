@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Main Game/Scenes/MainGame_Lobby.unity
+    path: Assets/Main Game/Scenes/MainGame_MainMenu.unity
     guid: d7a14ccf44f5fa64baef60c8c0dc4785
-  - enabled: 1
-    path: Assets/Main Game/Scenes/MainGame_Gameplay_Map_01.unity
-    guid: b3b0fd9c92a162c4db69d70911140512
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 47da7b24797423148b6169eb996a236c, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 65196a412faa93e4eafd407cb4544232, type: 2}
