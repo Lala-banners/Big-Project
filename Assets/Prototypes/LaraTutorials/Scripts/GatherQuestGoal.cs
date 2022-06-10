@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [System.Serializable]
@@ -19,22 +20,7 @@ public class GatherQuestGoal : QuestGoal
             }
         }
     }
-
-    public void DropItem(int id)
-    {
-        if (goalType == GoalType.Gather && id == itemId)
-        {
-            currentAmount--;
-            requiredAmount = 0;
-            if (currentAmount <= 0)
-            {
-                isReached = true;
-                questState = QuestState.Completed;
-                Debug.Log("Drop item completed");
-            }
-        }
-    }
-
+    
     //Each quest will have different way of being completed
     public override bool isCompleted()
     {

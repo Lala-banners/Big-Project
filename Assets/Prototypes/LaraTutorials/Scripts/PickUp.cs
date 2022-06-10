@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     private GatherQuestGoal gatherGoal;
+    private HideQuest hideQuest;
     public Transform hidingSpot1, hidingSpot2,hidingSpot3, hidingSpot4;
     public GameObject[] fuseObject;
 
@@ -14,25 +15,7 @@ public class PickUp : MonoBehaviour
     private void Start()
     {
         gatherGoal = FindObjectOfType<GatherQuestGoal>();
-    }
-
-    public void Interact()
-    {
-        Ray ray = new Ray(transform.position + transform.forward * 0.5f, transform.forward); //Creates line from player to infinity 
-        RaycastHit hitInfo; //Get back info about what we hit
-        
-        int layerMask = LayerMask.NameToLayer("Interactable");
-        
-        layerMask = 1 << layerMask;
-
-        //If Ray hits something
-        if (Physics.Raycast(ray, out hitInfo, 10f, layerMask))
-        {
-            if (hitInfo.collider.TryGetComponent(out InWorldItem item))
-            {
-                //Debug.Log(item.name);
-            }
-        }
+        hideQuest = FindObjectOfType<HideQuest>();
     }
 
     // Collect Fuse
@@ -57,7 +40,7 @@ public class PickUp : MonoBehaviour
             fuseObject[index].transform.SetParent(parent, false);
             fuseObject[index].transform.localPosition = new Vector3(0, 0, 0);
             fuseObject[index].layer = LayerMask.NameToLayer("ChefInteractable");
-            //gatherGoal.DropItem(0);
+            hideQuest.DropItem(0);
         }
     }
 }
