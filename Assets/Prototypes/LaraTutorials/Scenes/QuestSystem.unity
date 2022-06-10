@@ -283,6 +283,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d80ca683a3cb54094e8619c7c3985c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hidingSpot1: {fileID: 827404552}
+  hidingSpot2: {fileID: 689388974}
+  hidingSpot3: {fileID: 1859405484}
+  hidingSpot4: {fileID: 1048255465}
+  fuseObject:
+  - {fileID: 7397079867996984844}
+  - {fileID: 7397079867391417645}
+  - {fileID: 7397079867311800135}
+  - {fileID: 7397079868108842979}
 --- !u!1 &179324693
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,8 +730,8 @@ MonoBehaviour:
   requiredLevel: 0
   item:
     name: Fuse
-    description: 
-    value: 0
+    description: Used to power the generator.
+    value: 1
     amount: 0
     icon: {fileID: 0}
     mesh: {fileID: 7397079867996984844}
@@ -773,7 +782,7 @@ GameObject:
   - component: {fileID: 689388976}
   - component: {fileID: 689388979}
   m_Layer: 0
-  m_Name: Hiding Spot (2)
+  m_Name: Hiding Spot 2
   m_TagString: HidingSpot
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -787,7 +796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689388973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11.38}
+  m_LocalPosition: {x: 10.25, y: 0, z: 0.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -884,7 +893,7 @@ GameObject:
   - component: {fileID: 827404554}
   - component: {fileID: 827404556}
   m_Layer: 0
-  m_Name: Hiding Spot (1)
+  m_Name: Hiding Spot 1
   m_TagString: HidingSpot
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -898,7 +907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827404551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.34, y: 0, z: 0}
+  m_LocalPosition: {x: 7.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1110,82 +1119,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1045580765
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1045580766}
-  - component: {fileID: 1045580768}
-  - component: {fileID: 1045580767}
-  m_Layer: 5
-  m_Name: CollectableIcon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1045580766
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045580765}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1803374179}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -860, y: -440}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1045580767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045580765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 83ee70cddebee534a8c39685ba3f6333, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1045580768
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045580765}
-  m_CullTransparentMesh: 1
 --- !u!1 &1048255464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1133,7 @@ GameObject:
   - component: {fileID: 1048255467}
   - component: {fileID: 1048255470}
   m_Layer: 0
-  m_Name: Hiding Spot (4)
+  m_Name: Hiding Spot 4
   m_TagString: HidingSpot
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1214,7 +1147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048255464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -13.63}
+  m_LocalPosition: {x: 9.86, y: 0, z: -3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1968,8 +1901,6 @@ RectTransform:
   - {fileID: 1938668693}
   - {fileID: 1261749067}
   - {fileID: 1269004710}
-  - {fileID: 1045580766}
-  - {fileID: 2131658995}
   m_Father: {fileID: 179324697}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1992,7 +1923,7 @@ GameObject:
   - component: {fileID: 1859405486}
   - component: {fileID: 1859405489}
   m_Layer: 0
-  m_Name: Hiding Spot (3)
+  m_Name: Hiding Spot 3
   m_TagString: HidingSpot
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2006,7 +1937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859405483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.98, y: 0, z: 0}
+  m_LocalPosition: {x: 7.4, y: 0, z: -3.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2394,141 +2325,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2131658994
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2131658995}
-  - component: {fileID: 2131658997}
-  - component: {fileID: 2131658996}
-  m_Layer: 5
-  m_Name: PickUpText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2131658995
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131658994}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1803374179}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -751.94836, y: -440}
-  m_SizeDelta: {x: 116.1032, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2131658996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131658994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: x0
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &2131658997
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131658994}
-  m_CullTransparentMesh: 1
 --- !u!1001 &4408132743185554570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2587,6 +2383,26 @@ PrefabInstance:
     - target: {fileID: 6596473475868691131, guid: 80b41f9ca84319243a2742dde3d612af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596473475868691134, guid: 80b41f9ca84319243a2742dde3d612af, type: 3}
+      propertyPath: _itemData.mesh
+      value: 
+      objectReference: {fileID: 7397079867996984844}
+    - target: {fileID: 6596473475868691134, guid: 80b41f9ca84319243a2742dde3d612af, type: 3}
+      propertyPath: _itemData.name
+      value: Fuse
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596473475868691134, guid: 80b41f9ca84319243a2742dde3d612af, type: 3}
+      propertyPath: _itemData.value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596473475868691134, guid: 80b41f9ca84319243a2742dde3d612af, type: 3}
+      propertyPath: _itemData.amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596473475868691134, guid: 80b41f9ca84319243a2742dde3d612af, type: 3}
+      propertyPath: _itemData.description
+      value: Used to power the generator.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80b41f9ca84319243a2742dde3d612af, type: 3}
@@ -2719,12 +2535,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemData:
-    name: 
-    description: 
-    value: 0
-    amount: 0
+    name: Fuse
+    description: Used to power the generator.
+    value: 1
+    amount: 1
     icon: {fileID: 0}
-    mesh: {fileID: 0}
+    mesh: {fileID: 7397079867311800135}
     type: 0
 --- !u!4 &7397079867391417616
 Transform:
@@ -2855,12 +2671,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemData:
-    name: 
-    description: 
-    value: 0
-    amount: 0
+    name: Fuse
+    description: Used to power the generator.
+    value: 1
+    amount: 1
     icon: {fileID: 0}
-    mesh: {fileID: 0}
+    mesh: {fileID: 7397079867391417645}
     type: 0
 --- !u!1 &7397079867996984844 stripped
 GameObject:
@@ -3001,10 +2817,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemData:
-    name: 
-    description: 
-    value: 0
-    amount: 0
+    name: Fuse
+    description: Used to power the generator.
+    value: 1
+    amount: 1
     icon: {fileID: 0}
-    mesh: {fileID: 0}
+    mesh: {fileID: 7397079868108842979}
     type: 0

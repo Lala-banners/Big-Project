@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -6,6 +7,11 @@ public class QuestManager : MonoBehaviour
     public Task curTask;
     public GameObject questWindow;
     public TMP_Text titleText, descriptionText, experienceText, goldText;
+
+    private void Start()
+    {
+        OpenQuestWindow();
+    }
 
     public void OpenQuestWindow()
     {

@@ -36,6 +36,7 @@ public abstract class QuestGoal : MonoBehaviour
         if (goalType == GoalType.Gather && id == itemId)
         {
             currentAmount++;
+            
             if (currentAmount >= requiredAmount) //Added from Quest
             {
                 isReached = true;

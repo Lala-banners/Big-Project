@@ -1,21 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    private QuestManager questManager;
+    private GatherQuestGoal gatherGoal;
+    public Transform hidingSpot1, hidingSpot2,hidingSpot3, hidingSpot4;
+    public GameObject[] fuseObject;
+
+    private const string hidingspot1 = "Hiding Spot 1",
+        hidingspot2 = "Hiding Spot 2",
+        hidingspot3 = "Hiding Spot 3",
+        hidingspot4 = "Hiding Spot 4";
 
     private void Start()
     {
-        
-    }
-
-    private void Update()
-    {
-        Interact();
+        gatherGoal = FindObjectOfType<GatherQuestGoal>();
     }
 
     public void Interact()
@@ -32,19 +30,34 @@ public class PickUp : MonoBehaviour
         {
             if (hitInfo.collider.TryGetComponent(out InWorldItem item))
             {
-                Debug.Log(item.name);
+                //Debug.Log(item.name);
             }
         }
     }
 
-    // OnTriggerEnter is called when the Collider other enters the trigger
+    // Collect Fuse
     private void OnTriggerEnter(Collider other)
     {
-        int layerMask = LayerMask.NameToLayer("Interactable");
-        layerMask = 1 << layerMask;
-        if (other.gameObject.layer == layerMask)
+        if (other.gameObject.TryGetComponent(out InWorldItem item))
         {
-            Debug.Log("Hit item!");
+            item.transform.SetParent(gameObject.transform);
+            gatherGoal.ItemCollected(0);
+        }
+        
+        DropFuse(other, 0, hidingSpot1, hidingspot1);
+        DropFuse(other, 1, hidingSpot2, hidingspot2);
+        DropFuse(other, 2, hidingSpot3, hidingspot3);
+        DropFuse(other, 3, hidingSpot4, hidingspot4);
+    }
+
+    private void DropFuse(Collider other, int index, Transform parent, string name)
+    {
+        if (other.gameObject.name == name)
+        {
+            fuseObject[index].transform.SetParent(parent, false);
+            fuseObject[index].transform.localPosition = new Vector3(0, 0, 0);
+            fuseObject[index].layer = LayerMask.NameToLayer("ChefInteractable");
+            //gatherGoal.DropItem(0);
         }
     }
 }

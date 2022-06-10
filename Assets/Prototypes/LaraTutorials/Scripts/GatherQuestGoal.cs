@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -18,6 +16,21 @@ public class GatherQuestGoal : QuestGoal
                 isReached = true;
                 questState = QuestState.Completed;
                 Debug.Log("QUEST COMPLETE");
+            }
+        }
+    }
+
+    public void DropItem(int id)
+    {
+        if (goalType == GoalType.Gather && id == itemId)
+        {
+            currentAmount--;
+            requiredAmount = 0;
+            if (currentAmount <= 0)
+            {
+                isReached = true;
+                questState = QuestState.Completed;
+                Debug.Log("Drop item completed");
             }
         }
     }
