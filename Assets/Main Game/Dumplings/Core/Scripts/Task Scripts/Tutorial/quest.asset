@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91c942a4ae26584386a9db2205f38c0, type: 3}
+  m_Name: quest
+  m_EditorClassIdentifier: 
+  info:
+    name: Turn Off Electricity
+    description: Gather and hide 5 fuses
+    icon: {fileID: 21300000, guid: 42b822c826a686e489fbd15db6d2adc1, type: 3}
+  rewards:
+    currency: 10
+    exp: 5
+  goals:
+  - {fileID: 1043427963928993063}
+--- !u!114 &1043427963928993063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd5c3cfe27ca22419c3056b4017f635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reqAmount: 4
+  taskCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  item: Temp Fuse
