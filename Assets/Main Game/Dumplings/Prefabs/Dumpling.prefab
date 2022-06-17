@@ -471,6 +471,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 6906601291535705071}
+    - target: {fileID: 2243446235280961040, guid: c1f6c1dd36d1c42419e20326ea483d43, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2243446235280961040, guid: c1f6c1dd36d1c42419e20326ea483d43, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2243446235280961043, guid: c1f6c1dd36d1c42419e20326ea483d43, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -519,7 +527,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Input
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2243446235280961042, guid: c1f6c1dd36d1c42419e20326ea483d43, type: 3}
+    - {fileID: 2243446235280961041, guid: c1f6c1dd36d1c42419e20326ea483d43, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c1f6c1dd36d1c42419e20326ea483d43, type: 3}
 --- !u!4 &8048766413612451837 stripped
 Transform:
