@@ -1,14 +1,5 @@
 {
   "dependencies": {
-    "com.kbclarke.modularcharactercontroller": {
-      "version": "https://github.com/KanserReverie/ModularCharacterController-Package.git#OfflineVersion",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.inputsystem": "1.2.0"
-      },
-      "hash": "2d93f0b82fb80d74f08ceff603bb4b0e7627755f"
-    },
     "com.unity.cinemachine": {
       "version": "2.8.4",
       "depth": 0,

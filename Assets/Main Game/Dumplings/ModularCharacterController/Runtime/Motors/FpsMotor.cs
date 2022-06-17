@@ -171,15 +171,12 @@ namespace ModularCharacterController.Motors
 		/// </summary>
 		private void OnJumpPerformed(InputAction.CallbackContext _context)
 		{
-			Debug.Log("Jump Pressed");
 			// If the camera is not running right now, we won't jump
-			if(!camera.Enabled)
-				return;
-			Debug.Log("Camera Enabled");
+			//////////////////////////////////////////////////////if(!camera.Enabled)
+			//////////////////////////////////////////////////////return;
 
 			isJumpPressed = true;
 
-			Debug.Log($"IsGrounded = {IsGrounded}");
 			// If we are grounded jump and store the jump time
 			if(IsGrounded)
 			{

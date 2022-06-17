@@ -179,8 +179,8 @@ namespace ModularCharacterController.Motors
 		private void OnJumpPerformed(InputAction.CallbackContext _context)
 		{
 			// If the camera is not running right now, we won't jump
-			if(!camera.Enabled)
-				return;
+			//////////////////////////////////////////////////////if(!camera.Enabled)
+			//////////////////////////////////////////////////////return;
 
 			isJumpPressed = true;
 			

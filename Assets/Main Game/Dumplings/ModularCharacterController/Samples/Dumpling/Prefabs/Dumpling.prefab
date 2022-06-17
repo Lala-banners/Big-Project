@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: m_AllowDynamicResolution
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1002046486522852213, guid: 1fc0f84323949554e92f3911012c2b6d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5343311031844230012, guid: 1fc0f84323949554e92f3911012c2b6d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.05
@@ -305,6 +309,10 @@ PrefabInstance:
     - target: {fileID: 6670989186754740220, guid: 1fc0f84323949554e92f3911012c2b6d, type: 3}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670989186754740221, guid: 1fc0f84323949554e92f3911012c2b6d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7406363836400331226, guid: 1fc0f84323949554e92f3911012c2b6d, type: 3}
       propertyPath: subMotors.Array.data[0]
