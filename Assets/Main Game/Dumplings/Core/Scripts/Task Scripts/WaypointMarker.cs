@@ -25,14 +25,14 @@ public class WaypointMarker : MonoBehaviour
         //Get the text element from the waypoint UI prefab
         distanceText = waypoint.GetComponentInChildren<TMP_Text>();
 
-        player = GameObject.Find("Cube").transform;
+        player = GameObject.Find("Dumpling").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
         var position = transform.position;
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(position + offset);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(position);
         waypoint.position = screenPosition;
 
         waypoint.gameObject.SetActive(screenPosition.z > 0); //Disappears if behind player

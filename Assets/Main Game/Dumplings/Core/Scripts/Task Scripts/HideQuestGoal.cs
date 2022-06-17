@@ -1,20 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 [System.Serializable]
-public class HideQuest : QuestGoal
+public class HideQuestGoal : QuestGoal
 {
+    //Requirements for Hide goal type
+    public string itemName;
+
     public void DropItem(int id)
     {
         if (goalType == GoalType.Hide && id == itemId)
         {
-            currentAmount--;
             requiredAmount = 0;
+            currentAmount--;
+            
             if (currentAmount <= 0)
             {
                 isReached = true;
                 questState = QuestState.Completed;
+                DestroyQuest(this);
                 Debug.Log("Drop item completed");
             }
         }
@@ -31,7 +35,7 @@ public class HideQuest : QuestGoal
         if (item.Amount <= requiredAmount) //if amount is less than or equal to required amount then quest is completed
         {
             DropItem(itemId);
-            print("You have hidden all fuses");
+            print("You have hidden all the fuses");
             return true;
         }
 

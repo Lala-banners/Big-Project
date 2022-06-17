@@ -1,21 +1,25 @@
+using System;
+using System.Linq;
+
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    private GatherQuestGoal gatherGoal;
-    private HideQuest hideQuest;
+    private GatherQuestGoal gather;
+    private HideQuestGoal hide;
     public Transform hidingSpot1, hidingSpot2,hidingSpot3, hidingSpot4;
     public GameObject[] fuseObject;
 
-    private const string hidingspot1 = "Hiding Spot 1",
+    private const string 
+        hidingspot1 = "Hiding Spot 1",
         hidingspot2 = "Hiding Spot 2",
         hidingspot3 = "Hiding Spot 3",
         hidingspot4 = "Hiding Spot 4";
 
     private void Start()
     {
-        gatherGoal = FindObjectOfType<GatherQuestGoal>();
-        hideQuest = FindObjectOfType<HideQuest>();
+        gather = FindObjectOfType<GatherQuestGoal>();
+        hide = FindObjectOfType<HideQuestGoal>();
     }
 
     // Collect Fuse
@@ -24,7 +28,7 @@ public class PickUp : MonoBehaviour
         if (other.gameObject.TryGetComponent(out InWorldItem item))
         {
             item.transform.SetParent(gameObject.transform);
-            gatherGoal.ItemCollected(0);
+            gather.ItemCollected(0);
         }
         
         DropFuse(other, 0, hidingSpot1, hidingspot1);
@@ -40,7 +44,7 @@ public class PickUp : MonoBehaviour
             fuseObject[index].transform.SetParent(parent, false);
             fuseObject[index].transform.localPosition = new Vector3(0, 0, 0);
             fuseObject[index].layer = LayerMask.NameToLayer("ChefInteractable");
-            hideQuest.DropItem(0);
+            hide.DropItem(0);
         }
     }
 }

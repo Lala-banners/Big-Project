@@ -10,6 +10,8 @@ TagManager:
   - HidingSpot
   - Fuse
   - MCC Player
+  - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX

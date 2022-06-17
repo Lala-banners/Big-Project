@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91c942a4ae26584386a9db2205f38c0, type: 3}
-  m_Name: quest
+  m_Script: {fileID: 11500000, guid: 5681786c4d431d04ab2e38e905094c9a, type: 3}
+  m_Name: HideQuest
   m_EditorClassIdentifier: 
-  info:
-    name: 
-    description: 
-    icon: {fileID: 0}
-  rewards:
-    currency: 10
-    exp: 5
+  title: Hide 4 Fuses
+  description: Travel to the hiding spots
   goals: []
+  experienceReward: 10
+  goldReward: 10

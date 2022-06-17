@@ -37,6 +37,15 @@ namespace MainGame.Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Squeeze"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a90cdb2-aaf5-4a72-b506-94ef5ce9a34a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,17 @@ namespace MainGame.Inputs
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b0ef082-0357-4b95-896c-f6363d754556"",
+                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Squeeze"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -76,6 +96,7 @@ namespace MainGame.Inputs
             // DumplingPlayer
             m_DumplingPlayer = asset.FindActionMap("DumplingPlayer", throwIfNotFound: true);
             m_DumplingPlayer_Look = m_DumplingPlayer.FindAction("Look", throwIfNotFound: true);
+            m_DumplingPlayer_Squeeze = m_DumplingPlayer.FindAction("Squeeze", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -136,11 +157,13 @@ namespace MainGame.Inputs
         private readonly InputActionMap m_DumplingPlayer;
         private IDumplingPlayerActions m_DumplingPlayerActionsCallbackInterface;
         private readonly InputAction m_DumplingPlayer_Look;
+        private readonly InputAction m_DumplingPlayer_Squeeze;
         public struct DumplingPlayerActions
         {
             private @DumplingControls m_Wrapper;
             public DumplingPlayerActions(@DumplingControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Look => m_Wrapper.m_DumplingPlayer_Look;
+            public InputAction @Squeeze => m_Wrapper.m_DumplingPlayer_Squeeze;
             public InputActionMap Get() { return m_Wrapper.m_DumplingPlayer; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -153,6 +176,9 @@ namespace MainGame.Inputs
                     @Look.started -= m_Wrapper.m_DumplingPlayerActionsCallbackInterface.OnLook;
                     @Look.performed -= m_Wrapper.m_DumplingPlayerActionsCallbackInterface.OnLook;
                     @Look.canceled -= m_Wrapper.m_DumplingPlayerActionsCallbackInterface.OnLook;
+                    @Squeeze.started -= m_Wrapper.m_DumplingPlayerActionsCallbackInterface.OnSqueeze;
+                    @Squeeze.performed -= m_Wrapper.m_DumplingPlayerActionsCallbackInterface.OnSqueeze;
+                    @Squeeze.canceled -= m_Wrapper.m_DumplingPlayerActionsCallbackInterface.OnSqueeze;
                 }
                 m_Wrapper.m_DumplingPlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -160,6 +186,9 @@ namespace MainGame.Inputs
                     @Look.started += instance.OnLook;
                     @Look.performed += instance.OnLook;
                     @Look.canceled += instance.OnLook;
+                    @Squeeze.started += instance.OnSqueeze;
+                    @Squeeze.performed += instance.OnSqueeze;
+                    @Squeeze.canceled += instance.OnSqueeze;
                 }
             }
         }
@@ -176,6 +205,7 @@ namespace MainGame.Inputs
         public interface IDumplingPlayerActions
         {
             void OnLook(InputAction.CallbackContext context);
+            void OnSqueeze(InputAction.CallbackContext context);
         }
     }
 }

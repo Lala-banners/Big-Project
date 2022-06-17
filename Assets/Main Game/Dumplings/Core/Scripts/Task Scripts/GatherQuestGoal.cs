@@ -1,5 +1,4 @@
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class GatherQuestGoal : QuestGoal
@@ -12,15 +11,17 @@ public class GatherQuestGoal : QuestGoal
         if (goalType == GoalType.Gather && id == itemId)
         {
             currentAmount++;
+            
             if (currentAmount >= requiredAmount) //Added from Quest
             {
                 isReached = true;
                 questState = QuestState.Completed;
+                DestroyQuest(this);
                 Debug.Log("QUEST COMPLETE");
             }
         }
     }
-    
+
     //Each quest will have different way of being completed
     public override bool isCompleted()
     {
@@ -30,6 +31,7 @@ public class GatherQuestGoal : QuestGoal
         }
 
         currentAmount = item.Amount;
+        
         if (item.Amount >= requiredAmount) //if amount is greater or equal to required amount then quest is completed
         {
             ItemCollected(itemId);
