@@ -10,11 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 458974}
   - component: {fileID: 114000010876603736}
-  - component: {fileID: 2648035249595966994}
-  - component: {fileID: 2462565238544271832}
   - component: {fileID: 1763635982711645629}
   - component: {fileID: 6676241566882823318}
-  - component: {fileID: 1088081125340292231}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -71,72 +68,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   broadcastDeviceChanges: 1
---- !u!114 &2648035249595966994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8b4c3c4a10d804d84df02c364ebed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointer:
-    actionPath: /actions/default/in/Pointer
-    needsReinit: 0
-  teleport:
-    actionPath: /actions/default/in/Teleport
-    needsReinit: 0
-  interact:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  grab:
-    actionPath: /actions/default/in/Grab
-    needsReinit: 0
-  touchPadAxis:
-    actionPath: /actions/default/in/TouchpadAxis
-    needsReinit: 0
-  onPointerPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onTeleportPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onTeleportReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onInteractPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onInteractReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onGrabPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onGrabReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onTouchPadChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2462565238544271832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3e377d102efbf4ab7607c9cad597e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1763635982711645629
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -166,30 +97,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1088081125340292231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f511c1adaa1e94ebe7ca97bbcabd17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pose: {fileID: 114000010876603736}
-  interactWithUI:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  active: 1
-  color: {r: 0, g: 0, b: 1, a: 0}
-  thickness: 0.002
-  clickColor: {r: 0, g: 1, b: 0, a: 1}
-  holder: {fileID: 0}
-  pointer: {fileID: 0}
-  addRigidBody: 0
-  reference: {fileID: 0}
 --- !u!1 &146900
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,8 +109,6 @@ GameObject:
   - component: {fileID: 2348914}
   - component: {fileID: 3380982}
   - component: {fileID: 11489174}
-  - component: {fileID: 3666512368764239099}
-  - component: {fileID: 7588168182459684042}
   m_Layer: 0
   m_Name: '[CameraRig]'
   m_TagString: Untagged
@@ -306,39 +211,6 @@ MonoBehaviour:
   - {x: -2.15, y: 0.01, z: -1.65}
   - {x: -2.15, y: 0.01, z: 1.65}
   - {x: 2.15, y: 0.01, z: 1.65}
---- !u!114 &3666512368764239099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a71fe14f4477588409e24ac73f79ddd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftCtrl: {fileID: 458974}
-  rightCtrl: {fileID: 402434}
-  headset: {fileID: 4000013889601590}
-  playArea: {fileID: 420908}
---- !u!114 &7588168182459684042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  visible: 0
-  m_AssetId: 
-  hasSpawned: 0
 --- !u!1 &159396
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,8 +221,6 @@ GameObject:
   m_Component:
   - component: {fileID: 402434}
   - component: {fileID: 114000010110554832}
-  - component: {fileID: 963280573179984268}
-  - component: {fileID: 85257677316277372}
   - component: {fileID: 7750690219262513016}
   - component: {fileID: 5739551389559543491}
   - component: {fileID: 6452120546603061913}
@@ -410,72 +280,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   broadcastDeviceChanges: 1
---- !u!114 &963280573179984268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8b4c3c4a10d804d84df02c364ebed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointer:
-    actionPath: /actions/default/in/Pointer
-    needsReinit: 0
-  teleport:
-    actionPath: /actions/default/in/Teleport
-    needsReinit: 0
-  interact:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  grab:
-    actionPath: /actions/default/in/Grab
-    needsReinit: 0
-  touchPadAxis:
-    actionPath: /actions/default/in/TouchpadAxis
-    needsReinit: 0
-  onPointerPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onTeleportPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onTeleportReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onInteractPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onInteractReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onGrabPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onGrabReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  onTouchPadChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &85257677316277372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3e377d102efbf4ab7607c9cad597e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &7750690219262513016
 SphereCollider:
   m_ObjectHideFlags: 0
