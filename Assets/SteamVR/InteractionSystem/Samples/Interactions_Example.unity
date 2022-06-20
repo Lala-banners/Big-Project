@@ -28780,6 +28780,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 63783779}
     m_Modifications:
+    - target: {fileID: 1000013227978282, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
+      propertyPath: m_Name
+      value: Squishy
+      objectReference: {fileID: 0}
     - target: {fileID: 4000014277660454, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -28812,16 +28816,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010208793216, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
-      propertyPath: overridePreviewLeftHandPrefab
-      value: 
-      objectReference: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
-    - target: {fileID: 114000010208793216, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
-      propertyPath: overridePreviewRightHandPrefab
-      value: 
-      objectReference: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
-    - target: {fileID: 137000012815384550, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
-      propertyPath: m_BlendShapeWeights.Array.data[0]
+    - target: {fileID: 4000014277660454, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014277660454, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014277660454, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

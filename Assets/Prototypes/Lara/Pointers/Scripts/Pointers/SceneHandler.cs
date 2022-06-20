@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 using Valve.VR.Extras;
 
+// TODO : @Lala test this in VR or get Kieran to test if pointer works!
 public class SceneHandler : MonoBehaviour
 {
     public SteamVR_LaserPointer laserPointer;

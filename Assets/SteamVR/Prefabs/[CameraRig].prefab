@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 114000010876603736}
   - component: {fileID: 1763635982711645629}
   - component: {fileID: 6676241566882823318}
+  - component: {fileID: 3942747169354950965}
+  - component: {fileID: 7827107819964441662}
+  - component: {fileID: 1539932065556417189}
+  - component: {fileID: 2889708447108151851}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -97,6 +101,106 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3942747169354950965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09684f50e44dae545b5b4c77de24bc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  released:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7827107819964441662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b553891b6fe8bdf4ea30b0c31a7ecb9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer:
+    actionPath: /actions/default/in/Pointer
+    needsReinit: 0
+  teleport:
+    actionPath: /actions/default/in/Teleport
+    needsReinit: 0
+  interact:
+    actionPath: /actions/default/in/Interact
+    needsReinit: 0
+  grab:
+    actionPath: /actions/default/in/Grab
+    needsReinit: 0
+  touchPadAxis:
+    actionPath: /actions/default/in/TouchpadAxis
+    needsReinit: 0
+  onPointerPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPointerReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onTeleportPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onTeleportReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteractPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteractReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onGrabPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onGrabReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onTouchPadChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1539932065556417189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca57876d605f5894b970b174dd023428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2889708447108151851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edef1121af828d14192f735b0953d418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorScaleFactor: 0.1
+  controller: {fileID: 1539932065556417189}
+  invalid: {r: 1, g: 0, b: 0, a: 1}
+  valid: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &146900
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,9 +325,12 @@ GameObject:
   m_Component:
   - component: {fileID: 402434}
   - component: {fileID: 114000010110554832}
+  - component: {fileID: 6796645120014588970}
+  - component: {fileID: 5553840188832067608}
+  - component: {fileID: 7166179233409870379}
+  - component: {fileID: 5736948081142033465}
   - component: {fileID: 7750690219262513016}
   - component: {fileID: 5739551389559543491}
-  - component: {fileID: 6452120546603061913}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -280,6 +387,106 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   broadcastDeviceChanges: 1
+--- !u!114 &6796645120014588970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edef1121af828d14192f735b0953d418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorScaleFactor: 0.1
+  controller: {fileID: 5736948081142033465}
+  invalid: {r: 1, g: 0, b: 0, a: 1}
+  valid: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &5553840188832067608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b553891b6fe8bdf4ea30b0c31a7ecb9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer:
+    actionPath: /actions/default/in/Pointer
+    needsReinit: 0
+  teleport:
+    actionPath: /actions/default/in/Teleport
+    needsReinit: 0
+  interact:
+    actionPath: /actions/default/in/Interact
+    needsReinit: 0
+  grab:
+    actionPath: /actions/default/in/Grab
+    needsReinit: 0
+  touchPadAxis:
+    actionPath: /actions/default/in/TouchpadAxis
+    needsReinit: 0
+  onPointerPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPointerReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onTeleportPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onTeleportReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteractPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteractReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onGrabPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onGrabReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onTouchPadChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7166179233409870379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09684f50e44dae545b5b4c77de24bc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  released:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5736948081142033465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca57876d605f5894b970b174dd023428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &7750690219262513016
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -309,30 +516,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6452120546603061913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f511c1adaa1e94ebe7ca97bbcabd17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pose: {fileID: 114000010110554832}
-  interactWithUI:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  active: 1
-  color: {r: 0, g: 0, b: 1, a: 0}
-  thickness: 0.002
-  clickColor: {r: 0, g: 1, b: 0, a: 1}
-  holder: {fileID: 0}
-  pointer: {fileID: 0}
-  addRigidBody: 0
-  reference: {fileID: 0}
 --- !u!1 &1000014254142504
 GameObject:
   m_ObjectHideFlags: 0
