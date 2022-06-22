@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 using Valve.VR.Extras;
 
-// TODO : @Lala test this in VR or get Kieran to test if pointer works!
+// TODO : @Lala this has been tested and works!
 public class SceneHandler : MonoBehaviour
 {
     public SteamVR_LaserPointer laserPointer;
@@ -22,6 +24,7 @@ public class SceneHandler : MonoBehaviour
         if (e.target.name == "Cube")
         {
             Debug.Log("Cube was clicked");
+            e.target.gameObject.GetComponent<Button>().onClick.Invoke();
         } 
         else if (e.target.name == "Button")
         {
@@ -51,5 +54,12 @@ public class SceneHandler : MonoBehaviour
         {
             Debug.Log("Button was exited");
         }
+    }
+
+    public void ClickButton()
+    {
+        /*SceneManager.CreateScene("TestTeleport");
+        SceneManager.LoadScene("TestTeleport");*/
+        print("Button clicked");
     }
 }

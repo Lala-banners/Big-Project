@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Valve.VR;
+
 public class XRButton : MonoBehaviour
 {
     private Button thisButton;
