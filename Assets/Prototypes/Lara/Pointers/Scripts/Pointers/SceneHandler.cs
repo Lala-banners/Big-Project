@@ -54,5 +54,7 @@ public class SceneHandler : MonoBehaviour
         {
             Debug.Log("Button was exited");
         }
+
+        laserPointer.active = false;
     }
 }

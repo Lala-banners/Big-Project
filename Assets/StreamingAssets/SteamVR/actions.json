@@ -25,7 +25,7 @@
     {
       "name": "/actions/default/in/Squeeze",
       "type": "vector1",
-      "requirement": "optional"
+      "requirement": "suggested"
     },
     {
       "name": "/actions/default/in/HeadsetOnHead",
@@ -180,7 +180,8 @@
       "/actions/default/in/Grab": "Grab",
       "/actions/default/in/Pointer": "Laser Pointer",
       "/actions/default/in/TouchpadAxis": "Touchpad Position",
-      "/actions/default/in/Interact": "Interact"
+      "/actions/default/in/Interact": "Interact",
+      "/actions/default/in/Squeeze": "Squeeze"
     }
   ]
 }
