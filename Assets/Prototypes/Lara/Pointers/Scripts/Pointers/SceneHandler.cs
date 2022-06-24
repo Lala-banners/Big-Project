@@ -24,11 +24,11 @@ public class SceneHandler : MonoBehaviour
         if (e.target.name == "Cube")
         {
             Debug.Log("Cube was clicked");
-            e.target.gameObject.GetComponent<Button>().onClick.Invoke();
         } 
         else if (e.target.name == "Button")
         {
             Debug.Log("Button was clicked");
+            e.target.GetComponent<Button>().onClick.Invoke();
         }
     }
 
@@ -54,12 +54,5 @@ public class SceneHandler : MonoBehaviour
         {
             Debug.Log("Button was exited");
         }
-    }
-
-    public void ClickButton()
-    {
-        /*SceneManager.CreateScene("TestTeleport");
-        SceneManager.LoadScene("TestTeleport");*/
-        print("Button clicked");
     }
 }

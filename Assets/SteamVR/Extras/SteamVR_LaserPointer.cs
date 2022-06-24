@@ -8,7 +8,6 @@ namespace Valve.VR.Extras
     {
         public SteamVR_Behaviour_Pose pose;
 
-        //public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.__actions_default_in_InteractUI;
         public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.GetBooleanAction("InteractUI");
 
         public bool active = true;

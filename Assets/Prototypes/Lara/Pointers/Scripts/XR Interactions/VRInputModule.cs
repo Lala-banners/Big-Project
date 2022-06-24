@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-using Valve.VR.InteractionSystem;
-
 // Add this script to EventSystem
-public class VRInputModule : BaseInputModule
+public class VRInputModule : PointerInputModule
 {
 	public Vector3 ControllerPosition { get; set; }
 	public bool ControllerButtonDown { get; set; }
