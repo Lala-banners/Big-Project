@@ -12,6 +12,7 @@ TagManager:
   - MCC Player
   - Ground
   - Wall
+  - Grabbable
   layers:
   - Default
   - TransparentFX
