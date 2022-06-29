@@ -33,6 +33,22 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean GrabPinch
+        {
+            get
+            {
+                return SteamVR_Actions.default_GrabPinch;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean GrabGrip
+        {
+            get
+            {
+                return SteamVR_Actions.default_GrabGrip;
+            }
+        }
+        
         public virtual SteamVR_Action_Pose Pose
         {
             get
@@ -86,38 +102,6 @@ namespace Valve.VR
             get
             {
                 return SteamVR_Actions.default_SnapTurnRight;
-            }
-        }
-        
-        public virtual SteamVR_Action_Boolean Grab
-        {
-            get
-            {
-                return SteamVR_Actions.default_Grab;
-            }
-        }
-        
-        public virtual SteamVR_Action_Boolean Pointer
-        {
-            get
-            {
-                return SteamVR_Actions.default_Pointer;
-            }
-        }
-        
-        public virtual SteamVR_Action_Vector2 TouchpadAxis
-        {
-            get
-            {
-                return SteamVR_Actions.default_TouchpadAxis;
-            }
-        }
-        
-        public virtual SteamVR_Action_Boolean Interact
-        {
-            get
-            {
-                return SteamVR_Actions.default_Interact;
             }
         }
         

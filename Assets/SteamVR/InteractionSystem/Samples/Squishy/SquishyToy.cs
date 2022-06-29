@@ -37,7 +37,7 @@ namespace Valve.VR.InteractionSystem.Sample
             float grip = 0;
             float pinch = 0;
 
-            if(interactable.attachedToHand)
+            if (interactable.attachedToHand)
             {
                 grip = gripSqueeze.GetAxis(interactable.attachedToHand.handType);
                 pinch = pinchSqueeze.GetAxis(interactable.attachedToHand.handType);
