@@ -46,11 +46,14 @@ namespace ModularCharacterController.Cameras
 
 		protected override void OnEnabledStateChanged(bool _newState)
 		{
-			if(camera == null)
+			if (camera == null)
 				camera = gameObject.GetComponent<Camera>();
 
-			gameObject.GetComponent<AudioListener>().enabled = _newState;
-			camera.enabled = _newState;
+			if (settings.TurnOnAudioListener)
+			{
+				gameObject.GetComponent<AudioListener>().enabled = _newState;
+				camera.enabled = _newState;
+			}
 		}
 
 

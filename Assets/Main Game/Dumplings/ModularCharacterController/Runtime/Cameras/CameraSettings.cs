@@ -15,6 +15,8 @@ namespace ModularCharacterController.Cameras
 		[SerializeField, Range(0, 3)] private float mouseSensitivity = .5f;
 		[SerializeField, Range(0, 3)] private float controllerSensitivity = .5f;
 		[SerializeField, Range(0, 90)] private float verticalLookBounds = 90;
+		[SerializeField] private bool turnOnAudioListener = false;
+		public bool TurnOnAudioListener => turnOnAudioListener;
 
 		[SerializeField] private InputActionReference lookAction;
 	}

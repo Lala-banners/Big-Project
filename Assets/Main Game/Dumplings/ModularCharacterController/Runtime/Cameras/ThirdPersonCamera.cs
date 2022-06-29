@@ -86,11 +86,14 @@ namespace ModularCharacterController.Cameras
 
 		protected override void OnEnabledStateChanged(bool _newState)
 		{
-			if(camera == null)
+			if (camera == null)
 				camera = boom.GetComponentInChildren<Camera>();
 
-			camera.GetComponentInChildren<AudioListener>().enabled = _newState;
-			camera.enabled = _newState;
+			if (settings.TurnOnAudioListener)
+			{
+				camera.GetComponentInChildren<AudioListener>().enabled = _newState;
+				camera.enabled = _newState;
+			}
 		}
 
 		private void OnDrawGizmos()
