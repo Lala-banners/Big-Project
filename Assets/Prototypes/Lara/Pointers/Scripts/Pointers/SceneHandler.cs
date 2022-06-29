@@ -1,13 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 using Valve.VR.Extras;
 
-// TODO : @Lala this has been tested and works!
 public class SceneHandler : MonoBehaviour
 {
     public SteamVR_LaserPointer laserPointer;
@@ -21,11 +15,7 @@ public class SceneHandler : MonoBehaviour
 
     public void PointerClick(object sender, PointerEventArgs e)
     {
-        if (e.target.name == "Cube")
-        {
-            Debug.Log("Cube was clicked");
-        } 
-        else if (e.target.name == "Button")
+        if (e.target.GetComponent<Button>() != null)
         {
             Debug.Log("Button was clicked");
             e.target.GetComponent<Button>().onClick.Invoke();
@@ -34,11 +24,7 @@ public class SceneHandler : MonoBehaviour
 
     public void PointerInside(object sender, PointerEventArgs e)
     {
-        if (e.target.name == "Cube")
-        {
-            Debug.Log("Cube was entered");
-        }
-        else if (e.target.name == "Button")
+        if (e.target.name == "Button")
         {
             Debug.Log("Button was entered");
         }
@@ -46,11 +32,7 @@ public class SceneHandler : MonoBehaviour
 
     public void PointerOutside(object sender, PointerEventArgs e)
     {
-        if (e.target.name == "Cube")
-        {
-            Debug.Log("Cube was exited");
-        }
-        else if (e.target.name == "Button")
+        if (e.target.name == "Button")
         {
             Debug.Log("Button was exited");
         }
