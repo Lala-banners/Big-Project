@@ -14,6 +14,7 @@ namespace ModularCharacterController.Cameras
 		[SerializeField] private CameraSettings settings;
 		
 		private new Camera camera;
+		private IMCCPlayer playerInterface;
 		private PlayerInput input;
 		private Transform player;
 
@@ -30,6 +31,9 @@ namespace ModularCharacterController.Cameras
 
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
+			
+			playerInterface = _playerInterface;
+			playerInterface.Input.camera = camera;
 		}
 
 		protected override void OnProcess(UpdatePhase _phase)
@@ -48,7 +52,8 @@ namespace ModularCharacterController.Cameras
 		{
 			if (camera == null)
 				camera = gameObject.GetComponent<Camera>();
-
+			
+			playerInterface.Input.camera = camera;
 			if (settings.TurnOnAudioListener)
 			{
 				gameObject.GetComponent<AudioListener>().enabled = _newState;

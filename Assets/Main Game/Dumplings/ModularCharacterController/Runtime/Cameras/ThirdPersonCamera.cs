@@ -23,6 +23,7 @@ namespace ModularCharacterController.Cameras
 		private new Camera camera;
 		private PlayerInput input;
 		private Transform player;
+		private IMCCPlayer playerInterface;
 
 		private Vector2 rotation = Vector2.zero;
 		private Vector3 cameraVelocity = Vector3.zero;
@@ -39,6 +40,9 @@ namespace ModularCharacterController.Cameras
 			
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
+			
+			playerInterface = _playerInterface;
+			playerInterface.Input.camera = camera;
 		}
 
 		protected override void OnProcess(UpdatePhase _phase)
@@ -89,6 +93,7 @@ namespace ModularCharacterController.Cameras
 			if (camera == null)
 				camera = boom.GetComponentInChildren<Camera>();
 
+			playerInterface.Input.camera = camera;
 			if (settings.TurnOnAudioListener)
 			{
 				camera.GetComponentInChildren<AudioListener>().enabled = _newState;

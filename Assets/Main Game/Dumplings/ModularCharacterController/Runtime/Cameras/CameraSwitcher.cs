@@ -10,9 +10,16 @@ namespace ModularCharacterController.Cameras
 	{
 		[SerializeField] private MultiCamera multiCamera;
 		[SerializeField] private MultiMotor multiMotor;
-
+		[SerializeField] private bool switchCameraInput;
+		
+		public void SwitchCameraInput()
+		{
+			Debug.Log("swap");
+			//switchCameraInput = true;
+		}
+		
 		[SerializeField] private InputActionReference switchAction;
-
+		
 		private void Start()
 		{
 			switchAction.action.Enable();
@@ -22,8 +29,23 @@ namespace ModularCharacterController.Cameras
 				multiCamera.NextCamera();
 				multiMotor.NextMotor();
 			};
+			
+			multiCamera.ActivateCamera(0);
+			multiMotor.ActivateMotor(0);
 		}
 
+		private void Update()
+		{
+			if (switchCameraInput)
+			{
+				SwitchCamera();
+			}
+		}
+		public void SwitchCamera()
+		{
+			multiCamera.NextCamera();
+			multiMotor.NextMotor();
+		}
 		private void Reset()
 		{
 			if(multiCamera == null)

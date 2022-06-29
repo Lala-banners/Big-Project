@@ -15,25 +15,12 @@ namespace ModularCharacterController
 	// ReSharper disable once InconsistentNaming
 	public class MCCPlayer : MonoBehaviour, IMCCPlayer
 	{
-		/// <summary> A basic virtual function for players to access the input function.</summary>
 		public PlayerInput Input => input;
-		
-		/// <summary> A basic virtual function of the collider we are using with this controller.</summary>
 		public Collider Collider => collider;
-		
-		/// <summary> The Rigidbody able to be internally changed and seen outside. </summary>
 		public Rigidbody Rigidbody { get; set; }
-
-		/// <summary> The public get; for the transform attached to this component. </summary>
 		public Transform Transform => transform;
-		
-		/// <summary> The collier we will be using for the player's body. </summary>
 		[SerializeField] private new Collider collider;
-
-		/// <summary> Using the new Input System this will be the input for the Player Components. </summary>
 		[SerializeField] private PlayerInput input;
-		
-		/// <summary> This is a list of all ModularBehavious attached to the player. </summary>
 		[SerializeField] private List<ModularBehaviour> behaviours = new List<ModularBehaviour>();
 
 		/// <summary>
@@ -47,12 +34,10 @@ namespace ModularCharacterController
 			// Goes through all the behaviours on the player.
 			foreach(ModularBehaviour behaviour in behaviours)
 			{
-				// If you find an the behavour in the players list of behaviours.
+				// If you find an the behaviour in the players list of behaviours.
 				if(behaviour.GetType() == typeof(BEHAVIOUR))
 				{
-					// Then out the found behavour.
 					_found = (BEHAVIOUR)behaviour;
-					// Return true to say you found the behaviour.
 					return true;
 				}
 			}

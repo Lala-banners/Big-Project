@@ -29,7 +29,11 @@ namespace ModularCharacterController.Cameras
 		public void ActivateMotor(int _camIndex)
 		{
 			subMotors[currentMotorIndex].Enabled = false;
-			
+
+			for (int i = 0; i < subMotors.Count; i++)
+			{
+				subMotors[i].Enabled = false;
+			}
 			currentMotorIndex = _camIndex;
 			
 			subMotors[currentMotorIndex].Enabled = true;
@@ -38,7 +42,7 @@ namespace ModularCharacterController.Cameras
 		public void NextMotor()
 		{
 			subMotors[currentMotorIndex].Enabled = false;
-			
+
 			currentMotorIndex++;
 			if(currentMotorIndex >= subMotors.Count)
 				currentMotorIndex = 0;

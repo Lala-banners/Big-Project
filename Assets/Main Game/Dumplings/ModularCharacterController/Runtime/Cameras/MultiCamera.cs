@@ -1,5 +1,6 @@
 // Creator: Kieran
 // Creation Time: 2022/06/06 12:38
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,22 +29,28 @@ namespace ModularCharacterController.Cameras
 
 		public void ActivateCamera(int _camIndex)
 		{
-			subCameras[currentCameraIndex].Enabled = false;
-			
+			for (int i = 0; i < subCameras.Count; i++)
+			{
+				subCameras[i].enabled = false;
+				subCameras[i].GetComponentInChildren<Camera>().enabled = false;
+			}
 			currentCameraIndex = _camIndex;
 			
+			subCameras[currentCameraIndex].GetComponentInChildren<Camera>().enabled = true;
 			subCameras[currentCameraIndex].Enabled = true;
 		}
 
 		public void NextCamera()
 		{
 			subCameras[currentCameraIndex].Enabled = false;
+			subCameras[currentCameraIndex].GetComponentInChildren<Camera>().enabled = false;
 			
 			currentCameraIndex++;
 			if(currentCameraIndex >= subCameras.Count)
 				currentCameraIndex = 0;
 			
 			subCameras[currentCameraIndex].Enabled = true;
+			subCameras[currentCameraIndex].GetComponentInChildren<Camera>().enabled = true;
 		}
 		
 		public void PreviousCamera()

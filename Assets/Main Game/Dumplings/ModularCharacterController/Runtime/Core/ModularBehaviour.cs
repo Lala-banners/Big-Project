@@ -29,12 +29,7 @@ namespace ModularCharacterController
 		private bool intEnabled = true;
 
 		public virtual void Init(IMCCPlayer _playerInterface) { }
-
-		/// <summary>
-		/// Called in all update functions on the MCCPlayer, with a reference to the phase being called from,
-		/// so that the ModularBehaviour can be updated in specific loops.
-		/// </summary>
-		/// <param name="_phase"> The update loop that this process function is being called from. </param>
+		
 		public void Process(UpdatePhase _phase)
 		{
 			if((_phase != updatePhase && _phase != UpdatePhase.Any) || !Enabled)

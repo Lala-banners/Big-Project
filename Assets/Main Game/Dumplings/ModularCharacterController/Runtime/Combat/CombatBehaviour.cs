@@ -7,19 +7,31 @@ namespace ModularCharacterController.Combat
 {
     public class CombatBehaviour : ModularBehaviour
     {
-        [SerializeField] private InputActionReference shoot;
+        public bool shootInput;
 
         public override void Init(IMCCPlayer _playerInterface)
         {
-            shoot.action.Enable();
+            shootInput = false;
+            Debug.Log("shoot here");
         }
 
         protected override void OnProcess(UpdatePhase _phase)
         {
-            if(Mathf.Approximately(shoot.action.ReadValue<float>(), 1))
+            if(shootInput)
             {
-                Debug.LogWarning("Bang");
+                Shoot();
             }
+        }
+
+        public void InputShoot()
+        {
+            shootInput = true;
+        }
+        
+        private void Shoot()
+        {
+            Debug.LogWarning("Bang");
+            shootInput = false;
         }
     }
 }
