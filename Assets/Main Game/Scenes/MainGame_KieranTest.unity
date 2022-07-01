@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6203706938973693963, guid: 06831803d032f3a4284b018785099533, type: 3}
       propertyPath: m_Name
-      value: PlayerManager (1)
+      value: Test - PlayerManager
       objectReference: {fileID: 0}
     - target: {fileID: 6203706938973693963, guid: 06831803d032f3a4284b018785099533, type: 3}
       propertyPath: m_IsActive
@@ -445,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4132579271707471571, guid: b3178d9df0450134a89122b91be51d13, type: 3}
       propertyPath: m_Name
-      value: PlayerParent
+      value: Test - PlayerParent
       objectReference: {fileID: 0}
     - target: {fileID: 4132579271707471571, guid: b3178d9df0450134a89122b91be51d13, type: 3}
       propertyPath: m_IsActive
@@ -599,7 +599,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3313774978112541041, guid: d8c1d98bd619b6744ba9d6dbd49f63af, type: 3}
       propertyPath: m_Name
-      value: Dumpling (1)
+      value: Dumpling Invoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313774978112541041, guid: d8c1d98bd619b6744ba9d6dbd49f63af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3313774978112541047, guid: d8c1d98bd619b6744ba9d6dbd49f63af, type: 3}
       propertyPath: m_RootOrder
@@ -657,7 +661,11 @@ PrefabInstance:
     - target: {fileID: 6203706938973693960, guid: 06831803d032f3a4284b018785099533, type: 3}
       propertyPath: m_PlayerPrefab
       value: 
-      objectReference: {fileID: 4124715023546993181, guid: c1b0c444f5e489344a00afc8e9884361, type: 3}
+      objectReference: {fileID: 3313774978112541041, guid: d8c1d98bd619b6744ba9d6dbd49f63af, type: 3}
+    - target: {fileID: 6203706938973693960, guid: 06831803d032f3a4284b018785099533, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6203706938973693961, guid: 06831803d032f3a4284b018785099533, type: 3}
       propertyPath: m_RootOrder
       value: 2
