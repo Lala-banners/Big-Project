@@ -27,7 +27,8 @@ namespace ModularCharacterController.Cameras
 
 		private Vector2 rotation = Vector2.zero;
 		private Vector3 cameraVelocity = Vector3.zero;
-		
+		private Vector2 lookInput;
+
 		public override void Init(IMCCPlayer _playerInterface)
 		{
 			player = _playerInterface.Transform;
@@ -53,13 +54,19 @@ namespace ModularCharacterController.Cameras
 
 		private void UpdateRotation()
 		{
-			Vector2 lookVector = settings.Look.ReadValue<Vector2>();
+			Vector2 lookVector = lookInput;
 
 			rotation.x += lookVector.x * settings.GetSensitivity(input.currentControlScheme == CONTROLLER_SCHEME_NAME);
 			rotation.y += lookVector.y * settings.GetSensitivity(input.currentControlScheme == CONTROLLER_SCHEME_NAME);
 			rotation.y = Mathf.Clamp(rotation.y, -settings.VerticalLookBounds, settings.VerticalLookBounds);
 			
 			ApplyRotation();
+		}
+		
+		
+		public void OnLook(InputAction.CallbackContext context)
+		{
+			lookInput = context.ReadValue<Vector2>();
 		}
 
 		private void ApplyRotation()

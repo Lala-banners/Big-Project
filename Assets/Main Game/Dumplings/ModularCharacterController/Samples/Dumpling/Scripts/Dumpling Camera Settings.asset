@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049641808f9032047936d0a6950ffd7d, type: 3}
   m_Name: Dumpling Camera Settings
   m_EditorClassIdentifier: 
-  mouseSensitivity: 0.23
-  controllerSensitivity: 0.15
+  mouseSensitivity: 0.15
+  controllerSensitivity: 1.44
   verticalLookBounds: 90
-  lookAction: {fileID: 368011485916996600, guid: 90666b904c42fb34ea980351c3168382, type: 3}
+  turnOnAudioListener: 0

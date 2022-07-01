@@ -19,7 +19,8 @@ namespace ModularCharacterController.Cameras
 		private Transform player;
 
 		private Vector2 rotation = Vector2.zero;
-		
+		private Vector2 lookInput;
+
 		public override void Init(IMCCPlayer _playerInterface)
 		{
 			input = _playerInterface.Input;
@@ -38,8 +39,8 @@ namespace ModularCharacterController.Cameras
 
 		protected override void OnProcess(UpdatePhase _phase)
 		{
-			Vector2 lookVector = settings.Look.ReadValue<Vector2>();
-
+			Vector2 lookVector = lookInput;
+			
 			rotation.x += lookVector.x * settings.GetSensitivity(input.currentControlScheme == CONTROLLER_SCHEME_NAME);
 			rotation.y += lookVector.y * settings.GetSensitivity(input.currentControlScheme == CONTROLLER_SCHEME_NAME);
 			rotation.y = Mathf.Clamp(rotation.y, -settings.VerticalLookBounds, settings.VerticalLookBounds);
@@ -48,6 +49,12 @@ namespace ModularCharacterController.Cameras
 			player.localRotation = Quaternion.AngleAxis(rotation.x, Vector3.up);
 		}
 
+		
+		public void OnLook(InputAction.CallbackContext context)
+		{
+			lookInput = context.ReadValue<Vector2>();
+		}
+		
 		protected override void OnEnabledStateChanged(bool _newState)
 		{
 			if (camera == null)
@@ -67,8 +74,7 @@ namespace ModularCharacterController.Cameras
 				player.localRotation = Quaternion.AngleAxis(rotation.x, Vector3.up);
 			}
 		}
-
-
+		
 		private void Reset()
 		{
 			// Find the input in scene if there is only one
