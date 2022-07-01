@@ -1,6 +1,7 @@
 // Creator: Kieran
 // Creation Time: 2022/06/08 16:29
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,24 +13,8 @@ namespace ModularCharacterController.Cameras
 		[SerializeField] private MultiMotor multiMotor;
 		[SerializeField] private bool switchCameraInput;
 		
-		public void SwitchCameraInput()
-		{
-			Debug.Log("swap");
-			//switchCameraInput = true;
-		}
-		
-		[SerializeField] private InputActionReference switchAction;
-		
 		private void Start()
 		{
-			switchAction.action.Enable();
-
-			switchAction.action.performed += _context =>
-			{
-				multiCamera.NextCamera();
-				multiMotor.NextMotor();
-			};
-			
 			multiCamera.ActivateCamera(0);
 			multiMotor.ActivateMotor(0);
 		}
@@ -38,31 +23,40 @@ namespace ModularCharacterController.Cameras
 		{
 			if (switchCameraInput)
 			{
+				Debug.Log("Swap");
 				SwitchCamera();
 			}
 		}
-		public void SwitchCamera()
+		
+		private void SwitchCamera()
 		{
 			multiCamera.NextCamera();
 			multiMotor.NextMotor();
+			switchCameraInput = false;
 		}
+		
+		public void OnSwitchCamera(InputAction.CallbackContext context)
+		{
+			switchCameraInput = context.action.triggered;
+		}
+		
 		private void Reset()
 		{
-			if(multiCamera == null)
-			{
+			GetInChildrenMultiCameraAndMultiMotor();
+		}
+		
+		[Button]
+		private void GetInChildrenMultiCameraAndMultiMotor()
+		{
 				multiCamera = GetComponentInChildren<MultiCamera>();
 
 				if(multiCamera != null)
-					Debug.Log($"Added attached {multiCamera}", this);
-			}
-
-			if(multiMotor == null)
-			{
+					Debug.Log($"Please add a MultiCamera || {multiCamera}", this);
+			
 				multiMotor = GetComponentInChildren<MultiMotor>();
 
 				if(multiMotor != null)
-					Debug.Log($"Added attached {multiMotor}", this);
-			}
+					Debug.Log($"Please add a MultiMotor || {multiMotor}", this);
 		}
 	}
 }

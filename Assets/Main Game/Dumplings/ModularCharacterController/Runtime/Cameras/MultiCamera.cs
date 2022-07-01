@@ -11,7 +11,7 @@ namespace ModularCharacterController.Cameras
 		[SerializeField] private List<ModularBehaviour> subCameras = new List<ModularBehaviour>();
 
 		private int currentCameraIndex;
-
+		
 		public bool TryGetBehaviour<BEHAVIOUR>(out BEHAVIOUR _found) where BEHAVIOUR : ModularBehaviour
 		{
 			foreach(ModularBehaviour behaviour in subCameras)
@@ -26,7 +26,18 @@ namespace ModularCharacterController.Cameras
 			_found = null;
 			return false;
 		}
-
+		
+		public override void Init(IMCCPlayer _playerInterface)
+		{
+			foreach(ModularBehaviour subCamera in subCameras)
+			{
+				subCamera.Init(_playerInterface);
+				subCamera.Enabled = false;
+			}
+			
+			subCameras[currentCameraIndex].Enabled = true;
+		}
+		
 		public void ActivateCamera(int _camIndex)
 		{
 			for (int i = 0; i < subCameras.Count; i++)
@@ -64,16 +75,6 @@ namespace ModularCharacterController.Cameras
 			subCameras[currentCameraIndex].Enabled = true;
 		}
 
-		public override void Init(IMCCPlayer _playerInterface)
-		{
-			foreach(ModularBehaviour subCamera in subCameras)
-			{
-				subCamera.Init(_playerInterface);
-				subCamera.Enabled = false;
-			}
-			
-			subCameras[currentCameraIndex].Enabled = true;
-		}
 
 		protected override void OnProcess(UpdatePhase _phase)
 		{

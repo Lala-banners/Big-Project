@@ -50,15 +50,17 @@ namespace ModularCharacterController.Cameras
 
 		protected override void OnEnabledStateChanged(bool _newState)
 		{
+			Debug.Log($"FPS Camera State = {_newState}");
 			if (camera == null)
 				camera = gameObject.GetComponent<Camera>();
 			
-			playerInterface.Input.camera = camera;
 			if (settings.TurnOnAudioListener)
 			{
 				gameObject.GetComponent<AudioListener>().enabled = _newState;
 				camera.enabled = _newState;
 			}
+
+			playerInterface.Input.camera = _newState ? camera : null;
 		}
 
 

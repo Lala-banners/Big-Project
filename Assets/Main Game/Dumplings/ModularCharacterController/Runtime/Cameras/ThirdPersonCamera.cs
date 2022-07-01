@@ -90,15 +90,17 @@ namespace ModularCharacterController.Cameras
 
 		protected override void OnEnabledStateChanged(bool _newState)
 		{
+			Debug.Log($"Third Person Camera State = {_newState}");
 			if (camera == null)
 				camera = boom.GetComponentInChildren<Camera>();
 
-			playerInterface.Input.camera = camera;
 			if (settings.TurnOnAudioListener)
 			{
 				camera.GetComponentInChildren<AudioListener>().enabled = _newState;
 				camera.enabled = _newState;
 			}
+			
+			playerInterface.Input.camera = _newState ? camera : null;
 		}
 
 		private void OnDrawGizmos()
