@@ -21,6 +21,7 @@ namespace ModularCharacterController
 		}
 
 		public bool LocalOnly => localOnly;
+		public bool toBeUsedInMMCParent = false;
 
 		public UpdatePhase UpdatePhase => updatePhase;
 		

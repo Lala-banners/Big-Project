@@ -7,7 +7,7 @@ namespace ModularCharacterController.Combat
 {
     public class CombatBehaviour : ModularBehaviour
     {
-        public bool shootInput;
+        [HideInInspector] public bool shootInput;
 
         protected override void OnProcess(UpdatePhase _phase)
         {
@@ -20,7 +20,6 @@ namespace ModularCharacterController.Combat
         public void OnShoot(InputAction.CallbackContext context)
         {
             shootInput = context.action.triggered;
-            Debug.Log($"shoot triggered || shootInput = {shootInput}");
         }
         
         private void Shoot()

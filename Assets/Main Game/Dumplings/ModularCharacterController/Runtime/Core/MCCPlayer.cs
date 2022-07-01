@@ -1,6 +1,7 @@
 ﻿// Creator: Kieran & James
 // Creation Time: 2022/04/11 09:01
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -116,30 +117,47 @@ namespace ModularCharacterController
 		/// </summary>
 		private void Reset()
 		{
-			if(collider == null)
-			{
-				collider = gameObject.GetComponent<Collider>();
-				
-				if(collider != null) 
-					Debug.Log($"Added attached {collider}",this);
-			}
-
-			if(behaviours.Count == 0)
-			{
-				ModularBehaviour[] _behavioursInChildren = GetComponentsInChildren<ModularBehaviour>();
-
-				foreach(ModularBehaviour modularBehaviourBehaviour in _behavioursInChildren)
-				{
-					behaviours.Add(modularBehaviourBehaviour);
-						Debug.Log($"Added attached {modularBehaviourBehaviour} to {behaviours}", this);
-				}
-			}
-
+			GetAttachedColliderOrAddOne();
+			GetInChildrenSelectedBehaviours();
+			GetInChildrenPlayerInput();
+		}
+		
+		private void GetInChildrenPlayerInput()
+		{
 			if(input == null)
 			{
 				input = GetComponentInChildren<PlayerInput>();
-				if(input != null)
-					Debug.Log($"Added attached {input}",this);
+				if(input == null)
+					Debug.Log($"Please added a Player Input",this);
+			}
+		}
+
+		[Button]
+		private void GetInChildrenSelectedBehaviours()
+		{
+			behaviours = new List<ModularBehaviour>();
+			ModularBehaviour[] behavioursInChildren = GetComponentsInChildren<ModularBehaviour>();
+			foreach (ModularBehaviour modularBehaviourBehaviour in behavioursInChildren)
+			{
+				if (modularBehaviourBehaviour.toBeUsedInMMCParent)
+				{
+					behaviours.Add(modularBehaviourBehaviour);
+					Debug.Log($"Added attached {modularBehaviourBehaviour} to {behaviours}", this);
+				}
+			}
+		}
+		
+		private void GetAttachedColliderOrAddOne()
+		{
+			if (collider == null)
+			{
+				collider = gameObject.GetComponent<Collider>();
+
+				if (collider == null)
+				{
+					collider = gameObject.AddComponent<BoxCollider>();
+					Debug.Log($"No collider found. \nAdded basic box collider = {collider}", this);
+				}
 			}
 		}
 	}
