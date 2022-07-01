@@ -9,12 +9,6 @@ namespace ModularCharacterController.Combat
     {
         public bool shootInput;
 
-        public override void Init(IMCCPlayer _playerInterface)
-        {
-            shootInput = false;
-            Debug.Log("shoot here");
-        }
-
         protected override void OnProcess(UpdatePhase _phase)
         {
             if(shootInput)
@@ -23,15 +17,17 @@ namespace ModularCharacterController.Combat
             }
         }
 
-        public void InputShoot()
+        public void OnShoot(InputAction.CallbackContext context)
         {
-            shootInput = true;
+            shootInput = context.action.triggered;
+            Debug.Log($"shoot triggered || shootInput = {shootInput}");
         }
         
         private void Shoot()
         {
-            Debug.LogWarning("Bang");
+            Debug.Log("Bang");
             shootInput = false;
         }
+        
     }
 }
