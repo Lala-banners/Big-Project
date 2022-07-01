@@ -67,7 +67,7 @@ namespace ModularCharacterController.Cameras
 			player.localRotation = Quaternion.identity;
 			
 			boom.localRotation = Quaternion.AngleAxis(rotation.y, Vector3.left);
-			transform.localRotation = Quaternion.AngleAxis(rotation.x, Vector3.up);
+			player.localRotation = Quaternion.AngleAxis(rotation.x, Vector3.up);
 		}
 
 		private void UpdatePosition()
@@ -90,7 +90,6 @@ namespace ModularCharacterController.Cameras
 
 		protected override void OnEnabledStateChanged(bool _newState)
 		{
-			Debug.Log($"Third Person Camera State = {_newState}");
 			if (camera == null)
 				camera = boom.GetComponentInChildren<Camera>();
 
@@ -99,8 +98,13 @@ namespace ModularCharacterController.Cameras
 				camera.GetComponentInChildren<AudioListener>().enabled = _newState;
 				camera.enabled = _newState;
 			}
-			
-			playerInterface.Input.camera = _newState ? camera : null;
+
+			if (_newState)
+			{
+				playerInterface.Input.camera = camera;
+				rotation.x = player.localRotation.eulerAngles.y;
+				player.localRotation = Quaternion.AngleAxis(rotation.x, Vector3.up);
+			}
 		}
 
 		private void OnDrawGizmos()

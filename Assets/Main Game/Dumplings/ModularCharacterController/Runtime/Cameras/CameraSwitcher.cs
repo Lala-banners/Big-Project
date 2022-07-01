@@ -23,7 +23,6 @@ namespace ModularCharacterController.Cameras
 		{
 			if (switchCameraInput)
 			{
-				Debug.Log("Swap");
 				SwitchCamera();
 			}
 		}

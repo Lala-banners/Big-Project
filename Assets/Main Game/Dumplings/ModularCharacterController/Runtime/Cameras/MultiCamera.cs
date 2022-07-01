@@ -74,10 +74,10 @@ namespace ModularCharacterController.Cameras
 		protected override void OnProcess(UpdatePhase _phase)
 		{
 			UpdatePhase currentCamPhase = subCameras[currentCameraIndex].UpdatePhase;
-			
-			if((_phase != currentCamPhase && _phase != UpdatePhase.Any) || !Enabled)
+
+			if ((_phase != currentCamPhase && _phase != UpdatePhase.Any) || !Enabled)
 				return;
-			
+
 			subCameras[currentCameraIndex].Process(_phase);
 		}
 	}

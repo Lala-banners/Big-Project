@@ -50,10 +50,9 @@ namespace ModularCharacterController.Cameras
 
 		protected override void OnEnabledStateChanged(bool _newState)
 		{
-			Debug.Log($"FPS Camera State = {_newState}");
 			if (camera == null)
 				camera = gameObject.GetComponent<Camera>();
-			
+
 			if (settings.TurnOnAudioListener)
 			{
 				gameObject.GetComponent<AudioListener>().enabled = _newState;
@@ -61,7 +60,12 @@ namespace ModularCharacterController.Cameras
 			}
 
 			if (_newState)
+			{
 				playerInterface.Input.camera = camera;
+				
+				rotation.x = player.localRotation.eulerAngles.y;
+				player.localRotation = Quaternion.AngleAxis(rotation.x, Vector3.up);
+			}
 		}
 
 
