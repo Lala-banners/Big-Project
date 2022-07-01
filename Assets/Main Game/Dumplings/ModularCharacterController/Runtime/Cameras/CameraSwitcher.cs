@@ -11,7 +11,7 @@ namespace ModularCharacterController.Cameras
 	{
 		[SerializeField] private MultiCamera multiCamera;
 		[SerializeField] private MultiMotor multiMotor;
-		[SerializeField] private bool switchCameraInput;
+		private bool switchCameraInput;
 		
 		private void Start()
 		{

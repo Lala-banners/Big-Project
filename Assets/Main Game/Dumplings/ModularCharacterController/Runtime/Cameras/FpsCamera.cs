@@ -60,7 +60,8 @@ namespace ModularCharacterController.Cameras
 				camera.enabled = _newState;
 			}
 
-			playerInterface.Input.camera = _newState ? camera : null;
+			if (_newState)
+				playerInterface.Input.camera = camera;
 		}
 
 

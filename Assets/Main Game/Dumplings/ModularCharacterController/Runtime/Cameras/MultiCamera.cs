@@ -53,28 +53,23 @@ namespace ModularCharacterController.Cameras
 
 		public void NextCamera()
 		{
-			subCameras[currentCameraIndex].Enabled = false;
-			subCameras[currentCameraIndex].GetComponentInChildren<Camera>().enabled = false;
+			int oldIndex = currentCameraIndex;
 			
 			currentCameraIndex++;
 			if(currentCameraIndex >= subCameras.Count)
 				currentCameraIndex = 0;
 			
-			subCameras[currentCameraIndex].Enabled = true;
-			subCameras[currentCameraIndex].GetComponentInChildren<Camera>().enabled = true;
-		}
-		
-		public void PreviousCamera()
-		{
-			subCameras[currentCameraIndex].Enabled = false;
+			Camera oldCamera = subCameras[oldIndex].GetComponentInChildren<Camera>();
+			Rect oldCameraRect = oldCamera.rect;
 			
-			currentCameraIndex--;
-			if(currentCameraIndex < 0)
-				currentCameraIndex = subCameras.Count - 1;
-			
+			Camera newCamera = subCameras[currentCameraIndex].GetComponentInChildren<Camera>();
+			newCamera.rect = oldCameraRect;
 			subCameras[currentCameraIndex].Enabled = true;
+			newCamera.enabled = true;
+			
+			subCameras[oldIndex].Enabled = false;
+			oldCamera.enabled = false;
 		}
-
 
 		protected override void OnProcess(UpdatePhase _phase)
 		{
