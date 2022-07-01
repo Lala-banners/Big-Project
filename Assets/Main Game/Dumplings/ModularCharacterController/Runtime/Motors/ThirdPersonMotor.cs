@@ -28,6 +28,7 @@ namespace ModularCharacterController.Motors
 
 		private float lastTimeInAir;
 		private bool isJumpPressed;
+		private Vector2 moveInput;
 
 		public override void Init(IMCCPlayer _playerInterface)
 		{
@@ -44,16 +45,20 @@ namespace ModularCharacterController.Motors
 					camera = cam;
 			}
 
-            settings.MoveAction.Enable();
             settings.JumpAction.Enable();
 			settings.JumpAction.performed += OnJumpPerformed;
 			settings.JumpAction.canceled += OnJumpCanceled;
 		}
-
+		
+		public void OnMove(InputAction.CallbackContext context)
+		{
+			moveInput = context.ReadValue<Vector2>();
+		}
+		
 		protected override void OnProcess(UpdatePhase _phase)
 		{
 			CheckGrounded();
-			HandleMovement(settings.MoveAction.ReadValue<Vector2>());
+			HandleMovement(moveInput);
 			ApplyExtraGravity();
 		}
 

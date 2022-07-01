@@ -44,7 +44,6 @@ namespace ModularCharacterController.Motors
 		/// <param name="_isGrounded">Whether or not the player is in the air.</param>
 		public float GetGroundDistanceCheck(bool _isGrounded = false) => _isGrounded ? groundDistanceCheck : groundDistanceInAirCheck;
 
-		public InputAction MoveAction => moveAction;
 		public InputAction JumpAction => jumpAction;
 		
 		[SerializeField, Range(0.2f, 20)] private float jumpForce;
@@ -64,7 +63,6 @@ namespace ModularCharacterController.Motors
 		[SerializeField] private string groundTag;
 		[SerializeField] private string wallTag;
 
-		[SerializeField] private InputActionReference moveAction;
 		[SerializeField] private InputActionReference jumpAction;
 	}
 }
