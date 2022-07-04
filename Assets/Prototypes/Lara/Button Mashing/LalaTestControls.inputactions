@@ -1,0 +1,54 @@
+{
+    "name": "LalaTestControls",
+    "maps": [
+        {
+            "name": "GameplayActions",
+            "id": "a3e6f093-7348-42d7-92de-e266b0a4608f",
+            "actions": [
+                {
+                    "name": "Escape Grip",
+                    "type": "Button",
+                    "id": "e8fbdf37-b875-4fe6-9ba7-7448de961dff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "43b2ce9d-5845-4ab4-b2fa-2df28a6434ea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4d2043ee-2cf3-45c0-8763-5a184085ed52",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "165fe091-c114-431a-ac00-7d736ab92df1",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
