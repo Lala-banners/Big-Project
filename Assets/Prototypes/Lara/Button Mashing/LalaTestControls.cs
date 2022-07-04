@@ -33,7 +33,7 @@ public partial class @LalaTestControls : IInputActionCollection2, IDisposable
                     ""id"": ""e8fbdf37-b875-4fe6-9ba7-7448de961dff"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -51,7 +51,7 @@ public partial class @LalaTestControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""4d2043ee-2cf3-45c0-8763-5a184085ed52"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Escape Grip"",

@@ -1,7 +1,5 @@
 using System;
 
-using TMPro;
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
@@ -13,42 +11,92 @@ public class ButtonMash : MonoBehaviour
 {
     private LalaTestControls controls;
 
-    [Tooltip("The maximum time (in seconds) allowed to elapse between pressing and releasing a control for it to register as a tap.")]
-    public float tapTime;
+    [SerializeField] private float mash;
+    public float mashDelay = 0.5f;
 
-    [Tooltip("The maximum delay (in seconds) allowed between each tap. If this time is exceeded, the multi-tap is canceled.")]
-    public float tapDelay;
-
-    [Tooltip("How many taps need to be performed in succession. Two means double-tap, three means triple-tap, and so on.")]
-    public int tapCount;
-
-    private bool hasStarted;
     private bool hasPressed;
-    public TMP_Text timeText;
+    private bool timerHasStarted = false;
     
     private void Awake()
     {
-        tapTime = tapDelay;
+        mash = mashDelay;
         
         //Created controls object
         controls = new LalaTestControls();
 
-        //Do something when mash A action start
-        controls.GameplayActions.EscapeGrip.performed += ctx => EscapeVrGrip();
+        controls.GameplayActions.EscapeGrip.performed += EscapeGrip;
     }
-    
-    /// <summary>
-    /// Performed - button press down
-    /// </summary>
-    private void EscapeVrGrip()
-    {
-        //Add to tap count
-        tapCount++;
 
-        if(tapCount >= 10)
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.DownArrow))
         {
-            print("Tap count reached!");
+            timerHasStarted = true;
         }
+
+        if(timerHasStarted)
+        {
+            //Decrease the timer
+            mash -= Time.deltaTime;
+
+            if(Input.GetKeyDown(KeyCode.Space) && !hasPressed)
+            {
+                hasPressed = true;
+                mash = mashDelay;
+            }
+            else if(Input.GetKeyUp(KeyCode.Space))
+            {
+                hasPressed = false;
+            }
+            if(mash <= 0)
+            {
+                print("FAILED!");
+                timerHasStarted = false;
+            }
+        }
+    }
+
+
+    public void EscapeGrip(InputAction.CallbackContext ctx)
+    {
+        //If action is tap, start the countdown timer
+        /*if(ctx.interaction is TapInteraction)
+        {
+            timerHasStarted = true;
+            print("Tapping");
+        }*/
+        
+        //timerHasStarted = true;
+        if(ctx.performed)
+        {
+            timerHasStarted = true;
+            print("Timer started");
+        }
+
+        //Once the timer has started
+        /*if(timerHasStarted)
+        {
+            //If mashing the button, activate button press bool
+            // and reset the timer to the delay (start time).
+            if(ctx.performed && !hasPressed)
+            {
+                Debug.Log(ctx);
+                hasPressed = true;
+                mash = mashDelay;
+            }
+            //If the mashing was aborted or too slow
+            else if(ctx.canceled)
+            {
+                //Stop the button pressing and decrease the timer again
+                hasPressed = false;
+            }
+
+            //If the timer reaches 0, game over
+            if(mash <= 0)
+            {
+                print("Failed!");
+            }
+        }*/
     }
 
     private void OnEnable()

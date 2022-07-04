@@ -328,7 +328,6 @@ GameObject:
   - component: {fileID: 1003358380}
   - component: {fileID: 1003358379}
   - component: {fileID: 1003358383}
-  - component: {fileID: 1003358384}
   m_Layer: 0
   m_Name: TestDumpling
   m_TagString: Untagged
@@ -426,40 +425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db4f6c48c4e5d9489cd3a7263a6f57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapTime: 0
-  tapDelay: 0
-  tapCount: 0
-  timeText: {fileID: 0}
---- !u!114 &1003358384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003358378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2615c3f9f8ad159499936cb1b26e1d62, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: GameplayActions
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 1914150714}
+  mash: 0
+  mashDelay: 2
 --- !u!1 &1914150712
 GameObject:
   m_ObjectHideFlags: 0
