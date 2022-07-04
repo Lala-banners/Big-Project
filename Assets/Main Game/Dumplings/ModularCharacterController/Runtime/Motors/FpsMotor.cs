@@ -1,5 +1,6 @@
 ﻿// Creator: Kieran
 // Creation Time: 2022/06/06 11:01
+using System;
 using ModularCharacterController.Cameras;
 
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace ModularCharacterController.Motors
 		public Rigidbody Rigidbody { get; private set; }
 
 		[SerializeField] private MovementSettings settings;
+		[SerializeField] private bool skipMovementRayChecks = true;
 		
 		private new CapsuleCollider collider;
 		private new Rigidbody rigidbody;
@@ -27,6 +29,7 @@ namespace ModularCharacterController.Motors
 		private float lastTimeInAir;
 		private bool isJumpPressed;
 		private Vector2 moveInput;
+		private bool movingUsingThisComponent;
 
 		public override void Init(IMCCPlayer _playerInterface)
 		{
@@ -42,32 +45,56 @@ namespace ModularCharacterController.Motors
 				if(multiCamera.TryGetBehaviour(out cam))
 					camera = cam;
 			}
-
-            settings.JumpAction.Enable();
-			settings.JumpAction.performed += OnJumpPerformed;
-			settings.JumpAction.canceled += OnJumpCanceled;
 		}
 
-		public void OnMove(InputAction.CallbackContext context)
+		
+		protected override void OnEnabledStateChanged(bool _newState)
 		{
-			moveInput = context.ReadValue<Vector2>();
+			movingUsingThisComponent = _newState;
 		}
 		
+		public void OnMove(InputAction.CallbackContext context)
+		{
+			if (!movingUsingThisComponent)
+				return;
+			moveInput = context.ReadValue<Vector2>();
+		}
+
+		public void OnJump(InputAction.CallbackContext context)
+		{
+			if (!movingUsingThisComponent)
+				return;
+			// Button pressed down
+			if (context.performed)
+			{
+				OnJumpPerformed();
+			}
+			// Button released
+			if (context.canceled)
+			{
+				OnJumpCanceled();
+			}
+		}
+
 		protected override void OnProcess(UpdatePhase _phase)
 		{
+			if (!movingUsingThisComponent)
+				return;
 			CheckGrounded();
 			HandleMovement(moveInput);
 			ApplyExtraGravity();
 		}
-
 		/// <summary>
-		/// Detect if the playermotor is actually grounded; ie; not jumping or over nothing
+		/// Detect if the player motor is actually grounded; ie; not jumping or over nothing
 		/// </summary>
 		private void CheckGrounded()
 		{
+			// Todo: Fix this so it correctly ground checks!!
 			// Use a smaller ground distance check if in air, to prevent suddenly snapping to ground
 			float chosenGroundCheckDistance = settings.GetGroundDistanceCheck(IsGrounded);
 
+			//Debug.Log($"chosenGroundCheckDistance = {chosenGroundCheckDistance}");
+			
 			// If we aren't grounded and still going up skip this check.
 			if(IsGrounded == false && rigidbody.velocity.y >= 0.01) return;
 			
@@ -105,8 +132,8 @@ namespace ModularCharacterController.Motors
 		private void HandleMovement(Vector2 _axis)
 		{
 			// If the camera motor isn't running right now we shouldn't be able to control the player
-			if(!camera.Enabled)
-				return;
+			//if(!camera.Enabled)
+				//return;
 
 			// Calculate the max speed and the speed modifier by the grounded state
 			float maxSpeed = settings.GetMaxSpeed(IsGrounded);
@@ -118,8 +145,26 @@ namespace ModularCharacterController.Motors
 			Vector3 desiredVelocity = (forward + right) * (maxSpeed * modifier) - Rigidbody.velocity;
 
 			// Check we can move this way, if we can apply the velocity
-			if(CanMoveInDirection(desiredVelocity))
+			if(CanMoveInDirection(desiredVelocity) || skipMovementRayChecks)
 				Rigidbody.AddForce(new Vector3(desiredVelocity.x, 0, desiredVelocity.z), ForceMode.Impulse);
+		}
+
+		private bool CanMoveInDirection(Vector3 _targetDir)
+		{
+			// Find everything in the direction we are attempting to move at least 1cm away
+			RaycastHit[] hits = CapsuleCastAllInDirection(_targetDir, 0.01f);
+
+			foreach(RaycastHit hit in hits)
+			{
+				if(hit.collider.CompareTag(settings.WallTag) || hit.transform.gameObject.layer == 0)
+				{
+					// We will walk into a wall so don't move that way
+					return false;
+				}
+			}
+
+			// We can move this way since we won't walk into a wall
+			return true;
 		}
 
 		/// <summary>
@@ -139,24 +184,6 @@ namespace ModularCharacterController.Motors
 			}
 		}
 
-		private bool CanMoveInDirection(Vector3 _targetDir)
-		{
-			// Find everything in the direction we are attempting to move at least half a meter away
-			RaycastHit[] hits = CapsuleCastAllInDirection(_targetDir, 0.5f);
-
-			foreach(RaycastHit hit in hits)
-			{
-				if(hit.collider.CompareTag(settings.WallTag) || hit.transform.gameObject.layer == 0)
-				{
-					// We will walk into a wall so don't move that way
-					return false;
-				}
-			}
-
-			// We can move this way since we won't walk into a wall
-			return true;
-		}
-
 		/// <summary>
 		/// Cast a Capsule in the passed direction and get all hit objects in that direction.
 		/// </summary>
@@ -164,22 +191,20 @@ namespace ModularCharacterController.Motors
 		/// <param name="_distance">How far the capsule will travel</param>
 		private RaycastHit[] CapsuleCastAllInDirection(Vector3 _direction, float _distance)
 		{
+			// Todo: Fix this and push to ThirdPersonMotor, looks like it is currently always returning hits and breaking everything that uses it!!
+			
 			Vector3 top = transform.position + collider.center + Vector3.up * ((collider.height * 0.5f) - collider.radius);
 			Vector3 bot = transform.position + collider.center - Vector3.up * ((collider.height * 0.5f) - collider.radius);
 
 			// Cast the capsule in the passed direction and distance
-			return Physics.CapsuleCastAll(top, bot, collider.radius * 0.95f, _direction, _distance, settings.LayerChecks);
+			return Physics.CapsuleCastAll(top, bot, collider.radius * 0.8f, _direction, _distance, settings.LayerChecks);
 		}
-
+		
 		/// <summary>
 		/// Fired when the jump action is pressed.
 		/// </summary>
-		private void OnJumpPerformed(InputAction.CallbackContext _context)
+		private void OnJumpPerformed()
 		{
-			// If the camera is not running right now, we won't jump
-			//////////////////////////////////////////////////////if(!camera.Enabled)
-			//////////////////////////////////////////////////////return;
-
 			isJumpPressed = true;
 
 			// If we are grounded jump and store the jump time
@@ -187,7 +212,6 @@ namespace ModularCharacterController.Motors
 			{
 				Rigidbody.AddForce(Vector3.up * settings.JumpForce, ForceMode.Impulse);
 				IsGrounded = false;
-
 				lastTimeInAir = Time.time;
 			}
 		}
@@ -195,6 +219,6 @@ namespace ModularCharacterController.Motors
 		/// <summary>
 		/// Fired when the jump action either a) fails or b) is released
 		/// </summary>
-		private void OnJumpCanceled(InputAction.CallbackContext _context) => isJumpPressed = false;
+		private void OnJumpCanceled() => isJumpPressed = false;
 	}
 }

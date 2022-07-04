@@ -37,6 +37,7 @@ namespace ModularCharacterController.Cameras
 			currentMotorIndex = _camIndex;
 			
 			subMotors[currentMotorIndex].Enabled = true;
+
 		}
 
 		public void NextMotor()
@@ -76,7 +77,7 @@ namespace ModularCharacterController.Cameras
 		{
 			UpdatePhase currentMotorPhase = subMotors[currentMotorIndex].UpdatePhase;
 			
-			if((_phase != currentMotorPhase && _phase != UpdatePhase.Any) || !Enabled)
+			if ((_phase != currentMotorPhase && _phase != UpdatePhase.Any) || !Enabled)
 				return;
 			
 			subMotors[currentMotorIndex].Process(_phase);
