@@ -426,7 +426,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db4f6c48c4e5d9489cd3a7263a6f57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mashDelay: 0.5
+  tapTime: 0
+  tapDelay: 0
+  tapCount: 0
+  timeText: {fileID: 0}
 --- !u!114 &1003358384
 MonoBehaviour:
   m_ObjectHideFlags: 0
