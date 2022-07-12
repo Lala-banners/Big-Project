@@ -8,6 +8,8 @@ namespace ModularCharacterController.Motors
 {
 	public class ThirdPersonMotor : BaseMotorModularBehaviour
 	{
+		
+		[Header("ThirdPersonMotor")]
 		[SerializeField] private Transform renderTransform;
 		[SerializeField] private float renderAlignmentSpeed = 3f;
 		

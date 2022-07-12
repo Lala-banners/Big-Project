@@ -5,10 +5,11 @@ namespace ModularCharacterController.Motors
 {
     public abstract class BaseMotorModularBehaviour : ModularBehaviour
     {
-        public bool IsGrounded { get; protected set; }
-        public Rigidbody Rigidbody { get; protected set; }
+        [Header("BaseMotorModularBehaviour")]
         [SerializeField] protected MovementSettings settings;
         [SerializeField] protected bool skipMovementRayChecks = true;
+        public bool IsGrounded { get; protected set; }
+        public Rigidbody Rigidbody { get; protected set; }
 
         protected new CapsuleCollider collider;
         protected new Rigidbody rigidbody;
@@ -19,7 +20,7 @@ namespace ModularCharacterController.Motors
         protected const float IN_AIR_GROUND_CHECK_DELAY = 0.1f;
         
         protected float lastTimeInAir;
-        protected bool isJumpPressed;
+        [SerializeField] protected bool isJumpPressed;
         protected Vector2 moveInput;
         protected bool movingUsingThisComponent;
         
@@ -84,10 +85,6 @@ namespace ModularCharacterController.Motors
         /// <param name="_axis">The axis the controller or keyboard is requesting</param>
         protected virtual void HandleMovement(Vector2 _axis)
         {
-            // If the camera motor isn't running right now we shouldn't be able to control the player
-            // if(!camera.Enabled)
-                //return;
-
             // Calculate the max speed and the speed modifier by the grounded state
             float maxSpeed = settings.GetMaxSpeed(IsGrounded);
             float modifier = IsGrounded ? SPEED_ON_GROUND_MODIFIER : SPEED_IN_AIR_MODIFIER;
@@ -132,12 +129,15 @@ namespace ModularCharacterController.Motors
             if(Rigidbody.velocity.y < 0)
             {
                 Rigidbody.velocity += Vector3.up * (Physics.gravity.y * settings.FallMultiplier * Time.deltaTime);
+                Debug.Log($"Normal Fall || settings.LowJumpMultiplier = {settings.FallMultiplier} || Gravity = {Physics.gravity.y * settings.FallMultiplier}");
             }
             // We are rising, but we aren't pressing the jump button, so fall faster
             else if(Rigidbody.velocity.y > 0 && !isJumpPressed)
             {
+                Debug.Log($"Low jump || settings.LowJumpMultiplier = {settings.LowJumpMultiplier} || Gravity = {Physics.gravity.y * settings.LowJumpMultiplier}");
                 Rigidbody.velocity += Vector3.up * (Physics.gravity.y * settings.LowJumpMultiplier * Time.deltaTime);
             }
+            Debug.Log($"Rigidbody.velocity.y = {Rigidbody.velocity.y}");
         }
         
         

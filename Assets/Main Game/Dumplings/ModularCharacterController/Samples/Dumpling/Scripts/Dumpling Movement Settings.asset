@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7bba508fabc3248b7f5b23e184bc98, type: 3}
   m_Name: Dumpling Movement Settings
   m_EditorClassIdentifier: 
-  jumpForce: 3.2
+  jumpForce: 3.3
   individualMaxSpeeds: 0
   maxSpeed: 0.65
   maxSpeedOnGround: 1.3
   maxSpeedInAir: 2
   groundDistanceCheck: 0.01
   groundDistanceInAirCheck: 0.02
-  fallMultiplier: 1.5
-  lowJumpMultiplier: 1
+  fallMultiplier: 1.2
+  lowJumpMultiplier: 2
   layerChecks:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 256
   groundTag: Ground
   wallTag: Wall
   jumpAction: {fileID: -7242368021332799897, guid: 90666b904c42fb34ea980351c3168382, type: 3}
