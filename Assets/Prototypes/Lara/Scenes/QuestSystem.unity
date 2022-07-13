@@ -219,7 +219,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &612297852
 GameObject:
@@ -358,7 +358,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &946325939
 GameObject:
@@ -840,6 +840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dumpling Task UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2849356472473499042, guid: 9539ff87459fc8e4f8078fed1dfffa5f, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 503
+      objectReference: {fileID: 0}
     - target: {fileID: 2849356472473499053, guid: 9539ff87459fc8e4f8078fed1dfffa5f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1113,7 +1117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747612568546535958, guid: 4d0ea7a20a4eb22409d8ab454d207f92, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8747612568546535958, guid: 4d0ea7a20a4eb22409d8ab454d207f92, type: 3}
       propertyPath: m_LocalPosition.x
