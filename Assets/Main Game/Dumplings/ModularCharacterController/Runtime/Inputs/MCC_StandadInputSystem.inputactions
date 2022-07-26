@@ -173,17 +173,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1635d3fe-58b6-4ba9-a4e2-f4b964f6b5c8",
-                    "path": "<XRController>/{Primary2DAxis}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3ea4d645-4504-4529-b061-ab81934c3752",
                     "path": "<Joystick>/stick",
                     "interactions": "",
@@ -283,17 +272,6 @@
                 },
                 {
                     "name": "",
-                    "id": "8255d333-5683-4943-a58a-ccb207ff1dce",
-                    "path": "<XRController>/{PrimaryAction}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f73046fd-cc1d-460e-b395-222f9ef0b6bc",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -376,17 +354,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9b688ddf-a8b3-4eed-9db0-f80eadc35446",
-                    "path": "<XRController>{RightHand}/primaryButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
