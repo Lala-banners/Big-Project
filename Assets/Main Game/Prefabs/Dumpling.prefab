@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6801ca4344fa4dfe845764d5dcf8188c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toBeUsedInMMCParent: 0
   localOnly: 1
   updatePhase: 2
   subMotors:
@@ -125,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eda6b91799b4dba9e0aa3ebc768f490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toBeUsedInMMCParent: 0
   localOnly: 1
   updatePhase: 1
   subCameras:
@@ -210,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 90666b904c42fb34ea980351c3168382, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 1756531297231460649}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -221,7 +223,161 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1862325484685031483}
+        m_TargetAssemblyTypeName: ModularCharacterController.Motors.BaseMotorModularBehaviour,
+          Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8752832059093112514}
+        m_TargetAssemblyTypeName: ModularCharacterController.Motors.BaseMotorModularBehaviour,
+          Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cccfa21c-4e7e-4070-9698-42f3d9cc17d4
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2694643955630058795}
+        m_TargetAssemblyTypeName: ModularCharacterController.Cameras.ThirdPersonCamera,
+          Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8752832060042752436}
+        m_TargetAssemblyTypeName: ModularCharacterController.Cameras.FpsCamera, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b696916e-d1e6-4a04-83bd-072d0038bed8
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ed81143f-655d-4154-88e8-7f189feeb9d9
+    m_ActionName: Player/Interact[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1862325484685031483}
+        m_TargetAssemblyTypeName: ModularCharacterController.Motors.BaseMotorModularBehaviour,
+          Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8752832059093112514}
+        m_TargetAssemblyTypeName: ModularCharacterController.Motors.BaseMotorModularBehaviour,
+          Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2506a6d0-7e3f-48b0-8d71-c2e7e8468bb5
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7402636375206736000}
+        m_TargetAssemblyTypeName: ModularCharacterController.Cameras.CameraSwitcher,
+          Assembly-CSharp
+        m_MethodName: OnSwitchCamera
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 41572fa3-71e4-4e01-97f0-031138265e50
+    m_ActionName: Player/Camera Swap[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ef5e4c3-5a95-4ab3-98c1-cf47b2c7c6b4
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dc71a532-51be-4972-a164-449c7405d608
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e2266032-6418-416e-abd1-200225c72925
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d86620a5-d53a-4500-b5c4-7fbf50c0016c
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e963e18d-1f83-4b85-9d00-b9fd9a953e4f
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3a3c4e05-8ae6-4b66-8eaf-e0a1faa9fc9f
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f4cd8797-23aa-4835-a6bb-b23310fd912c
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 945a8706-1e06-44d6-9ff7-a751911c51e2
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1e7ea270-b79e-447c-9a60-052472ba5b3f
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9fff9bda-88db-4d59-ba3d-d4db426f513e
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 22e6f8c0-9355-4ec1-a4aa-86b2d369c9f7
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -326,19 +482,19 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
+  m_TargetEye: 0
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
@@ -398,9 +554,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5642e0649e234b42bd0efb5e7152c5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toBeUsedInMMCParent: 0
   localOnly: 1
   updatePhase: 2
   settings: {fileID: 11400000, guid: a8d4496358ddd1442b3a3a6fe987bcd4, type: 2}
+  skipMovementRayChecks: 1
+  isJumpPressed: 0
   renderTransform: {fileID: 5687883557813920026}
   renderAlignmentSpeed: 5
 --- !u!1 &3185406903721223903
@@ -615,7 +774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5687883558314382536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.60709, y: 0, z: -1.9571352}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -685,7 +844,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiCamera: {fileID: 1321530725677049918}
   multiMotor: {fileID: 1321530723954338588}
-  switchAction: {fileID: -866214532129259658, guid: 90666b904c42fb34ea980351c3168382, type: 3}
 --- !u!1 &7428149424579449508
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,11 +889,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833cc5522d7f45a693aa3143adf4976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toBeUsedInMMCParent: 0
   localOnly: 1
   updatePhase: 1
   settings: {fileID: 11400000, guid: c4703d4ab252c8946a07a00f404f2625, type: 2}
   boom: {fileID: 5220354303677685612}
-  collisionRadius: 0.3
+  collisionRadius: 0.051
   cameraDistance: 0.5
   damping: 0.1
 --- !u!1 &8397209494481748064
@@ -814,9 +973,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aa6238a0f6dbc45b7ced1211b5dfbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toBeUsedInMMCParent: 0
   localOnly: 1
   updatePhase: 2
   settings: {fileID: 11400000, guid: a8d4496358ddd1442b3a3a6fe987bcd4, type: 2}
+  skipMovementRayChecks: 1
+  isJumpPressed: 0
 --- !u!1 &8752832060042752432
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb8772cd2c2ccf4abb0e557bb4934d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toBeUsedInMMCParent: 0
   localOnly: 1
   updatePhase: 1
   settings: {fileID: 11400000, guid: c4703d4ab252c8946a07a00f404f2625, type: 2}
@@ -894,14 +1057,14 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
+  m_TargetEye: 0
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0

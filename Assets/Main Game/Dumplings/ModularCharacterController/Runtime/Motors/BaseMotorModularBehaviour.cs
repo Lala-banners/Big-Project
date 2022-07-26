@@ -129,15 +129,12 @@ namespace ModularCharacterController.Motors
             if(Rigidbody.velocity.y < 0)
             {
                 Rigidbody.velocity += Vector3.up * (Physics.gravity.y * settings.FallMultiplier * Time.deltaTime);
-                Debug.Log($"Normal Fall || settings.LowJumpMultiplier = {settings.FallMultiplier} || Gravity = {Physics.gravity.y * settings.FallMultiplier}");
             }
             // We are rising, but we aren't pressing the jump button, so fall faster
             else if(Rigidbody.velocity.y > 0 && !isJumpPressed)
             {
-                Debug.Log($"Low jump || settings.LowJumpMultiplier = {settings.LowJumpMultiplier} || Gravity = {Physics.gravity.y * settings.LowJumpMultiplier}");
                 Rigidbody.velocity += Vector3.up * (Physics.gravity.y * settings.LowJumpMultiplier * Time.deltaTime);
             }
-            Debug.Log($"Rigidbody.velocity.y = {Rigidbody.velocity.y}");
         }
         
         
