@@ -9,7 +9,7 @@ public class PCController : MonoBehaviour
     Vector2 iMovement;
     Vector2 iTurn;
     Vector2 mouseTurn;
-    public float moveSpeed = .1f;
+    public float moveSpeed = 1f;
     public float rotateSpeed = 60f;
     Vector3 jump;
     public float jumpForce = 2f;
@@ -35,11 +35,13 @@ public class PCController : MonoBehaviour
     }
     void OnCollisionStay()
     {
+        Debug.Log("Inside OnCollisionStay!");
         isGrounded = true;
     }
     private void Move()
     {
-        cameraMan.transform.Rotate(new Vector3(0f, iTurn.x, 0f), Space.World);
+        //cameraMan.
+            transform.Rotate(new Vector3(0f, iTurn.x, 0f), Space.World);
         cameraMan.transform.Rotate(new Vector3(-iTurn.y, 0f, 0f), Space.Self);
         
         transform.Rotate(mouseTurn.x * rotateSpeed * Time.deltaTime, 0, mouseTurn.y * rotateSpeed * Time.deltaTime);
@@ -57,8 +59,11 @@ public class PCController : MonoBehaviour
     private void OnJump()
     {
         Debug.Log("Button Input South!");
-        rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        isGrounded = false;
+        if (isGrounded)
+        {
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
     }
 
     private void OnDash()
