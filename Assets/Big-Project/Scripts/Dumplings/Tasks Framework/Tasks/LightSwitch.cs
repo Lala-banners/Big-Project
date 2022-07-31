@@ -8,7 +8,7 @@ public class LightSwitch : MonoBehaviour
 {
     [SerializeField] private Light[] lights;
     private bool isLightOn = false;
-    private string lightName = "Directional Light";
+    private string lightName = "Point Light";
     private string emissionColour = "_EmissionColour";
     private float offIntensity = 0.0f, onIntensity = 3.0f;
     //public Button onOffButton;
@@ -18,7 +18,7 @@ public class LightSwitch : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         
-        //lights = GetComponentsInChildren<Light>();
+        lights = GetComponentsInChildren<Light>();
         
         Debug.Log(lights.Length);
 

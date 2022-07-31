@@ -21,10 +21,10 @@ public class NetworkedTimer : MonoBehaviour
 	[SerializeField] private double timeLeft = 20;
 	//ExitGames.Client.Photon.Hashtable CustomValue;
 	public TMP_Text timerText;
- 
-	/*void Start()
+
+	void Start()
 	{
-		if (PhotonNetwork.NetworkingClient.IsConnected)
+		/*if (PhotonNetwork.NetworkingClient.IsConnected)
 		{
 			timerText = GetComponent<TMP_Text>();
 			CustomValue = new ExitGames.Client.Photon.Hashtable();
@@ -37,12 +37,12 @@ public class NetworkedTimer : MonoBehaviour
 		{
 			startTime = double.Parse(PhotonNetwork.CurrentRoom.CustomProperties["StartTime"].ToString());
 			startTimer = true;
-		}
-	}*/
+		}*/
+	}
  
-	/*void Update()
+	void Update()
 	{
-		UpdateTimerText();
+		/*UpdateTimerText();
 		
 		if (!startTimer) return;
  
@@ -60,8 +60,8 @@ public class NetworkedTimer : MonoBehaviour
 			//print("Game Over");
 			UpdateTimerText();
 			
-		}
-	}*/
+		}*/
+	}
 
 	public void UpdateTimerText()
 	{

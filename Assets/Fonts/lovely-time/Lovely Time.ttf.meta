@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: bdaf7ced43b6b59408d6570279730bd7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lovely Time
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9b5c24f3663ecbc41a9ada4f3886e332, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
