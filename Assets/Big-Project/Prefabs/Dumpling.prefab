@@ -760,6 +760,7 @@ GameObject:
   - component: {fileID: 8641965720620753515}
   - component: {fileID: 7354576746762083764}
   - component: {fileID: 596976397804301115}
+  - component: {fileID: 2577003838332110703}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -866,6 +867,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &2577003838332110703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275641533103635085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2097f66581b9d5f40be727a097d806b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
 --- !u!1 &6413042479368558349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,9 +1258,10 @@ GameObject:
   - component: {fileID: 289809121631050094}
   - component: {fileID: 2088530437102599428}
   - component: {fileID: 1316578691860962370}
+  - component: {fileID: 8880545941685517604}
   m_Layer: 0
   m_Name: Dumpling
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1477,6 +1492,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.252
   m_Center: {x: 0, y: 0.252, z: 0}
+--- !u!114 &8880545941685517604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892804766911721820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d80ca683a3cb54094e8619c7c3985c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidingSpot1: {fileID: 0}
+  hidingSpot2: {fileID: 0}
+  hidingSpot3: {fileID: 0}
+  hidingSpot4: {fileID: 0}
+  hidingSpot5: {fileID: 0}
+  fuseObject: []
 --- !u!1 &8203686924351768345
 GameObject:
   m_ObjectHideFlags: 0
