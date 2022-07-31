@@ -6,21 +6,6 @@ public class ScoreManager : MonoBehaviour
 	public static int scoreAmount;
 	private TMP_Text scoreText;
 
-	/*public static ScoreManager Instance;
-
-	private void Awake()
-	{
-		if(Instance != null)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-	}*/
-
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -40,11 +25,9 @@ public class ScoreManager : MonoBehaviour
 
 	public void CheckScores()
 	{
-		int maxScore = 6;
-		if(scoreAmount >= maxScore)
+		if(SliderController.Singleton.slider.value >= SliderController.Singleton.slider.maxValue)
 		{
-			scoreAmount = maxScore;
-			print("Good Job");
+			SliderController.Singleton.slider.value = SliderController.Singleton.slider.maxValue;
 		}
 	}
 

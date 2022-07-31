@@ -36,6 +36,7 @@ public class HideQuestGoal : QuestGoal
         {
             DropItem(itemId);
             print("You have hidden all the fuses");
+            SliderController.Singleton.RemoveProgress();
             return true;
         }
 

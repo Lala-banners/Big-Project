@@ -1231,6 +1231,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 158962485}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &158962489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7779294329728211455, guid: 8229eeac0303a9940aaeb70a4aa0b023,
+    type: 3}
+  m_PrefabInstance: {fileID: 158962485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &158962490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6971091003962377029, guid: 8229eeac0303a9940aaeb70a4aa0b023,
+    type: 3}
+  m_PrefabInstance: {fileID: 158962485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &158962491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158962490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727d87eb5a4126f4aa7bc278fe206d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tomato: {fileID: 0}
+  egg: {fileID: 0}
+  cucumber: {fileID: 0}
+  onion: {fileID: 0}
+  shallot: {fileID: 0}
+  carrot: {fileID: 0}
+  potLocation: {fileID: 158962489}
 --- !u!1 &409049202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,6 +1370,7 @@ GameObject:
   - component: {fileID: 413895962}
   - component: {fileID: 413895961}
   - component: {fileID: 413895963}
+  - component: {fileID: 413895964}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -1359,7 +1391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 0}
-  leftHand: {fileID: 0}
+  leftHand: {fileID: 1501286776}
+  rightHand: {fileID: 155031543}
 --- !u!4 &413895962
 Transform:
   m_ObjectHideFlags: 0
@@ -1385,6 +1418,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92f27a3903d7f264d8aa851f575f2539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &413895964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413895960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123fd4fbf18b1624495f8fd0747ccf00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &465840919
@@ -1911,6 +1956,135 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &670221917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670221918}
+  - component: {fileID: 670221919}
+  m_Layer: 0
+  m_Name: Chef Wins Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670221918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670221917}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1945058309}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &670221919
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670221917}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 98cb1100fb238bc4987fba76dc9154ae,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: f4eb68bd6c1ad4f7cbf503988d6e2f9d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &710957339
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,6 +3191,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1eb1e84ae939ddb468e10b0abfbca4f4,
         type: 2}
+    - target: {fileID: 871390156939471341, guid: 2d2fbd63ab5a3a24db9b5cb7e068aa4a,
+        type: 3}
+      propertyPath: chefWinsAudio
+      value: 
+      objectReference: {fileID: 670221919}
     - target: {fileID: 871390156939471342, guid: 2d2fbd63ab5a3a24db9b5cb7e068aa4a,
         type: 3}
       propertyPath: m_RootOrder
@@ -3499,6 +3678,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 619815689}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1945058308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945058309}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1945058309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945058308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 670221918}
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976298374
 GameObject:

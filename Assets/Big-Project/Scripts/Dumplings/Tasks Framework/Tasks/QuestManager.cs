@@ -12,6 +12,8 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private Transform taskCanvasTransform;
     [SerializeField] private GameObject questUIPrefab;
     [SerializeField] private TMP_Text titleText, descriptionText, experienceText, goldText;
+
+    public AudioSource chefWinsAudio;
     
     public void InitiateDumplingTasks()
     {
@@ -32,7 +34,7 @@ public class QuestManager : MonoBehaviour
 
             //If quests are completed and timer is still running = Dumplings win!
             //If above is true OR madness slider is 0 = dumplings also win!
-            if(goal.isReached && MpCountdownTimer.timerIsRunning.Equals(true) || WinLoseManager.Singleton.chefMadnessBar.value <= 0)
+            if(goal.isReached && MpCountdownTimer.timerIsRunning.Equals(true) || SliderController.Singleton.slider.value <= 0)
             {
                 countObject.SetActive(false);
                 goalObject.transform.Find("Done").gameObject.SetActive(true);
@@ -43,9 +45,13 @@ public class QuestManager : MonoBehaviour
                 
                 CloseWindow(); //Close quest window
             }
-            else //Dumplings do not win! Chef wins!
+            else //Dumplings do not win! Chef wins if the reverse of above if statement is true
             {
+                SliderController.Singleton.CheckMadnessBar();
+                
                 WinLoseManager.Singleton.ChefWins();
+                
+                chefWinsAudio.Play();
                 
                 countObject.GetComponentInChildren<TMP_Text>().text = goal.currentAmount + "/" + goal.requiredAmount;
             }

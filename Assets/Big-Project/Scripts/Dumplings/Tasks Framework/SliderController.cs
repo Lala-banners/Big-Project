@@ -6,14 +6,35 @@ using TMPro;
 
 public class SliderController : MonoBehaviour
 {
-	public TMP_Text sliderValueText;
+	#region Singleton
+	protected static SliderController singleton;
+	public static SliderController Singleton
+	{
+		get => singleton;
+		protected set
+		{
+			if(singleton == null)
+			{
+				singleton = value;
+			}
+    
+			else if(singleton != value)
+			{
+				Debug.Log($"{nameof(SliderController)} instance already exists, destroying duplicate!");
+				Destroy(value);
+			}            
+		}
+	}
+	#endregion
+	
+	//public TMP_Text sliderValueText;
 	private int progress = 0;
 	public Slider slider;
 	
-	public void OnSliderChanged(float value)
+	/*public void OnSliderChanged(float value)
 	{
 		sliderValueText.text = value.ToString();
-	}
+	}*/
 
 	public void UpdateProgress()
 	{
@@ -25,5 +46,13 @@ public class SliderController : MonoBehaviour
 	{
 		progress--;
 		slider.value = progress;
+	}
+	
+	public void CheckMadnessBar()
+	{
+		if(slider.value >= slider.maxValue)
+		{
+			slider.value = slider.maxValue;
+		}
 	}
 }

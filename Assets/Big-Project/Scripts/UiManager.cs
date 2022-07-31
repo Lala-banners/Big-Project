@@ -11,9 +11,9 @@ public class UiManager : MonoBehaviour
 	private Button quitGameButton;
 	
 	//References to XR Controllers
-	[Header("VR"), SerializeField] 
-	private GameObject leftHand;
-	private GameObject rightHand;
+	[Header("VR")] 
+	[SerializeField]private GameObject leftHand;
+	[SerializeField]private GameObject rightHand;
 
 	private void Update()
 	{

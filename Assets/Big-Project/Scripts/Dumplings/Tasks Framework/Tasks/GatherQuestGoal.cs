@@ -35,7 +35,8 @@ public class GatherQuestGoal : QuestGoal
         if (item.Amount >= requiredAmount) //if amount is greater or equal to required amount then quest is completed
         {
             ItemCollected(itemId);
-            print("Quest has been completed");
+            print("You have gathered all the fuses!");
+            SliderController.Singleton.RemoveProgress(); //Hit Chef Madness Bar
             return true;
         }
 
