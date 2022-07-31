@@ -171,7 +171,11 @@ namespace Big_Project.Scripts.Dumplings.MovementAndCamera.Motors
 			
             if (context.performed)
             {
-                OnJumpPerformed();
+                Ray ray = new Ray(transform.position, -transform.up);
+                if (Physics.Raycast(ray, 0.1f))
+                {
+                    OnJumpPerformed();   
+                }
             }
             if (context.canceled)
             {
