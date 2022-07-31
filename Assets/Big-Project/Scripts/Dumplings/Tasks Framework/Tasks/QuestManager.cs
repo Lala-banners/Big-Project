@@ -30,15 +30,23 @@ public class QuestManager : MonoBehaviour
 			
             GameObject countObject = goalObject.transform.Find("Count").gameObject;
 
-            if(goal.isReached)
+            //If quests are completed and timer is still running = Dumplings win!
+            //If above is true OR madness slider is 0 = dumplings also win!
+            if(goal.isReached && MpCountdownTimer.timerIsRunning.Equals(true) || WinLoseManager.Singleton.chefMadnessBar.value <= 0)
             {
                 countObject.SetActive(false);
                 goalObject.transform.Find("Done").gameObject.SetActive(true);
                 Debug.Log("Quest Complete!");
-                CloseWindow();
+                
+                MpCountdownTimer.timerIsRunning = false; //Turn timer off
+                WinLoseManager.Singleton.DumplingsWin();
+                
+                CloseWindow(); //Close quest window
             }
-            else
+            else //Dumplings do not win! Chef wins!
             {
+                WinLoseManager.Singleton.ChefWins();
+                
                 countObject.GetComponentInChildren<TMP_Text>().text = goal.currentAmount + "/" + goal.requiredAmount;
             }
         }

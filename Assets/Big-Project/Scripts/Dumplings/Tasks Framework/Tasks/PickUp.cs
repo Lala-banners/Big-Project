@@ -7,15 +7,16 @@ public class PickUp : MonoBehaviour
 {
     private GatherQuestGoal gather;
     private HideQuestGoal hide;
-    public Transform hidingSpot1, hidingSpot2,hidingSpot3, hidingSpot4, hidingSpot5;
+    public Transform hidingSpot1, hidingSpot2,hidingSpot3, hidingSpot4, hidingSpot5, hidingSpot6;
     public GameObject[] fuseObject;
 
     private const string
-        hidingspot1 = "Hiding Spot 1",
-        hidingspot2 = "Hiding Spot 2",
-        hidingspot3 = "Hiding Spot 3",
-        hidingspot4 = "Hiding Spot 4",
-        hidingspot5 = "Hiding Spot 5";
+        hidingspot1 = "1",
+        hidingspot2 = "2",
+        hidingspot3 = "3",
+        hidingspot4 = "4",
+        hidingspot5 = "5",
+        hidingspot6 = "6";
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class PickUp : MonoBehaviour
         DropFuse(other, 2, hidingSpot3, hidingspot3);
         DropFuse(other, 3, hidingSpot4, hidingspot4);
         DropFuse(other, 4, hidingSpot5, hidingspot5);
+        DropFuse(other, 5, hidingSpot6, hidingspot6);
     }
 
     private void DropFuse(Collider other, int index, Transform parent, string name)

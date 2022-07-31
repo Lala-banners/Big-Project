@@ -6,7 +6,7 @@ using UnityEngine;
 public class MpCountdownTimer : MonoBehaviour
 {
 	[SerializeField] private float timeRemaining = 180;
-	public bool timerIsRunning = false;
+	public static bool timerIsRunning = false;
 	public TMP_Text timeText;
 
 	private void Start()
@@ -26,9 +26,9 @@ public class MpCountdownTimer : MonoBehaviour
 			}
 			else
 			{
-				Debug.Log("Time has run out!");
 				timeRemaining = 0;
 				timerIsRunning = false;
+				WinLoseManager.Singleton.ChefWins();
 			}
 		}
 	}
@@ -40,4 +40,6 @@ public class MpCountdownTimer : MonoBehaviour
 		float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 		timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 	}
+
+	
 }
