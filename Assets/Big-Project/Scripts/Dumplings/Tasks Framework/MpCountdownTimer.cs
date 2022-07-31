@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MpCountdownTimer : MonoBehaviour
 {
-	public float timeRemaining = 3;
+	[SerializeField] private float timeRemaining = 180;
 	public bool timerIsRunning = false;
 	public TMP_Text timeText;
 
