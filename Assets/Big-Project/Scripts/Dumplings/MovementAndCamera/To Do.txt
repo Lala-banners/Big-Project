@@ -1,0 +1,5 @@
+Add in a "Wall" and "Ground" layer.
+
+Tag the ground and environment as "Ground".
+
+Add in a cube collider under the kitchen 1m with no render. 
