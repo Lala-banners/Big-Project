@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,8 +31,15 @@ public class WinLoseManager : MonoBehaviour
 	public Slider chefMadnessBar;
 
 	[Header("Dumplings")]
-	public GameObject dumplingWinCanvas;
-	public GameObject dumplingLoseCanvas;
+	public Canvas dumplingsWinCanvas;
+	public Canvas dumplingsLoseCanvas;
+
+	public void LinkUI()
+	{
+		chefMadnessBar = GameObject.Find("Chef Madness Bar").GetComponent<Slider>();
+		dumplingsWinCanvas = GameObject.Find("Dumplings Win Canvas").GetComponent<Canvas>();
+		dumplingsLoseCanvas = GameObject.Find("Dumplings Lose Canvas").GetComponent<Canvas>();
+	}
 
 	/// <summary>
     /// Win screen for dumplings show up
@@ -39,7 +47,7 @@ public class WinLoseManager : MonoBehaviour
     /// </summary>
     public void DumplingsWin()
     {
-	    dumplingWinCanvas.SetActive(true);
+	    dumplingsWinCanvas.gameObject.SetActive(true);
     }
 	
     /// <summary>
@@ -48,6 +56,6 @@ public class WinLoseManager : MonoBehaviour
     /// </summary>
     public void ChefWins()
     {
-		dumplingLoseCanvas.SetActive(true);
+		dumplingsLoseCanvas.gameObject.SetActive(true);
     }
 }

@@ -8,10 +8,12 @@ public class FinalIngredientsLocation : MonoBehaviour
 	//public ScoreManager scoreManager;
 	public GameObject tomato, egg, cucumber, onion, shallot, carrot;
 	[SerializeField] private Transform potLocation;
+	private SliderController chefMadnessSlider;
 
 	private void Start()
 	{
 		potLocation.position = transform.position;
+		chefMadnessSlider = FindObjectOfType<SliderController>();
 	}
 
 	private void OnCollisionEnter(Collision other)
@@ -19,7 +21,7 @@ public class FinalIngredientsLocation : MonoBehaviour
 		if(other.gameObject == tomato)
 		{
 			//scoreManager.AddPoint(1);
-			SliderController.Singleton.UpdateProgress();
+			chefMadnessSlider.UpdateProgress();
 			//scoreManager.UpdateUI();
 			Destroy(tomato);
 		}
@@ -27,7 +29,7 @@ public class FinalIngredientsLocation : MonoBehaviour
 		if(other.gameObject == egg)
 		{
 			//scoreManager.AddPoint(1);
-			SliderController.Singleton.UpdateProgress();
+			chefMadnessSlider.UpdateProgress();
 			//scoreManager.UpdateUI();
 			Destroy(egg);
 		}
@@ -35,7 +37,7 @@ public class FinalIngredientsLocation : MonoBehaviour
 		if(other.gameObject == cucumber)
 		{
 			//scoreManager.AddPoint(1);
-			SliderController.Singleton.UpdateProgress();
+			chefMadnessSlider.UpdateProgress();
 			//scoreManager.UpdateUI();
 			Destroy(cucumber);
 		}
@@ -43,7 +45,7 @@ public class FinalIngredientsLocation : MonoBehaviour
 		if(other.gameObject == onion)
 		{
 			//scoreManager.AddPoint(1);
-			SliderController.Singleton.UpdateProgress();
+			chefMadnessSlider.UpdateProgress();
 			//scoreManager.UpdateUI();
 			Destroy(onion);
 		}
@@ -51,7 +53,7 @@ public class FinalIngredientsLocation : MonoBehaviour
 		if(other.gameObject == shallot)
 		{
 			//scoreManager.AddPoint(1);
-			SliderController.Singleton.UpdateProgress();
+			chefMadnessSlider.UpdateProgress();
 			//scoreManager.UpdateUI();
 			Destroy(shallot);
 		}
@@ -59,12 +61,12 @@ public class FinalIngredientsLocation : MonoBehaviour
 		if(other.gameObject == carrot)
 		{
 			//scoreManager.AddPoint(1);
-			SliderController.Singleton.UpdateProgress();
+			chefMadnessSlider.UpdateProgress();
 			//scoreManager.UpdateUI();
 			Destroy(carrot);
 		}
 		
 		//Supposed to check if the madness bar is still higher than 0
-		SliderController.Singleton.CheckMadnessBar();
+		chefMadnessSlider.CheckMadnessBar();
 	}
 }

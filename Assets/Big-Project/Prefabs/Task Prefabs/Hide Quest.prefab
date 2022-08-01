@@ -56,6 +56,6 @@ MonoBehaviour:
     value: 1
     amount: 1
     icon: {fileID: 0}
-    mesh: {fileID: 0}
+    mesh: {fileID: 3401528402155950194, guid: 09333139fd1935f46978992915be1f3a, type: 3}
     type: 0
   itemName: Fuse

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Hide 6 Fuses
   description: Travel to the hiding spots
-  goals: []
+  goals:
+  - {fileID: 5246485908323538042, guid: cb83b9adaac790f4fafa3e29aa4b3fa4, type: 3}
   experienceReward: 10
   goldReward: 10

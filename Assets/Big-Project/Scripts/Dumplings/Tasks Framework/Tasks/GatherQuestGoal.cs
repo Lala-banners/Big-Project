@@ -1,14 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
 
 [System.Serializable]
 public class GatherQuestGoal : QuestGoal
 {
     //Requirements for Gather goal type
     public string itemName;
+    private QuestManager questManager;
+    private SliderController chefMadnessSlider;
+
+    private void Start()
+    {
+        questManager = FindObjectOfType<QuestManager>();
+        chefMadnessSlider = FindObjectOfType<SliderController>();
+    }
 
     public void ItemCollected(int id)
     {
-        if (goalType == GoalType.Gather && id == itemId)
+        if (goalType == GoalType.Gather && id == itemId && item.Name == itemName)
         {
             currentAmount++;
             
@@ -36,7 +46,7 @@ public class GatherQuestGoal : QuestGoal
         {
             ItemCollected(itemId);
             print("You have gathered all the fuses!");
-            SliderController.Singleton.RemoveProgress(); //Hit Chef Madness Bar
+            chefMadnessSlider.RemoveProgress(); //Hit Chef Madness Bar
             return true;
         }
 

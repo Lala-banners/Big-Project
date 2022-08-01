@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Wall
   - QuitButton
+  - HUD
   layers:
   - Default
   - TransparentFX

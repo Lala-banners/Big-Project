@@ -6,10 +6,18 @@ public class HideQuestGoal : QuestGoal
 {
     //Requirements for Hide goal type
     public string itemName;
+    private QuestManager questManager;
+    private SliderController chefMadnessSlider;
 
+    private void Start()
+    {
+        questManager = FindObjectOfType<QuestManager>();
+        chefMadnessSlider = FindObjectOfType<SliderController>();
+    }
+    
     public void DropItem(int id)
     {
-        if (goalType == GoalType.Hide && id == itemId)
+        if (goalType == GoalType.Hide && id == itemId && item.Name == itemName)
         {
             requiredAmount = 0;
             currentAmount--;
@@ -36,7 +44,7 @@ public class HideQuestGoal : QuestGoal
         {
             DropItem(itemId);
             print("You have hidden all the fuses");
-            SliderController.Singleton.UpdateProgress();
+            chefMadnessSlider.UpdateProgress();
             return true;
         }
 
