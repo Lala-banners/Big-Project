@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/SliderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/SliderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/GatherQuestGoal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/GatherQuestGoal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/HideQuestGoal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/HideQuestGoal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/QuestManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/QuestManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/UiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/UiManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/VR Cooking Tasks/FinalIngredientsLocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/VR Cooking Tasks/FinalIngredientsLocation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/VR Cooking Tasks/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/VR Cooking Tasks/ScoreManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-    </list>
+    <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

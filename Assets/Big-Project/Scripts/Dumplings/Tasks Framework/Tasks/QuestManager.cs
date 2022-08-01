@@ -19,7 +19,7 @@ public class QuestManager : MonoBehaviour
     {
         //Find the dumpling players
         player = GameObject.Find("Dumpling");
-        
+        chefWinsAudio = GameObject.Find("Chef Wins Music").gameObject.GetComponent<AudioSource>();
         titleText.text = curQuest.title;
         descriptionText.text = curQuest.description;
 
