@@ -31,10 +31,10 @@ public class SliderController : MonoBehaviour
 	private int progress = 0;
 	public Slider slider;
 	
-	/*public void OnSliderChanged(float value)
+	public void OnSliderChanged(float value)
 	{
-		sliderValueText.text = value.ToString();
-	}*/
+		slider.value = value;
+	}
 
 	public void UpdateProgress()
 	{

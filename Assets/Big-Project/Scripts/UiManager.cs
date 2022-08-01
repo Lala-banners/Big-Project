@@ -1,3 +1,5 @@
+using System;
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -15,10 +17,14 @@ public class UiManager : MonoBehaviour
 	[SerializeField]private GameObject leftHand;
 	[SerializeField]private GameObject rightHand;
 
+	private void Start()
+	{
+		leftHand = GameObject.Find("Left Hand");
+		rightHand = GameObject.Find("Right Hand");
+	}
+
 	private void Update()
 	{
-		quitGameButton.onClick.AddListener(QuitGame);
-
 		//Turn to new input system.
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{

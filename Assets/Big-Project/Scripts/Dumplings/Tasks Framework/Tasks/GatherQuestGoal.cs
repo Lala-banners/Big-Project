@@ -12,12 +12,12 @@ public class GatherQuestGoal : QuestGoal
         {
             currentAmount++;
             
-            if (currentAmount >= requiredAmount) //Added from Quest
+            if(currentAmount >= requiredAmount)
             {
                 isReached = true;
                 questState = QuestState.Completed;
-                DestroyQuest(this);
-                Debug.Log("QUEST COMPLETE");
+                gameObject.SetActive(false);
+                Debug.Log("Gather Quest Complete!");
             }
         }
     }

@@ -8,6 +8,7 @@ TagManager:
   - HidingSpot
   - Ground
   - Wall
+  - QuitButton
   layers:
   - Default
   - TransparentFX

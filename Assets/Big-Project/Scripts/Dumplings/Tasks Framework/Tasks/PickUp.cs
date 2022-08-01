@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
@@ -8,7 +9,7 @@ public class PickUp : MonoBehaviour
     private GatherQuestGoal gather;
     private HideQuestGoal hide;
     public Transform hidingSpot1, hidingSpot2,hidingSpot3, hidingSpot4, hidingSpot5, hidingSpot6;
-    public GameObject[] fuseObject;
+    [SerializeField] private List<GameObject> fuseObject;
 
     private const string
         hidingspot1 = "1",
@@ -17,11 +18,28 @@ public class PickUp : MonoBehaviour
         hidingspot4 = "4",
         hidingspot5 = "5",
         hidingspot6 = "6";
+    
+    private const string 
+        fuse1 = "Fuse1",
+        fuse2 = "Fuse2",
+        fuse3 = "Fuse3",
+        fuse4 = "Fuse4",
+        fuse5 = "Fuse5",
+        fuse6 = "Fuse6";
 
     private void Start()
     {
-        gather = FindObjectOfType<GatherQuestGoal>();
-        hide = FindObjectOfType<HideQuestGoal>();
+        gather = GameObject.Find("Gather Quest").GetComponent<GatherQuestGoal>();
+        hide = GameObject.Find("Hide Quest").GetComponent<HideQuestGoal>();
+        
+        hidingSpot1 = GameObject.Find(hidingspot1).transform;
+        hidingSpot2 = GameObject.Find(hidingspot2).transform;
+        hidingSpot3 = GameObject.Find(hidingspot3).transform;
+        hidingSpot4 = GameObject.Find(hidingspot4).transform;
+        hidingSpot5 = GameObject.Find(hidingspot5).transform;
+        hidingSpot6 = GameObject.Find(hidingspot6).transform;
+
+        fuseObject = GameObject.FindGameObjectsWithTag("Fuse").ToList();
     }
 
     // Collect Fuse
@@ -45,9 +63,10 @@ public class PickUp : MonoBehaviour
     {
         if (other.gameObject.name == name)
         {
+            fuseObject[index].layer = LayerMask.NameToLayer("ChefInteractable");
+            fuseObject[index].gameObject.GetComponent<CapsuleCollider>().enabled = false;
             fuseObject[index].transform.SetParent(parent, false);
             fuseObject[index].transform.localPosition = new Vector3(0, 0, 0);
-            fuseObject[index].layer = LayerMask.NameToLayer("ChefInteractable");
             hide.DropItem(0);
         }
     }

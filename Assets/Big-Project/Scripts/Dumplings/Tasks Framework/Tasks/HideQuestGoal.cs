@@ -18,7 +18,7 @@ public class HideQuestGoal : QuestGoal
             {
                 isReached = true;
                 questState = QuestState.Completed;
-                DestroyQuest(this);
+                gameObject.SetActive(false);
                 Debug.Log("Drop item completed");
             }
         }
@@ -36,7 +36,7 @@ public class HideQuestGoal : QuestGoal
         {
             DropItem(itemId);
             print("You have hidden all the fuses");
-            SliderController.Singleton.RemoveProgress();
+            SliderController.Singleton.UpdateProgress();
             return true;
         }
 

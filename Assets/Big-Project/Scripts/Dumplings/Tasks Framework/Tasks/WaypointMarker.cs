@@ -17,7 +17,7 @@ public class WaypointMarker : MonoBehaviour
 
     private void Awake()
     {
-        var canvas = GameObject.Find("Dumpling Task UI").transform;
+        var canvas = GetComponentInChildren<Canvas>().transform;
 
         //Instantiate waypoint UI prefab at the position of the canvas
         waypoint = Instantiate(prefab, canvas);
