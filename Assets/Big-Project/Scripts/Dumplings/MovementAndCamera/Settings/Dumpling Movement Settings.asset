@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 1.8
   individualMaxSpeeds: 0
-  maxSpeed: 0.8
-  maxSpeedOnGround: 0.8
-  maxSpeedInAir: 0.8
+  maxSpeed: 0.55
+  maxSpeedOnGround: 0.55
+  maxSpeedInAir: 0.55
   groundDistanceCheck: 0.01
   groundDistanceInAirCheck: 0.02
-  fallMultiplier: 1
+  fallMultiplier: 0.5
   lowJumpMultiplier: 1
   layerChecks:
     serializedVersion: 2
