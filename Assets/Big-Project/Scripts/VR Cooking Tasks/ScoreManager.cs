@@ -25,10 +25,11 @@ public class ScoreManager : MonoBehaviour
 
 	public void CheckScores()
 	{
-		/*if(SliderController.Singleton.slider.value >= SliderController.Singleton.slider.maxValue)
+		int maxAmount = 6;
+		if(scoreAmount >= maxAmount)
 		{
-			SliderController.Singleton.slider.value = SliderController.Singleton.slider.maxValue;
-		}*/
+			scoreAmount = maxAmount;
+		}
 	}
 
 	public void UpdateUI()
