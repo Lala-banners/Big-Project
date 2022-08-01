@@ -19,17 +19,7 @@ public class QuestManager : MonoBehaviour
     
     public Image dumplingsWinCanvas;
     public Image dumplingsLoseCanvas;
-    
 
-    private void Start()
-    {
-        //Used to be in start (remember where to put back in case doesn't work for some reason)
-        //player = GameObject.Find("Dumpling");
-        
-        //OpenQuestWindow();
-        //InitiateDumplingTasks();
-    }
-    
     public void InitiateDumplingTasks()
     {
         //Find the dumpling player prefab

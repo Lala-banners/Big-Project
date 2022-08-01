@@ -7,6 +7,14 @@
     <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/PickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/PickUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/QuestManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/QuestManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/TaskUIManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/TaskUIManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/UiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/UiManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +26,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.13/Rider/Editor/RiderScriptEditorDataPersisted.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/finalpickupobject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/ActionBasedController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/XRController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/XRInteractionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/ActivationPoints/DumplingControllerActivatePoints.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/XRController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.13/Rider/Editor/RiderScriptEditorDataPersisted.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/ActionBasedController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2ChaKmgBb6rePWAe3OKloyxgK2o" />
   <component name="ProjectViewState">
@@ -52,10 +61,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16848">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="16848" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />

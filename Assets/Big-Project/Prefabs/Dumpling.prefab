@@ -244,7 +244,7 @@ RectTransform:
   m_GameObject: {fileID: 723312831970824309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 468969539991456599}
@@ -254,7 +254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -974.8845, y: -548.37256}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &747792639623502993
@@ -1934,6 +1934,7 @@ MonoBehaviour:
   hidingSpot5: {fileID: 0}
   hidingSpot6: {fileID: 0}
   fuseObject: []
+  fuseLocationParent: {fileID: 0}
 --- !u!114 &4135314563101714068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2094,6 +2095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 723312831970824309}
+  playerHUD: {fileID: 2815937055428285960}
   leftHand: {fileID: 0}
   rightHand: {fileID: 0}
 --- !u!1 &1759772666126122853
@@ -3305,7 +3307,7 @@ RectTransform:
   m_GameObject: {fileID: 2876125091178140491}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4784903487214445349}
@@ -3314,7 +3316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4157581216163952352
@@ -5450,7 +5452,7 @@ RectTransform:
   m_GameObject: {fileID: 7085649985721273872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6331035350465735812}

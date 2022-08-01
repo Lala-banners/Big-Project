@@ -10,6 +10,7 @@ public class UiManager : MonoBehaviour
 	//Bool that can be called from anywhere to pause the game.
 	public static bool gameIsPaused;
 	public GameObject pauseUI;
+	public GameObject playerHUD;
 	private Button quitGameButton;
 	
 	//References to XR Controllers
@@ -40,6 +41,7 @@ public class UiManager : MonoBehaviour
 			Time.timeScale = 0f;
 
 			pauseUI.SetActive(true);
+			playerHUD.SetActive(false);
 
 			//Get access to VR hands and deactivate hands
 			DeactivateXRControllersOnPause();
@@ -49,21 +51,11 @@ public class UiManager : MonoBehaviour
 			Time.timeScale = 1;
 
 			pauseUI.SetActive(false);
+			
+			playerHUD.SetActive(true);
 
 			ActivateXRControllers();
 		}
-	}
-
-	public void InitialiseDumplingUI()
-	{
-		quitGameButton = GameObject.Find("Quit").GetComponent<Button>();
-		pauseUI = GameObject.Find("Pause Canvas");
-
-		//Turn off Pause UI
-		pauseUI.SetActive(false);
-
-		leftHand = GameObject.Find("Left Hand");
-		rightHand = GameObject.Find("Right Hand");
 	}
 
 	private void QuitGame()
