@@ -5798,7 +5798,7 @@ GameObject:
   - component: {fileID: 1688206721}
   m_Layer: 0
   m_Name: Fuse Hiding Spots
-  m_TagString: Untagged
+  m_TagString: HidingSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7399,7 +7399,7 @@ GameObject:
   - component: {fileID: 8232208941666552598}
   - component: {fileID: 8232208941666552600}
   - component: {fileID: 8232208941666552599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse2
   m_TagString: Fuse
   m_Icon: {fileID: 0}
@@ -7560,7 +7560,7 @@ GameObject:
   - component: {fileID: 6852412544638604782}
   - component: {fileID: 6852412544638604784}
   - component: {fileID: 6852412544638604783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse4
   m_TagString: Fuse
   m_Icon: {fileID: 0}
@@ -7596,7 +7596,7 @@ GameObject:
   - component: {fileID: 6248585727184399487}
   - component: {fileID: 6248585727184399489}
   - component: {fileID: 6248585727184399488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse6
   m_TagString: Fuse
   m_Icon: {fileID: 0}
@@ -7699,7 +7699,7 @@ GameObject:
   - component: {fileID: 4875971133650409526}
   - component: {fileID: 4875971133650409528}
   - component: {fileID: 4875971133650409527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse3
   m_TagString: Fuse
   m_Icon: {fileID: 0}
@@ -8090,7 +8090,7 @@ GameObject:
   - component: {fileID: 6707553310899022856}
   - component: {fileID: 6707553310899022858}
   - component: {fileID: 6707553310899022857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse5
   m_TagString: Fuse
   m_Icon: {fileID: 0}
@@ -8948,7 +8948,7 @@ GameObject:
   - component: {fileID: 8782848150286191590}
   - component: {fileID: 8782848150286191592}
   - component: {fileID: 8782848150286191591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse1
   m_TagString: Fuse
   m_Icon: {fileID: 0}
