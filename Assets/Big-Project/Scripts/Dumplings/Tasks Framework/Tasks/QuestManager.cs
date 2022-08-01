@@ -63,13 +63,14 @@ public class QuestManager : MonoBehaviour
 
                 dumplingsWinCanvas.gameObject.SetActive(true);
 
-                //CloseWindow(); //Close quest window
+                CloseWindow(); //Close quest window
                 
                 chefWinsAudio.Stop();
                 
                 Debug.Log("Dumplings All Tasks Complete!");
             }
-            else //Dumplings do not win! Chef wins if the reverse of above if statement is true
+            //Dumplings do not win! Chef wins if the reverse of above if statement is true
+            else if(!goal.isReached && MpCountdownTimer.timerIsRunning.Equals(false) && chefMadnessSlider.slider.value > 0)
             {
                 chefMadnessSlider.CheckMadnessBar();
                 
