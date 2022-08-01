@@ -55,7 +55,7 @@ public class QuestManager : MonoBehaviour
 
             //If quests are completed and timer is still running = Dumplings win!
             //If above is true OR madness slider is 0 = dumplings also win!
-            if(goal.isReached && MpCountdownTimer.timerIsRunning.Equals(true) && chefMadnessSlider.slider.value <= 0)
+            if(goal.isReached && chefMadnessSlider.slider.value <= 0)
             {
                 count.text = goal.currentAmount + "/" + goal.requiredAmount;
                 
@@ -70,7 +70,7 @@ public class QuestManager : MonoBehaviour
                 Debug.Log("Dumplings All Tasks Complete!");
             }
             //Dumplings do not win! Chef wins if the reverse of above if statement is true
-            else if(!goal.isReached && MpCountdownTimer.timerIsRunning.Equals(false) && chefMadnessSlider.slider.value > 0)
+            else if(MpCountdownTimer.timerIsRunning.Equals(false) && chefMadnessSlider.slider.value > 0)
             {
                 chefMadnessSlider.CheckMadnessBar();
                 

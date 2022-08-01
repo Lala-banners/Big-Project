@@ -28,7 +28,6 @@ public class MpCountdownTimer : MonoBehaviour
 			{
 				timeRemaining = 0;
 				timerIsRunning = false;
-				WinLoseManager.Singleton.ChefWins();
 			}
 		}
 	}

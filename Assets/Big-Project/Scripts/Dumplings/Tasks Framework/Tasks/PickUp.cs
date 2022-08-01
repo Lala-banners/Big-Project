@@ -50,7 +50,10 @@ public class PickUp : MonoBehaviour
             item.transform.SetParent(gameObject.transform);
             gather.ItemCollected(0);
         }
-        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
         DropFuse(other, 0, hidingSpot1, hidingspot1);
         DropFuse(other, 1, hidingSpot2, hidingspot2);
         DropFuse(other, 2, hidingSpot3, hidingspot3);

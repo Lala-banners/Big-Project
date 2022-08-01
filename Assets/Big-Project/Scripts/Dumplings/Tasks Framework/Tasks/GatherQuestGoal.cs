@@ -27,7 +27,6 @@ public class GatherQuestGoal : QuestGoal
                 isReached = true;
                 questState = QuestState.Completed;
                 gameObject.SetActive(false);
-                Debug.Log("Gather Quest Complete!");
             }
         }
     }

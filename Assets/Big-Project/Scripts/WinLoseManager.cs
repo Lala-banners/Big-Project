@@ -27,35 +27,19 @@ public class WinLoseManager : MonoBehaviour
 	}
 	#endregion
 
-	[Header("VR Chef")]
-	public Slider chefMadnessBar;
+	public bool dumplingsWinners = false;
+	public bool vRWinner = false;
 
-	[Header("Dumplings")]
-	public Canvas dumplingsWinCanvas;
-	public Canvas dumplingsLoseCanvas;
-
-	public void LinkUI()
+	private void Start()
 	{
-		chefMadnessBar = GameObject.Find("Chef Madness Bar").GetComponent<Slider>();
-		dumplingsWinCanvas = GameObject.Find("Dumplings Win Canvas").GetComponent<Canvas>();
-		dumplingsLoseCanvas = GameObject.Find("Dumplings Lose Canvas").GetComponent<Canvas>();
-	}
+		if(dumplingsWinners)
+		{
+			
+		}
 
-	/// <summary>
-    /// Win screen for dumplings show up
-    /// Only win if dumplings complete all tasks - lower chef madness bar to 0
-    /// </summary>
-    public void DumplingsWin()
-    {
-	    dumplingsWinCanvas.gameObject.SetActive(true);
-    }
-	
-    /// <summary>
-    /// Play audio for VR player
-    /// Game over screens for dumplings show up
-    /// </summary>
-    public void ChefWins()
-    {
-		dumplingsLoseCanvas.gameObject.SetActive(true);
-    }
+		if(vRWinner)
+		{
+			
+		}
+	}
 }

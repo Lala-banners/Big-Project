@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 
 [System.Serializable]
@@ -27,6 +28,8 @@ public class HideQuestGoal : QuestGoal
                 isReached = true;
                 questState = QuestState.Completed;
                 gameObject.SetActive(false);
+                questManager.dumplingsWinCanvas.gameObject.SetActive(true);
+                UiManager.gameIsPaused = true;
                 Debug.Log("Drop item completed");
             }
         }
