@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/ActivationPoints/TeleportCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/ActivationPoints/TeleportCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources/ActivatePoints.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources/ActivatePoints.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources/ThrowPoint.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources/ThrowPoint.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +30,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35064936" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35055724" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -56,10 +52,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16848">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="16848" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -89,7 +85,8 @@
       <workItem from="1659269425073" duration="621000" />
       <workItem from="1659314441025" duration="16905000" />
       <workItem from="1659344443863" duration="2578000" />
-      <workItem from="1659347415216" duration="4053000" />
+      <workItem from="1659347415216" duration="4113000" />
+      <workItem from="1659351705468" duration="3370000" />
     </task>
     <servers />
   </component>
