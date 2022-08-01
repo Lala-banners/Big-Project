@@ -2448,12 +2448,12 @@ PrefabInstance:
     - target: {fileID: 1427596807264333013, guid: 99b00d3c562d0be4084e6d4e8f0b1146,
         type: 3}
       propertyPath: throwForce.y
-      value: 280
+      value: 217.26
       objectReference: {fileID: 0}
     - target: {fileID: 1427596807264333013, guid: 99b00d3c562d0be4084e6d4e8f0b1146,
         type: 3}
       propertyPath: throwForce.z
-      value: 120
+      value: 108.9
       objectReference: {fileID: 0}
     - target: {fileID: 1427596807264333013, guid: 99b00d3c562d0be4084e6d4e8f0b1146,
         type: 3}
@@ -2877,7 +2877,7 @@ PrefabInstance:
     - target: {fileID: 1427596807264333013, guid: 99b00d3c562d0be4084e6d4e8f0b1146,
         type: 3}
       propertyPath: throwForce.x
-      value: 479.4
+      value: 172.7
       objectReference: {fileID: 0}
     - target: {fileID: 1427596807264333013, guid: 99b00d3c562d0be4084e6d4e8f0b1146,
         type: 3}
