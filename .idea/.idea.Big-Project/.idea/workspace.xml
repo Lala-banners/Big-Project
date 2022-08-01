@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/PickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/PickUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/QuestManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/QuestManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

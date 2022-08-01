@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
@@ -86,6 +88,13 @@ public class PickUp : MonoBehaviour
 		hidingSpot4.gameObject.GetComponent<SphereCollider>().enabled = false;
 		hidingSpot5.gameObject.GetComponent<SphereCollider>().enabled = false;
 		hidingSpot6.gameObject.GetComponent<SphereCollider>().enabled = false;
+		
+		hidingSpot1.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+		hidingSpot2.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+		hidingSpot3.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+		hidingSpot4.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+		hidingSpot5.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+		hidingSpot6.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
 	}
 
 	public void ActivateColliders()
@@ -96,5 +105,12 @@ public class PickUp : MonoBehaviour
 		hidingSpot4.gameObject.GetComponent<SphereCollider>().enabled = true;
 		hidingSpot5.gameObject.GetComponent<SphereCollider>().enabled = true;
 		hidingSpot6.gameObject.GetComponent<SphereCollider>().enabled = true;
+		
+		hidingSpot1.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+		hidingSpot2.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+		hidingSpot3.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+		hidingSpot4.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+		hidingSpot5.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+		hidingSpot6.gameObject.GetComponentInChildren<ParticleSystem>().Play();
 	}
 }

@@ -20,6 +20,8 @@ public class QuestManager : MonoBehaviour
     public Image dumplingsWinCanvas;
     public Image dumplingsLoseCanvas;
 
+    public GameObject timerUI;
+
     public void InitiateDumplingTasks()
     {
         //Find the dumpling player prefab
@@ -44,29 +46,31 @@ public class QuestManager : MonoBehaviour
             OpenQuestWindow();
 
             //If quests are completed and timer is still running = Dumplings win!
-            //If above is true OR madness slider is 0 = dumplings also win!
-            if(goal.isReached && chefMadnessSlider.slider.value <= 0)
+            if(goal.isReached && MpCountdownTimer.timerIsRunning)
             {
-                count.text = goal.currentAmount + "/" + goal.requiredAmount;
+                Time.timeScale = 0f;
                 
-                MpCountdownTimer.timerIsRunning = false; //Turn timer off
+                count.text = goal.currentAmount + "/" + goal.requiredAmount;
 
                 dumplingsWinCanvas.gameObject.SetActive(true);
 
                 CloseWindow(); //Close quest window
                 
-                chefWinsAudio.Stop();
+                Destroy(timerUI.gameObject);
                 
+                Destroy(chefWinsAudio);
+
                 Debug.Log("Dumplings All Tasks Complete!");
             }
-            //Dumplings do not win! Chef wins if the reverse of above if statement is true
-            else if(MpCountdownTimer.timerIsRunning.Equals(false) && chefMadnessSlider.slider.value > 0)
+            else if(!goal.isReached && !MpCountdownTimer.timerIsRunning)
             {
-                chefMadnessSlider.CheckMadnessBar();
+                //chefMadnessSlider.CheckMadnessBar();
                 
-                dumplingsLoseCanvas.gameObject.SetActive(false);
+                dumplingsLoseCanvas.gameObject.SetActive(true);
                 
                 chefWinsAudio.Play();
+                MpCountdownTimer.timerIsRunning = false; //Turn timer off
+                UiManager.gameIsPaused = true;
                 
                 count.gameObject.SetActive(false);
             }
@@ -75,7 +79,6 @@ public class QuestManager : MonoBehaviour
     
     public void OpenQuestWindow()
     {
-        //questUIPrefab.SetActive(true);
         titleText.text = curQuest.title;
         descriptionText.text = curQuest.description;
         experienceText.text = "Exp Reward: " + curQuest.experienceReward;

@@ -1934,7 +1934,6 @@ MonoBehaviour:
   hidingSpot5: {fileID: 0}
   hidingSpot6: {fileID: 0}
   fuseObject: []
-  fuseLocationParent: {fileID: 0}
 --- !u!114 &4135314563101714068
 MonoBehaviour:
   m_ObjectHideFlags: 0
