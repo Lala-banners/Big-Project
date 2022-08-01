@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/MpCountdownTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/MpCountdownTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/GatherQuestGoal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/GatherQuestGoal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/HideQuestGoal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/HideQuestGoal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/QuestManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/Tasks/QuestManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/WinLoseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/WinLoseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Inputs/DumplingInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Inputs/DumplingInputs.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/BaseMotorModularBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/BaseMotorModularBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/MovementSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/MovementSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,14 +22,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/XRInteractionManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/ActivationPoints/DumplingControllerActivatePoints.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/XRController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.13/Rider/Editor/RiderScriptEditorDataPersisted.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/ActionBasedController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/PauseController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/XRController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/UiManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/WinLoseManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Tasks Framework/MpCountdownTimer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/XRInteractionManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2ChaKmgBb6rePWAe3OKloyxgK2o" />
   <component name="ProjectViewState">
@@ -46,6 +44,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
@@ -57,10 +56,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12456">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="12456" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -89,6 +88,8 @@
       <workItem from="1659257218063" duration="6011000" />
       <workItem from="1659269425073" duration="621000" />
       <workItem from="1659314441025" duration="16905000" />
+      <workItem from="1659344443863" duration="2578000" />
+      <workItem from="1659347415216" duration="2836000" />
     </task>
     <servers />
   </component>

@@ -119,7 +119,20 @@ MonoBehaviour:
     m_ActionId: b696916e-d1e6-4a04-83bd-072d0038bed8
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4135314563101714068}
+        m_TargetAssemblyTypeName: Big_Project.Scripts.Dumplings.ActivationPoints.DumplingControllerActivatePoints,
+          Assembly-CSharp
+        m_MethodName: OnActivatePoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ed81143f-655d-4154-88e8-7f189feeb9d9
     m_ActionName: Player/Interact[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -1792,6 +1805,7 @@ GameObject:
   - component: {fileID: 6142211059406913861}
   - component: {fileID: 4740041059725313284}
   - component: {fileID: 3196498228616060960}
+  - component: {fileID: 4135314563101714068}
   m_Layer: 0
   m_Name: Dumpling
   m_TagString: Untagged
@@ -2017,6 +2031,19 @@ MonoBehaviour:
   hidingSpot5: {fileID: 0}
   hidingSpot6: {fileID: 0}
   fuseObject: []
+--- !u!114 &4135314563101714068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396584236195558797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989e477e31db45e78843be9328329f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateCanvas: {fileID: 7721654676157048457}
 --- !u!1 &1742997263652558376
 GameObject:
   m_ObjectHideFlags: 0
@@ -4550,7 +4577,7 @@ RectTransform:
   m_AnchorMin: {x: 0.01, y: 0.9}
   m_AnchorMax: {x: 0.15, y: 0.99}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3.0784109, y: 1.7849036}
+  m_SizeDelta: {x: 39.793037, y: -13.537141}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8649181330560540905
 CanvasRenderer:

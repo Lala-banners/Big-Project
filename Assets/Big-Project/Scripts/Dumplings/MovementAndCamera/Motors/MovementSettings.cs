@@ -46,9 +46,9 @@ namespace Big_Project.Scripts.Dumplings.MovementAndCamera.Motors
 		[SerializeField, Range(0.2f, 20)] private float jumpForce;
 
 		[SerializeField] private bool individualMaxSpeeds = true;
-		[SerializeField, Range(0.2f, 20)] private float maxSpeed;
-		[SerializeField, Range(0.2f, 20)] private float maxSpeedOnGround;
-		[SerializeField, Range(0.2f, 20)] private float maxSpeedInAir;
+		[SerializeField, Range(0f, 20)] private float maxSpeed;
+		[SerializeField, Range(0f, 20)] private float maxSpeedOnGround;
+		[SerializeField, Range(0f, 20)] private float maxSpeedInAir;
 
 		[SerializeField, Min(0.01f)] private float groundDistanceCheck = 1;
 		[SerializeField, Min(0.02f)] private float groundDistanceInAirCheck = 0.2f;

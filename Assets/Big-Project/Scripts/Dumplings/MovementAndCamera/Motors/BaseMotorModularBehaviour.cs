@@ -1,3 +1,4 @@
+using System.Collections;
 using Big_Project.Scripts.Dumplings.MovementAndCamera.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,7 +24,22 @@ namespace Big_Project.Scripts.Dumplings.MovementAndCamera.Motors
         [SerializeField] protected bool isJumpPressed;
         protected Vector2 moveInput;
         protected bool movingUsingThisComponent;
+        private bool isBeingThrown;
+
+        public void ThrowDumplingForXSeconds(float xSeconds)
+        {
+            StartCoroutine(DisableDumplingMovement(xSeconds));
+        }
         
+        private IEnumerator DisableDumplingMovement(float time)
+        {
+            isBeingThrown = true;
+            Debug.Log("Throw");
+            yield return new WaitForSeconds(time);
+            isBeingThrown = false;
+            Debug.Log("Stop Throwing");
+        }
+
         public override void Init(IMCCPlayer _playerInterface)
         {
             base.Init(_playerInterface);
@@ -31,6 +47,7 @@ namespace Big_Project.Scripts.Dumplings.MovementAndCamera.Motors
             collider = (CapsuleCollider) _playerInterface.Collider;
             player = _playerInterface.Transform;
             rigidbody = _playerInterface.Rigidbody;
+            isBeingThrown = false;
         }
         
         protected override void OnProcess(UpdatePhase _phase)
@@ -86,6 +103,8 @@ namespace Big_Project.Scripts.Dumplings.MovementAndCamera.Motors
         /// <param name="_axis">The axis the controller or keyboard is requesting</param>
         protected virtual void HandleMovement(Vector2 _axis)
         {
+            if (isBeingThrown) return;
+            
             // Calculate the max speed and the speed modifier by the grounded state
             float maxSpeed = settings.GetMaxSpeed(IsGrounded);
             float modifier = IsGrounded ? SPEED_ON_GROUND_MODIFIER : SPEED_IN_AIR_MODIFIER;
