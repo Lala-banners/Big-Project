@@ -19,7 +19,7 @@ namespace Big_Project.Scripts.Dumplings.DeathAndRespawning
             
             if(deathCollider != null) Die();
         }
-        
+
         private void Start()
         {
             dumplingRigidbody = GetComponent<Rigidbody>();
@@ -27,7 +27,7 @@ namespace Big_Project.Scripts.Dumplings.DeathAndRespawning
             livesCanvas.SetActive(true);
             UpdateLivesUI();
         }
-        
+
         public void Die()
         {
             if (livesManagerInScene.AreThereAnyLivesLeft())
@@ -55,7 +55,7 @@ namespace Big_Project.Scripts.Dumplings.DeathAndRespawning
             {
                 happyDumpling.SetActive(false);
                 scaredDumpling.SetActive(true);
-                livesTMPText.text = ($"{currentLives} Live");
+                livesTMPText.text = ($"{currentLives} Life");
             }
         }
         
@@ -65,7 +65,7 @@ namespace Big_Project.Scripts.Dumplings.DeathAndRespawning
             dumplingRigidbody.angularVelocity = Vector3.zero;
             SpawnPoint spawnPoint = FindObjectOfType<SpawnPoint>();
             gameObject.transform.position = spawnPoint.SpawnPointTransform.position;
-            gameObject.transform.rotation = spawnPoint.SpawnPointTransform.rotation;    
+            gameObject.transform.rotation = spawnPoint.SpawnPointTransform.rotation;
         }
         
         private void QuitGame()

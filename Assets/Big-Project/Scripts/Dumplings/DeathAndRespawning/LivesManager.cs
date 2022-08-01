@@ -41,15 +41,16 @@ namespace Big_Project.Scripts.Dumplings.DeathAndRespawning
             currentLives = startingLivesAmount;
         }
         #endregion
-        [SerializeField] private int currentLives = 10;
-        [SerializeField] private int startingLivesAmount = 10;
+        [SerializeField] private int currentLives = 5;
+        [SerializeField] private int startingLivesAmount = 5;
 
         public int LivesLeft => currentLives;
 
         public bool AreThereAnyLivesLeft()
         {
-            return currentLives >= 0;
+            return currentLives > 1;
         }
+        
         public void LoseLive()
         {
             currentLives--;
