@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Inputs/DumplingInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Inputs/DumplingInputs.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Dumpling.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/BaseMotorModularBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/BaseMotorModularBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/MovementSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/MovementSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/ActivationPoints/TeleportCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/ActivationPoints/TeleportCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources/ActivatePoints.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources/ActivatePoints.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources/ThrowPoint.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/Resources/ThrowPoint.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +89,7 @@
       <workItem from="1659269425073" duration="621000" />
       <workItem from="1659314441025" duration="16905000" />
       <workItem from="1659344443863" duration="2578000" />
-      <workItem from="1659347415216" duration="2836000" />
+      <workItem from="1659347415216" duration="4053000" />
     </task>
     <servers />
   </component>
