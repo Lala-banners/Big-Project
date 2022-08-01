@@ -13,7 +13,7 @@ namespace Big_Project.Scripts.Dumplings.ActivationPoints
         
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.blue;
+            Gizmos.color = Color.cyan;
             Vector3 direction = transform.TransformDirection(throwForce) * 0.001f;
             Gizmos.DrawRay(transform.position, direction);
         }
