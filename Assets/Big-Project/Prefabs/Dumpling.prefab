@@ -1603,8 +1603,6 @@ MonoBehaviour:
   dumplingsWinCanvas: {fileID: 0}
   dumplingsLoseCanvas: {fileID: 0}
   timerUI: {fileID: 0}
-  pcCanvas: {fileID: 0}
-  vrCanvas: {fileID: 0}
 --- !u!1 &1742997263652558376
 GameObject:
   m_ObjectHideFlags: 0
