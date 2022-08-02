@@ -21,30 +21,36 @@ public class QuestManager : MonoBehaviour
     public Image dumplingsLoseCanvas;
 
     public GameObject timerUI;
+    private bool taskMenu;
+
+    public GameObject pcCanvas, vrCanvas;
 
     public void InitiateDumplingTasks()
     {
         //Find the dumpling player prefab
         player = GameObject.Find("Dumpling");
+        questUIPrefab = GameObject.FindGameObjectWithTag("HUD");
 
         chefWinsAudio = GameObject.Find("Chef Wins Music").gameObject.GetComponent<AudioSource>();
-        questUIPrefab = GameObject.FindGameObjectWithTag("HUD");
         
-        dumplingsWinCanvas = questUIPrefab.transform.Find("DumplingsWinCanvas").GetComponent<Image>();
-        dumplingsLoseCanvas = questUIPrefab.transform.Find("DumplingsLoseCanvas").GetComponent<Image>();
-
         chefMadnessSlider = FindObjectOfType<SliderController>();
-        titleText = GameObject.Find("TaskName").GetComponent<TMP_Text>();
+        
+        pcCanvas = GameObject.FindGameObjectWithTag("DumplingCanvas");
+        vrCanvas = GameObject.FindGameObjectWithTag("VRCanvas");
+
+        dumplingsLoseCanvas = GameObject.FindGameObjectWithTag("DumplingCanvas").GetComponent<Image>();
+        dumplingsWinCanvas = GameObject.FindGameObjectWithTag("DumplingCanvas").GetComponent<Image>();
+
+        /*titleText = GameObject.Find("TaskName").GetComponent<TMP_Text>();
         descriptionText = GameObject.Find("TaskDescription").GetComponent<TMP_Text>();
         experienceText = GameObject.Find("TaskStatus").GetComponent<TMP_Text>();
         goldText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
         count = GameObject.Find("Count").GetComponent<TMP_Text>();
+        */
         
         //Go through all tasks to see if any have been completed and update UI
         foreach(var goal in curQuest.goals)
         {
-            OpenQuestWindow();
-
             //If quests are completed and timer is still running = Dumplings win!
             if(goal.isReached && MpCountdownTimer.timerIsRunning)
             {
@@ -53,36 +59,56 @@ public class QuestManager : MonoBehaviour
                 count.text = goal.currentAmount + "/" + goal.requiredAmount;
 
                 dumplingsWinCanvas.gameObject.SetActive(true);
-
-                CloseWindow(); //Close quest window
                 
-                Destroy(timerUI.gameObject);
+                timerUI.GetComponent<MpCountdownTimer>().enabled = false;
                 
                 Destroy(chefWinsAudio);
 
                 Debug.Log("Dumplings All Tasks Complete!");
             }
-            else if(!goal.isReached && !MpCountdownTimer.timerIsRunning)
+            else if(!goal.isReached) //&& !MpCountdownTimer.timerIsRunning)
             {
-                //chefMadnessSlider.CheckMadnessBar();
+                vrCanvas.SetActive(true);
                 
                 dumplingsLoseCanvas.gameObject.SetActive(true);
                 
                 chefWinsAudio.Play();
-                MpCountdownTimer.timerIsRunning = false; //Turn timer off
-                UiManager.gameIsPaused = true;
+                //MpCountdownTimer.timerIsRunning = false; //Turn timer off
+
+                timerUI.GetComponent<MpCountdownTimer>().enabled = false;
                 
                 count.gameObject.SetActive(false);
             }
         }
     }
-    
+
+    private void FixedUpdate()
+    {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            taskMenu = !taskMenu;
+            OpenQuestWindow();
+        }
+    }
+
     public void OpenQuestWindow()
     {
-        titleText.text = curQuest.title;
-        descriptionText.text = curQuest.description;
-        experienceText.text = "Exp Reward: " + curQuest.experienceReward;
-        goldText.text = "Gold Reward: " + curQuest.goldReward;
+        if(taskMenu)
+        {
+            questUIPrefab.SetActive(true);
+            titleText.text = curQuest.title;
+            descriptionText.text = curQuest.description;
+            experienceText.text = "Exp Reward: " + curQuest.experienceReward;
+            goldText.text = "Gold Reward: " + curQuest.goldReward;
+        }
+        else
+        {
+            questUIPrefab.SetActive(false);
+            titleText.text = curQuest.title;
+            descriptionText.text = curQuest.description;
+            experienceText.text = "Exp Reward: " + curQuest.experienceReward;
+            goldText.text = "Gold Reward: " + curQuest.goldReward;
+        }
     }
 
     public void CloseWindow()

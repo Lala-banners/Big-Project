@@ -20,8 +20,10 @@ public class UiManager : MonoBehaviour
 
 	private void Start()
 	{
-		leftHand = GameObject.Find("Left Hand");
-		rightHand = GameObject.Find("Right Hand");
+		//leftHand = GameObject.Find("Left Hand");
+		//rightHand = GameObject.Find("Right Hand");
+		playerHUD = GameObject.Find("Player HUD");
+		pauseUI = playerHUD.transform.Find("PauseUI").gameObject;
 	}
 
 	private void Update()
@@ -39,12 +41,12 @@ public class UiManager : MonoBehaviour
 		if(gameIsPaused)
 		{
 			Time.timeScale = 0f;
-
+			
 			pauseUI.SetActive(true);
-			playerHUD.SetActive(false);
+			//playerHUD.SetActive(false);
 
 			//Get access to VR hands and deactivate hands
-			DeactivateXRControllersOnPause();
+			//DeactivateXRControllersOnPause();
 		}
 		else
 		{
@@ -52,9 +54,9 @@ public class UiManager : MonoBehaviour
 
 			pauseUI.SetActive(false);
 			
-			playerHUD.SetActive(true);
+			//playerHUD.SetActive(true);
 
-			ActivateXRControllers();
+			//ActivateXRControllers();
 		}
 	}
 

@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - QuitButton
   - HUD
+  - DumplingCanvas
+  - VRCanvas
   layers:
   - Default
   - TransparentFX
