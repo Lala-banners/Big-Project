@@ -641,7 +641,13 @@ MonoBehaviour:
   descriptionText: {fileID: 2277460146133905042}
   experienceText: {fileID: 0}
   goldText: {fileID: 2889130150516130426}
+  count: {fileID: 0}
   chefWinsAudio: {fileID: 0}
+  dumplingsWinCanvas: {fileID: 0}
+  dumplingsLoseCanvas: {fileID: 0}
+  timerUI: {fileID: 0}
+  pcCanvas: {fileID: 0}
+  vrCanvas: {fileID: 0}
 --- !u!1 &2736132405505970052
 GameObject:
   m_ObjectHideFlags: 0

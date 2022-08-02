@@ -19,7 +19,7 @@ MonoBehaviour:
   maxSpeedInAir: 0.55
   groundDistanceCheck: 0.01
   groundDistanceInAirCheck: 0.02
-  fallMultiplier: 0.5
+  fallMultiplier: 0.3
   lowJumpMultiplier: 1
   layerChecks:
     serializedVersion: 2
