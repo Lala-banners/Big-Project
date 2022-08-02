@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -36,8 +37,8 @@ MonoBehaviour:
   ColliderHolder: 0
   CreateFromPreviewKey: 96
   CylinderAsCapsuleOrientation: 0
-  CylinderNumberOfSides: 16
-  CylinderOrientation: 0
+  CylinderNumberOfSides: 20
+  CylinderOrientation: 3
   CylinderRotationOffset: 0
   DisplayTips: 1
   DisplayAllVertices: 0
@@ -50,7 +51,7 @@ MonoBehaviour:
   OverlapSelectedVertColour: {r: 1, g: 0, b: 0, a: 1}
   PointSelectKeyCode: 98
   PopupDialogOnFinish: 0
-  PreviewColliderType: 0
+  PreviewColliderType: 6
   PreviewDrawColor: {r: 0, g: 1, b: 1, a: 1}
   PreviewEnabled: 1
   RaycastDelayTime: 0.1
@@ -60,8 +61,8 @@ MonoBehaviour:
   RotatedColliderPivotAtCenter: 0
   rotatedDupeSettings:
     enabled: 0
-    axis: 0
-    NumberOfDuplications: 4
+    axis: 2
+    NumberOfDuplications: 20
     StartRotation: 0
     EndRotation: 360
     pivot: {fileID: 0}
@@ -86,4 +87,4 @@ MonoBehaviour:
   VertexSnapMethod: 2
   VertSelectKeyCode: 118
   VHACDPreview: 1
-  CurrentWindowTab: 2
+  CurrentWindowTab: 0
