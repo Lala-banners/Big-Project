@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Fuse
-  - HidingSpot
-  - Ground
-  - Wall
-  - QuitButton
-  - HUD
-  - DumplingCanvas
-  - VRCanvas
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -19,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - DumplingInteractable
-  - ChefInteractable
-  - DumplingUI
   - 
-  - MainMenu
+  - 
+  - Restricted
+  - Player
+  - Grabbable
   - 
   - 
   - 
