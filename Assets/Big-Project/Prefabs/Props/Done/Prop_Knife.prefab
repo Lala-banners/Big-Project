@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6566975074126783505}
   - component: {fileID: 6709419007872191670}
   - component: {fileID: 8121466219669562772}
+  - component: {fileID: 4725171816191126624}
   m_Layer: 0
   m_Name: Prop_Knife
   m_TagString: Untagged
@@ -230,3 +231,15 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 0
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &4725171816191126624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709419007872191671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

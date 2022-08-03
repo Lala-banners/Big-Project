@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2411871393483353025}
   - component: {fileID: 533404420027905634}
   - component: {fileID: 109421737165108518}
+  - component: {fileID: 3936753140825382057}
   m_Layer: 0
   m_Name: Prop_Chopstick
   m_TagString: Untagged
@@ -230,3 +231,15 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 0
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &3936753140825382057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4288274876581389180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

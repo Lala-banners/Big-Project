@@ -37,8 +37,8 @@ MonoBehaviour:
   ColliderHolder: 0
   CreateFromPreviewKey: 96
   CylinderAsCapsuleOrientation: 0
-  CylinderNumberOfSides: 20
-  CylinderOrientation: 3
+  CylinderNumberOfSides: 10
+  CylinderOrientation: 2
   CylinderRotationOffset: 0
   DisplayTips: 1
   DisplayAllVertices: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   rotatedDupeSettings:
     enabled: 0
     axis: 2
-    NumberOfDuplications: 20
+    NumberOfDuplications: 9
     StartRotation: 0
     EndRotation: 360
     pivot: {fileID: 0}

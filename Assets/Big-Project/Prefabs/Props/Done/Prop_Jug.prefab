@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 5051498600543584326}
   - component: {fileID: 8715319545005834107}
   - component: {fileID: 5891908680115179678}
+  - component: {fileID: -5346687920945496870}
   m_Layer: 0
   m_Name: Prop_Jug
   m_TagString: Untagged
@@ -487,6 +488,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: c621c6f152dc3894b8a9f3fa15def50b, type: 2}
+--- !u!114 &-5346687920945496870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235570885701792569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2120332296954198427
 GameObject:
   m_ObjectHideFlags: 0
