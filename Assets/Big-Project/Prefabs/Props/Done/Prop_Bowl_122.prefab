@@ -12464,6 +12464,7 @@ GameObject:
   - component: {fileID: 4446745868636061537}
   - component: {fileID: 7029067218069778456}
   - component: {fileID: 8885109829181251389}
+  - component: {fileID: -4780169142078324445}
   m_Layer: 0
   m_Name: Prop_Bowl_122
   m_TagString: Untagged
@@ -12843,6 +12844,18 @@ MonoBehaviour:
       isCreate: 1
       viewAdvanced: 0
     modifyNameEnabled: 1
+--- !u!114 &-4780169142078324445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315140717289943277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5374821031271288924
 GameObject:
   m_ObjectHideFlags: 0

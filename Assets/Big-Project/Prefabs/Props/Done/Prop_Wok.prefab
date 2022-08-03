@@ -6663,6 +6663,7 @@ GameObject:
   - component: {fileID: 7830029940672614297}
   - component: {fileID: 2780603270254955824}
   - component: {fileID: 6483597557526259588}
+  - component: {fileID: 3572427254653883813}
   m_Layer: 0
   m_Name: Prop_Wok
   m_TagString: Untagged
@@ -7336,6 +7337,18 @@ MonoBehaviour:
       isCreate: 0
       viewAdvanced: 0
     modifyNameEnabled: 1
+--- !u!114 &3572427254653883813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087049546241037180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1100898200193121164
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1196877761549001927}
   - component: {fileID: 1793350619873152148}
   - component: {fileID: 7955095780885461793}
+  - component: {fileID: -7267594286913662337}
   m_Layer: 0
   m_Name: Prop_Fork
   m_TagString: Untagged
@@ -291,3 +292,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: ad56177820ec4854c8253aedf3a64815, type: 2}
+--- !u!114 &-7267594286913662337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385595407256668165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

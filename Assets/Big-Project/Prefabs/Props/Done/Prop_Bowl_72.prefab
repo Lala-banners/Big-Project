@@ -914,6 +914,7 @@ GameObject:
   - component: {fileID: 3246847249279977687}
   - component: {fileID: 854261626007273585}
   - component: {fileID: 3699599270541072094}
+  - component: {fileID: 6436118478547525401}
   m_Layer: 0
   m_Name: Prop_Bowl_72
   m_TagString: Untagged
@@ -1203,6 +1204,18 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 0
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &6436118478547525401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594461900987522916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2809725349093225088
 GameObject:
   m_ObjectHideFlags: 0
