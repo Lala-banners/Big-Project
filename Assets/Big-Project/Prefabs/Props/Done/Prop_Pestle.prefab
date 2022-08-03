@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8820133398083046546}
   - component: {fileID: 8768996957454403019}
   - component: {fileID: 7225530521716230907}
+  - component: {fileID: -5631601241256947147}
   m_Layer: 0
   m_Name: Prop_Pestle
   m_TagString: Untagged
@@ -315,3 +316,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 7ba4c4dc2d0ad6948b64409ed0c12489, type: 2}
+--- !u!114 &-5631601241256947147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090033459694822122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

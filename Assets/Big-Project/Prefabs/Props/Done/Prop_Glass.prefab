@@ -282,10 +282,9 @@ GameObject:
   - component: {fileID: 226243573946855324}
   - component: {fileID: 2650139807308700502}
   - component: {fileID: 6674011996394867554}
-  - component: {fileID: 8816058931763783128}
-  - component: {fileID: 8644158806835656247}
-  - component: {fileID: 5360017263908053295}
   - component: {fileID: 5424140462307347730}
+  - component: {fileID: 8816058931763783128}
+  - component: {fileID: 5595421694537598315}
   m_Layer: 0
   m_Name: Prop_Glass
   m_TagString: Untagged
@@ -386,6 +385,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &5424140462307347730
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595866714040597123}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 5ada92698a7e11942b54d95f9dbbb695, type: 2}
 --- !u!114 &8816058931763783128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,21 +514,7 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 0
   m_AttachPointCompatibilityMode: 0
---- !u!64 &8644158806835656247
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4595866714040597123}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7819234055460919042, guid: 160d7fe1af8420e4ba64e4f6d7667d54, type: 3}
---- !u!114 &5360017263908053295
+--- !u!114 &5595421694537598315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -524,33 +523,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4595866714040597123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c194f3826ab0b429ddebb6e0fa5adf, type: 3}
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeometryShader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
-  _HoveredMaterial: {fileID: 0}
-  _SelectedMaterial: {fileID: 0}
-  _OverlapMaterial: {fileID: 0}
-  _DisplayAllMaterial: {fileID: 0}
-  _ValidOverlapBuffer: 0
-  _ValidSelectedBuffer: 0
-  _ValidHoverBuffer: 0
-  _ValidDisplayAllBuffer: 0
-  DensityScale: 0
---- !u!64 &5424140462307347730
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4595866714040597123}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 5ada92698a7e11942b54d95f9dbbb695, type: 2}
 --- !u!1 &4990346657518153286
 GameObject:
   m_ObjectHideFlags: 0

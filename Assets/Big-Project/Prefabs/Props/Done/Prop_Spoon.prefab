@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 992215140361602521}
   - component: {fileID: 1401710118379324557}
   - component: {fileID: 7376617584783316225}
+  - component: {fileID: 5889456824606848053}
   m_Layer: 0
   m_Name: Prop_Spoon
   m_TagString: Untagged
@@ -339,3 +340,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 22
   m_Mesh: {fileID: -2929013524585146155, guid: 59a08d108ffb38c4ab472919faec5f83, type: 3}
+--- !u!114 &5889456824606848053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587177904772139717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd9b5c53042bb4c8abe6e6466a841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
