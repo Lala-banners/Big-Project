@@ -12502,7 +12502,7 @@ MonoBehaviour:
   m_NotificationBehavior: 2
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -12534,17 +12534,26 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_JoinAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 3890617f-25b6-475e-9937-426e0f72abf3
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 111d075c-d823-4c19-83d0-d15d37e9adc6
+        m_Path: 
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: 5636182914005399490, guid: 90666b904c42fb34ea980351c3168382,
+      type: 3}
   m_PlayerPrefab: {fileID: 1396584236195558797, guid: 951becc1937b61a4384f453972747bb6,
     type: 3}
   m_SplitScreen: 1
@@ -12825,6 +12834,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!21 &689554176
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom/EasyColliderShader
+  m_Shader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Size: 0.01
+    m_Colors:
+    - _Color: {r: 0, g: 1, b: 0, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &701331093
 GameObject:
   m_ObjectHideFlags: 0
@@ -23120,32 +23155,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949936603}
   m_CullTransparentMesh: 1
---- !u!21 &1005396284
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom/EasyColliderShader
-  m_Shader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _Size: 0.01
-    m_Colors:
-    - _Color: {r: 0, g: 1, b: 0, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1047300887
 GameObject:
   m_ObjectHideFlags: 0
@@ -23377,32 +23386,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
---- !u!21 &1118920153
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom/EasyColliderShader
-  m_Shader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _Size: 0.01
-    m_Colors:
-    - _Color: {r: 0, g: 1, b: 0, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1184348486
 GameObject:
   m_ObjectHideFlags: 0
@@ -23539,6 +23522,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 50, y: 10, z: 5}
   m_Center: {x: 0, y: 0, z: -2.5}
+--- !u!21 &1197125525
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom/EasyColliderShader
+  m_Shader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Size: 0.01
+    m_Colors:
+    - _Color: {r: 0, g: 1, b: 0, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1204518273
 GameObject:
   m_ObjectHideFlags: 0
@@ -23828,6 +23837,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1389851989
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom/EasyColliderShader
+  m_Shader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Size: 0.01
+    m_Colors:
+    - _Color: {r: 0, g: 1, b: 0, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1416201623
 GameObject:
   m_ObjectHideFlags: 0
@@ -24084,58 +24119,6 @@ Transform:
   m_Father: {fileID: 619815689}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1433915298
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom/EasyColliderShader
-  m_Shader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _Size: 0.01
-    m_Colors:
-    - _Color: {r: 0, g: 1, b: 0, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1447585340
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom/EasyColliderShader
-  m_Shader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _Size: 0.01
-    m_Colors:
-    - _Color: {r: 0, g: 1, b: 0, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1473365488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6662945776046834238, guid: 8229eeac0303a9940aaeb70a4aa0b023,
@@ -25155,6 +25138,32 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!21 &1659712561
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom/EasyColliderShader
+  m_Shader: {fileID: 4800000, guid: 47ca8cc19e520064baecb98dc4e2eb9e, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Size: 0.01
+    m_Colors:
+    - _Color: {r: 0, g: 1, b: 0, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1685215425
 GameObject:
   m_ObjectHideFlags: 0
