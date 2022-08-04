@@ -104,7 +104,14 @@ namespace Big_Project.Scripts.Dumplings.MovementAndCamera.Motors
         protected virtual void HandleMovement(Vector2 _axis)
         {
             if (isBeingThrown) return;
-            
+
+            RaycastHit hit;
+            Ray ray = new Ray(transform.position, -transform.up);
+            Debug.DrawRay(transform.position, -transform.up * collider.radius*1.5f, Color.green);
+            if (!Physics.Raycast(ray, collider.radius*1.5f))
+            {
+                return;
+            }
             // Calculate the max speed and the speed modifier by the grounded state
             float maxSpeed = settings.GetMaxSpeed(IsGrounded);
             float modifier = IsGrounded ? SPEED_ON_GROUND_MODIFIER : SPEED_IN_AIR_MODIFIER;
@@ -112,7 +119,10 @@ namespace Big_Project.Scripts.Dumplings.MovementAndCamera.Motors
             // Calculate the correct velocity by the axis of the input
             Vector3 forward = player.forward * _axis.y;
             Vector3 right = player.right * _axis.x;
-            Vector3 desiredVelocity = (forward + right) * (maxSpeed * modifier) - Rigidbody.velocity;
+           
+            Vector3 desiredVelocity = (forward + right) * maxSpeed * modifier;
+            desiredVelocity = new Vector3(desiredVelocity.x - rigidbody.velocity.x, 0, desiredVelocity.z - rigidbody.velocity.z);
+            //Vector3 desiredVelocity = (forward + right) * maxSpeed * modifier;
 
             // Check we can move this way, if we can apply the velocity
             if(CanMoveInDirection(desiredVelocity) || skipMovementRayChecks)
