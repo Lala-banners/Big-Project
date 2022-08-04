@@ -6,14 +6,28 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Big-Project/Scenes/Kitchen.unity
-    guid: 49d18be01c358294882a9bb64afe289a
+    path: Assets/BNG Framework/Scenes/XR Demo.unity
+    guid: a1360534006d3f845bc79b46b93cfec5
+  - enabled: 1
+    path: Assets/BNG Framework/Scenes/Scene Transitioning.unity
+    guid: 9d7c9629abf9c99449e358b0938b47d0
+  - enabled: 1
+    path: Assets/BNG Framework/Scenes/Physics Hands.unity
+    guid: 34a4579517c578e4080d0a6ef2c96294
+  - enabled: 1
+    path: Assets/BNG Framework/Scenes/Rigidbody Player.unity
+    guid: 57fc97c5771a777449aa8bd02514df22
+  - enabled: 1
+    path: Assets/BNG Framework/Scenes/Vehicle Example.unity
+    guid: d96233ee44d985d4fb8dc23a907c06eb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 34ce8ded767457e4597b4ea0667ec7e6,
       type: 2}
-    com.unity.input.settings: {fileID: 11400000, guid: 00b7916213d45854fbd8363b2157dfe2,
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 2ec24d39f7b5ac84aad7e5df7b4fd3ea,
+      type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 7c0d65f8139523c47a3ac0b1587ccdf6,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5d5b9d6d8184ba2448df3d17ebee2feb,
       type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 76bdf7c71cfbd714db5c2b37ee8462dc,
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 2ae0a4a226e8d9e4aba56d1e2eb3977b,
       type: 2}
