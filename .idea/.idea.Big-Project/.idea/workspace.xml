@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/ToonColor 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/ToonColor 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/fully_gloved_SHD.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/fully_gloved_SHD.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/fully_gloved_solid 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/fully_gloved_solid 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/gloved_SHD.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/gloved_SHD.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/skin_dark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/skin_dark.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/skin_light.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/skin_light.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/skin_mid.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/skin_mid.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/Bow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/Bow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/GridTurquiose.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/GridTurquiose.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/GridWhite.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/GridWhite.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/Hands.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/Hands.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/Pistol.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/Pistol.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/RenderMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/RenderMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/Stick.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/Stick.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/StringMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/StringMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/ValidTeleport.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/ValidTeleport.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/WallMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/WallMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Models/Hands/handDark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Models/Hands/handDark.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Models/Hands/phong2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Models/Hands/phong2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Models/Hands/phong3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Models/Hands/phong3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Models/Hands/phong4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Models/Hands/phong4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Models/Oculus/OculusTouchForQuest2/Materials/OculusTouchForQuest2_Left.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Models/Oculus/OculusTouchForQuest2/Materials/OculusTouchForQuest2_Left.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/PhysicsMaterials/Dumpling.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/PhysicsMaterials/Dumpling.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/BaseMotorModularBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Motors/BaseMotorModularBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Settings/Dumpling Movement Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/MovementAndCamera/Settings/Dumpling Movement Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-    </list>
+    <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +20,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/XRController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.13/Rider/Editor/RiderScriptEditorDataPersisted.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.oculus@3.0.2/Runtime/OculusLoader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.6/Runtime/Passes/AdditionalLightsShadowCasterPass.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/ActionBasedController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2ChaKmgBb6rePWAe3OKloyxgK2o" />
@@ -118,6 +89,7 @@
       <workItem from="1659374069439" duration="631000" />
       <workItem from="1659405321892" duration="3518000" />
       <workItem from="1659612843922" duration="4540000" />
+      <workItem from="1660355249603" duration="278000" />
     </task>
     <servers />
   </component>
