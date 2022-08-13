@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="" />
+    <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-1_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-1_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-2_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-2_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-3_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-3_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-4_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-4_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-5_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-5_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-6_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-6_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-7_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-7_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-8_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Scenes/XR Demo/Lightmap-8_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +29,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/XRInteractionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.management@4.2.1/Runtime/XRGeneralSettings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.6/Runtime/UniversalRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/ActivationPoints/DumplingControllerActivatePoints.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.0.2/Runtime/Interaction/Controllers/XRController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.13/Rider/Editor/RiderScriptEditorDataPersisted.cs" root0="SKIP_HIGHLIGHTING" />
@@ -89,7 +103,7 @@
       <workItem from="1659374069439" duration="631000" />
       <workItem from="1659405321892" duration="3518000" />
       <workItem from="1659612843922" duration="4540000" />
-      <workItem from="1660355249603" duration="278000" />
+      <workItem from="1660355249603" duration="1025000" />
     </task>
     <servers />
   </component>
