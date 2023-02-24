@@ -6,18 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="aed136c5-b9f9-4193-97b3-84878d803189" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Big-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Materials/Steel_Clean.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Materials/Steel_Clean.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/CookingPrefabs/CutBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/CookingPrefabs/CutBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Props/Done/Prop_Butcher'sKnife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Props/Done/Prop_Butcher'sKnife.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/ToonColor 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/HandPoser/Materials/ToonColor 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Integrations/Curved UI/CurvedUI.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Integrations/Emerald AI/EmeraldAIIntegration.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Integrations/FinalIK/FinalIK.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Integrations/Oculus Integration/OculusIntegration.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Integrations/PUN/PUN.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Integrations/Pico/Pico.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Integrations/SteamVR/SteamVR.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Integrations/UniversalAI/UniversalAI.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/FeatherMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/FeatherMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/StringMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/StringMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/TransparentMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/TransparentMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Materials/ValidTeleport.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Materials/ValidTeleport.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Models/Oculus/OculusTouchForQuestAndRiftS/Materials/OculusTouchForQuestAndRiftS_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Models/Oculus/OculusTouchForQuestAndRiftS/Materials/OculusTouchForQuestAndRiftS_Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BNG Framework/Prefabs/Player/XR Rig Advanced.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BNG Framework/Prefabs/Player/XR Rig Advanced.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Kitchen1.5x2m.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Prefabs/Kitchen1.5x2m.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Climbing Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Climbing Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Climbing Game.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Climbing Game.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Big-Project/Scenes/Kitchen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/VR Cooking Tasks/Cut.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Big-Project/Scripts/VR Cooking Tasks/Cut.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +40,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.core-utils@2.0.0/Runtime/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Unity/2021.3.1f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Tests/Editor/RectMask2D/RectTransformPosition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.2.0/Runtime/Interaction/XRInteractionManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Unity/2021.3.1f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Tests/Editor/RectMask2D/RectMask2DCulling.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.6.4/Runtime/Playables/ActivationControlPlayable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.oculus@3.0.2/Runtime/OculusLoader.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.6/Runtime/Passes/AdditionalLightsShadowCasterPass.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.6/Runtime/UniversalRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Unity/2021.3.1f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.shadergraph/Editor/Drawing/Controllers/BlackboardCategoryController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.2.0/Runtime/Inputs/InputActionManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.openxr@1.3.1/Samples~/Controller/Scripts/DisplayDeviceInfoFromActionISX.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Unity/2021.3.1f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Tests/Runtime/Layout/HorizonalLayoutGroupTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.management@4.2.1/Runtime/XRGeneralSettings.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/VR Cooking Tasks/Slicer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.6/Runtime/UniversalRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.6.4/Runtime/Activation/ActivationMixerPlayable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Big-Project/Scripts/Dumplings/ActivationPoints/DumplingControllerActivatePoints.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.openxr@1.3.1/Samples~/Controller/Scripts/ActionToVisibilityISX.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.6/Runtime/Passes/AdditionalLightsShadowCasterPass.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.2.0/Runtime/Interaction/Interactors/XRBaseControllerInteractor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@2.2.0/Runtime/AR/Interactables/ARAnnotationInteractable.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2ChaKmgBb6rePWAe3OKloyxgK2o" />
   <component name="ProjectViewState">
@@ -64,10 +88,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4284">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4284" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -106,6 +130,7 @@
       <workItem from="1675304518766" duration="728000" />
       <workItem from="1675312211124" duration="154000" />
       <workItem from="1675312730800" duration="4367000" />
+      <workItem from="1677213439893" duration="6623000" />
     </task>
     <servers />
   </component>
